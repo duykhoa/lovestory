@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
 
   class << self
     def from_omniauth(uid: "", provider: "facebook")
-      new
+      matched_account = Account.find_by(uid: uid)
+
+      return matched_account.user if matched_account
+
+      User.new(email: 'st@gmail.com', password: 'abcdefghik', name: 'dkll')
     end
   end
 end

@@ -138,18 +138,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (4.0.6)
-      tilt
-    haml2slim (0.4.7)
-      haml (>= 3.0)
-      nokogiri
-      ruby_parser
     hitimes (1.2.2)
-    html2haml (2.0.0)
-      erubis (~> 2.7.0)
-      haml (~> 4.0.0)
-      nokogiri (~> 1.6.0)
-      ruby_parser (~> 3.5)
     hub (1.12.4)
     i18n (0.7.0)
     interception (0.5)
@@ -223,8 +212,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails_apps_pages (0.5.16)
-    rails_apps_testing (0.3.12)
     rails_layout (1.0.25)
     railties (4.2.1)
       actionpack (= 4.2.1)
@@ -268,8 +255,6 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
     ruby-progressbar (1.7.5)
-    ruby_parser (3.6.6)
-      sexp_processor (~> 4.1)
     rubyzip (1.1.7)
     sass (3.4.13)
     sass-rails (5.0.3)
@@ -283,7 +268,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    sexp_processor (4.5.1)
     shellany (0.0.1)
     simple_form (3.1.0)
       actionpack (~> 4.0)
@@ -356,8 +340,6 @@ DEPENDENCIES
   guard-bundler
   guard-rails
   guard-rspec
-  haml2slim
-  html2haml
   hub
   jbuilder (~> 2.0)
   jquery-rails
@@ -366,8 +348,6 @@ DEPENDENCIES
   pry-rescue
   quiet_assets
   rails (= 4.2.1)
-  rails_apps_pages
-  rails_apps_testing
   rails_layout
   rb-fchange
   rb-fsevent

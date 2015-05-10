@@ -4,7 +4,11 @@ AllCops:
     - '**/Gemfile'
     - '**/Rakefile'
   Exclude:
+   - 'Gemfile'
    - 'bin/*'
    - 'db/seeds.rb'
    - 'db/schema.rb'
    - 'vendor/bundle/**/*'
+   - 'config/**/*'
+   - 'db/**/*'
+   - 'spec/**/*'

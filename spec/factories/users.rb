@@ -5,5 +5,7 @@ FactoryGirl.define do
       |i| "user#{i}@gmail.com"
     end
     password "1234567890"
+
+    association :accounts
   end
 end

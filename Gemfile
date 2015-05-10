@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'high_voltage'
 
+gem 'figaro'
 gem 'omniauth-facebook'
 
 group :development, :test do
@@ -30,7 +31,6 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.0'
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm', '~> 0.1.1'
-  gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'

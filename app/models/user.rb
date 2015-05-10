@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook]
 
   has_many :accounts
+
+  class << self
+    def from_omniauth(uid: "", provider: "facebook")
+      new
+    end
+  end
 end

@@ -12,7 +12,10 @@ class User < ActiveRecord::Base
 
       return matched_account.user if matched_account
 
-      User.new(email: 'st@gmail.com', password: 'abcdefghik', name: 'dkll')
+      #TODO create account
+      user = User.create(email: 'st@gmail.com', password: 'abcdefghik', name: 'dkll')
+      Account.create(provider: provider, uid: uid, user: user)
+      user
     end
   end
 end

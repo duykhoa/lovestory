@@ -12,6 +12,10 @@ describe User do
       let!(:user) { create(:user) }
       let!(:account) { create(:account, uid: uid, user: user) }
 
+      it "returns the account" do
+        is_expected.to be_a(User)
+      end
+
       it "returns persisted user" do
         is_expected.to eq(user)
         expect(subject.persisted?).to be true
@@ -19,10 +23,16 @@ describe User do
     end
 
     context "account is not exist in db" do
-      it "returns a new user" do
-        is_expected.to be_a(User)
+      before do
+        expect(Account.count).to eq(0)
+      end
 
-        expect(subject.persisted?).to be false
+      it "create a new user" do
+        expect(subject.persisted?).to be true
+      end
+
+      after do
+        expect(Account.count).to eq(1)
       end
     end
   end

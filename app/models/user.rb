@@ -4,18 +4,15 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  attr_accessor :uid, :provider
+
   has_many :accounts
 
-  class << self
-    def from_omniauth(uid: "", provider: "facebook")
-      matched_account = Account.find_by(uid: uid)
+  after_create :create_related_account
 
-      return matched_account.user if matched_account
+  private
 
-      #TODO create account
-      user = User.create(email: 'st@gmail.com', password: 'abcdefghik', name: 'dkll')
-      Account.create(provider: provider, uid: uid, user: user)
-      user
-    end
+  def create_related_account
+    accounts.create(provider: provider, uid: uid)
   end
 end

@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
   attr_accessor :uid, :provider
 
   has_many :accounts
-  has_many :pages
+  has_one :page
 
   after_create :create_related_account
-  after_create :create_page
+  after_create :create_new_page
 
   private
 
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     accounts.create(provider: provider, uid: uid)
   end
 
-  def create_page
-    pages.create
+  def create_new_page
+    self.create_page
   end
 end

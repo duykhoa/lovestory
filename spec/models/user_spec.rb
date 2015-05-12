@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe User do
   it { should have_many(:accounts) }
-  it { should have_many(:pages) }
+  it { should have_one(:page) }
 
   describe "create new page after create new user" do
     before do

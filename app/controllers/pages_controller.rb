@@ -1,11 +1,16 @@
 class PagesController < ApplicationController
-  def facebook
-    account = Account.from_omniauth(omniauth_params)
+  before_action :set_user
 
-    render json: { message: account.inspect }
+  def facebook
+    sign_in @user
+    render json: { message: "Successfully login" }
   end
 
   private
+
+  def set_user
+    @user = Account.from_omniauth(omniauth_params)
+  end
 
   def omniauth_params
     {

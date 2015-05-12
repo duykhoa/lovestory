@@ -19,6 +19,6 @@ class User < ActiveRecord::Base
   end
 
   def create_new_page
-    self.create_page
+    create_page
   end
 end

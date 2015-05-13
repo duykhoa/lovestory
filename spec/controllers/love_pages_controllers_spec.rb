@@ -15,7 +15,7 @@ describe LovePagesController do
 
       it "create new account" do
         get :facebook
-        expect(response.status).to eq 200
+        expect(response).to redirect_to(love_page_path(1))
       end
 
       after { expect(Account.count).to eq 1 }
@@ -28,7 +28,7 @@ describe LovePagesController do
 
       it "return the existed account" do
         get :facebook
-        expect(response.status).to eq 200
+        expect(response).to redirect_to(love_page_path(1))
       end
 
       after { expect(Account.count).to eq 1 }

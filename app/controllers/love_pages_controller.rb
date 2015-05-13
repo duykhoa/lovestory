@@ -5,7 +5,7 @@ class LovePagesController < ApplicationController
 
   def facebook
     sign_in @user
-    render json: { message: "Successfully login" }
+    redirect_to @user.love_page
   end
 
   def show

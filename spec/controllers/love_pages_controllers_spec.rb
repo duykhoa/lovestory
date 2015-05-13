@@ -37,6 +37,7 @@ describe LovePagesController do
 
   describe "GET show" do
     let!(:user) { create(:user) }
+    let!(:posts) { create_list(:post, 5, love_page_id: user.love_page.id) }
 
     before { sign_in user }
 
@@ -48,6 +49,7 @@ describe LovePagesController do
     it "returns posts" do
       get :show, id: user.love_page
       expect(assigns(:posts)).not_to be nil
+      expect(assigns(:posts).count).to eq 5
     end
   end
 end

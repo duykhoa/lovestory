@@ -36,17 +36,13 @@ describe LovePagesController do
   end
 
   describe "GET show" do
-    before do
-      allow(controller).to receive(:omniauth_params).and_return({
-        uid: "123",
-        email: "kevintran@lovestory.com",
-        provider: "facebook"
-      })
+    let!(:user) { create(:user) }
 
-      get :facebook
-    end
+    before { sign_in user }
 
     it "redirects to show page" do
+      get :show, id: user.love_page
+      expect(response.status).to eq 200
     end
   end
 end

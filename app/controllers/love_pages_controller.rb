@@ -1,12 +1,21 @@
 class LovePagesController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:facebook]
+  before_action :authenticate_user!, only: [:show]
+  before_action :set_love_page, only: [:show]
 
   def facebook
     sign_in @user
     render json: { message: "Successfully login" }
   end
 
+  def show
+  end
+
   private
+
+  def set_love_page
+    current_user.love_page
+  end
 
   def set_user
     @user = Account.from_omniauth(omniauth_params)

@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class LovePagesController < ApplicationController
   before_action :set_user
 
   def facebook

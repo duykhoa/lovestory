@@ -44,5 +44,10 @@ describe LovePagesController do
       get :show, id: user.love_page
       expect(response.status).to eq 200
     end
+
+    it "returns posts" do
+      get :show, id: user.love_page
+      expect(assigns(:posts)).to be_present
+    end
   end
 end

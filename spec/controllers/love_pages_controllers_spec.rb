@@ -47,7 +47,7 @@ describe LovePagesController do
 
     it "returns posts" do
       get :show, id: user.love_page
-      expect(assigns(:posts)).to be_present
+      expect(assigns(:posts)).not_to be nil
     end
   end
 end

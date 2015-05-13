@@ -1,7 +1,6 @@
 require "rails_helper"
 
 describe PagesController do
-
   describe "GET facebook" do
     before do
       allow(controller).to receive(:omniauth_params).and_return({
@@ -33,6 +32,21 @@ describe PagesController do
       end
 
       after { expect(Account.count).to eq 1 }
+    end
+  end
+
+  describe "GET show" do
+    before do
+      allow(controller).to receive(:omniauth_params).and_return({
+        uid: "123",
+        email: "kevintran@lovestory.com",
+        provider: "facebook"
+      })
+
+      get :facebook
+    end
+
+    it "redirects to show page" do
     end
   end
 end

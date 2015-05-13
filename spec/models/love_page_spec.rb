@@ -1,4 +1,4 @@
 require "rails_helper"
 
-describe Page do
+describe LovePage do
 end

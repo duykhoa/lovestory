@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Post do
+  it { should belong_to(:love_page) }
+
   describe "order descreasing" do
     let(:post) { create(:post)  }
     let(:post_1_day_ago) { create(:post, created_at: 1.day.ago)  }

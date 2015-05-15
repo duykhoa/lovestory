@@ -1,4 +1,6 @@
 .wrapper
-  h3= post.created_at
-  p= post.title
-  p= post.content
+  .row
+    .col-md-8.col-md-offset-2
+      h2= post.title
+      .artilce= post.content
+    .col-md-4.text-right= post.created_at

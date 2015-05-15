@@ -2,6 +2,7 @@ class LovePagesController < ApplicationController
   before_action :set_user, only: [:facebook]
   before_action :authenticate_user!, only: [:show]
   before_action :set_love_page, only: [:show]
+  before_action :set_recent_posts, only: [:show]
 
   def facebook
     sign_in @user
@@ -14,7 +15,11 @@ class LovePagesController < ApplicationController
   private
 
   def set_love_page
-    current_user.love_page
+    @love_page = current_user.love_page
+  end
+
+  def set_recent_posts
+    @posts = @love_page.posts
   end
 
   def set_user

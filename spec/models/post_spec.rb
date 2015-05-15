@@ -1,5 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Post do
+  describe "order descreasing" do
+    let(:post) { create(:post)  }
+    let(:post_1_day_ago) { create(:post, created_at: 1.day.ago)  }
+    subject { Post.all }
+
+    it "returns the latest post first" do
+      expect(subject.index(post_1_day_ago)).to eq 0
+    end
+  end
 end

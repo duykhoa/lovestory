@@ -39,6 +39,6 @@ class LovePagesController < ApplicationController
   end
 
   def default_email
-    "#{SecureRandom.hex(4)}@email.com"
+    "#{SecureRandom.hex(5)}@email.com"
   end
 end

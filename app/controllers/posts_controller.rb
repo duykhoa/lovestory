@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i(edit update destroy)
+  before_action :set_post, only: %i(show edit update destroy)
 
   def new
     @post = Post.new
@@ -10,6 +10,9 @@ class PostsController < ApplicationController
     love_page.posts.create(post_params)
 
     redirect_to love_page
+  end
+
+  def show
   end
 
   def edit
@@ -22,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.update(post_params)
+    @post.destroy
 
     redirect_to love_page
   end
@@ -30,7 +33,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find_by_id post_id
+    @post = Post.find_by_id post_id[:id]
   end
 
   def post_id

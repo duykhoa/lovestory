@@ -23,7 +23,7 @@ class LovePagesController < ApplicationController
   end
 
   def set_user
-    @user = Account.from_omniauth(omniauth_params)
+    @user = User.from_omniauth(omniauth_params)
   end
 
   def omniauth_params

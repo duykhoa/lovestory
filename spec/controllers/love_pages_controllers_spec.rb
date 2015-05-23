@@ -13,7 +13,7 @@ describe LovePagesController do
     context "new account registered" do
       it "create new account" do
         get :facebook
-        expect(response).to redirect_to(love_page_path(1))
+        expect(response).to redirect_to(love_page_path(User.first.love_page.id))
       end
     end
 

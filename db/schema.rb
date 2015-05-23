@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20150523041511) do
   enable_extension "uuid-ossp"
 
   create_table "invitations", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.integer  "page_id"
+    t.integer  "love_page_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "love_pages", force: :cascade do |t|

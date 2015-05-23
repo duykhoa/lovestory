@@ -4,4 +4,5 @@ class Invitation < ActiveRecord::Base
   default_scope { where { created_at.gt EXPIRED_IN.ago } }
 
   belongs_to :user
+  belongs_to :love_page
 end

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Invitation do
   it { should belong_to (:user) }
+  it { should belong_to (:love_page) }
 
   describe ".find invitation by uuid" do
     subject { Invitation.find_by_id(id) }

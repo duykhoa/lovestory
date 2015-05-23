@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150517124124) do
+ActiveRecord::Schema.define(version: 20150523035348) do
+
+# Could not dump table "invitations" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "love_pages", force: :cascade do |t|
     t.integer  "user_id"
@@ -43,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150517124124) do
     t.string   "name"
     t.string   "uid"
     t.string   "provider"
+    t.string   "fb_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -22,7 +22,7 @@ describe LovePagesController do
 
       it "return the existed account" do
         get :facebook
-        expect(response).to redirect_to(love_page_path(1))
+        expect(response).to redirect_to(love_page_path(user.love_page.id))
       end
     end
   end

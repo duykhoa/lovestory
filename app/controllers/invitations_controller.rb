@@ -16,6 +16,7 @@ class InvitationsController < ApplicationController
     page = @invitation.try :love_page
 
     if page
+      cookies['invitation_id'] = @invitation.id
       redirect_to page
     else
       render status: 404

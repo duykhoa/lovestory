@@ -40,6 +40,8 @@ describe InvitationsController do
         get :show, id: invitation.id
         expect(response).to redirect_to(love_page_path(page))
       end
+
+      after { expect(response.cookies['invitation_id']).to eq(invitation.id) }
     end
 
     context "invalid invitation link" do
@@ -47,6 +49,8 @@ describe InvitationsController do
         get :show, id: 404
         expect(response.status).to eq 404
       end
+
+      after { expect(response.cookies['invitation_id']).to eq(nil) }
     end
   end
 end

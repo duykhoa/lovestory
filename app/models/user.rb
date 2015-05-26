@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_one :love_page
 
-  after_create :create_new_page
+  #after_create :create_new_page
 
   class << self
     def from_omniauth(uid: "", email: "", provider: "facebook")
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   private
 
-  def create_new_page
-    create_love_page
-  end
+  #def create_new_page
+    #create_love_page
+  #end
 end

@@ -17,4 +17,25 @@ describe User do
       expect(LovePage.count).to eq 1
     end
   end
+
+  #TODO
+  describe "#join_love_page" do
+    context "love_page_id is nil" do
+      it "does not add user to the love_page" do
+        pending
+      end
+    end
+
+    context "love_page_id is available" do
+      it "does not add user to the love_page" do
+        pending
+      end
+    end
+
+    context "love_page_id is not available" do
+      it "does not add user to the love_page" do
+        pending
+      end
+    end
+  end
 end

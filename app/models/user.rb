@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def join_love_page(love_page_id)
+  end
+
   private
 
   #def create_new_page

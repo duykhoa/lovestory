@@ -50,7 +50,7 @@ describe InvitationsController do
         expect(response.status).to eq 404
       end
 
-      after { expect(response.cookies['invitation_id']).to eq(nil) }
+      after { expect(response.cookies['invitation_id']).to be nil }
     end
   end
 end

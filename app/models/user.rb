@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
@@ -12,6 +11,9 @@ class User < ActiveRecord::Base
     def from_omniauth(uid: "", email: "", provider: "facebook")
       find_by_uid(uid) || create(uid: uid, provider: provider, email: email, password: SecureRandom.hex(25))
     end
+  end
+
+  def join_love_page(love_page_id)
   end
 
   private

@@ -20,21 +20,20 @@ describe User do
 
   #TODO
   describe "#join_love_page" do
+    pending
+
     context "love_page_id is nil" do
       it "does not add user to the love_page" do
-        pending
       end
     end
 
     context "love_page_id is available" do
       it "does not add user to the love_page" do
-        pending
       end
     end
 
     context "love_page_id is not available" do
       it "does not add user to the love_page" do
-        pending
       end
     end
   end

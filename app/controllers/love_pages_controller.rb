@@ -16,7 +16,7 @@ class LovePagesController < ApplicationController
   private
 
   def love_page_id
-    cookies.fetch "love_page_id"
+    cookies.key?("love_page_id") ? cookies.fetch("love_page_id") : nil
   end
 
   def set_love_page

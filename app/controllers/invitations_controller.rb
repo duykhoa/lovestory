@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
       user_id: current_user.id
     )
 
-    render json: { invitation_link: invitation_path(invitation) }
+    render json: { invitation_link: invitation_url(invitation) }
   end
 
   def show

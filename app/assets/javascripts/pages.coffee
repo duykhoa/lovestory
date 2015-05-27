@@ -1,3 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+ready = ->
+  console.log 'haha'
+
+  $("#invite-link").bind "ajax:success", (event, data, status) ->
+    $("#invitation_link__output").val(data.invitation_link)
+
+$(document).ready(ready)

@@ -1,6 +1,8 @@
 Lovestory
 ================
 
+[![Join the chat at https://gitter.im/duykhoa/lovestory](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/duykhoa/lovestory?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
 provided by the [RailsApps Project](http://railsapps.github.io/).
 

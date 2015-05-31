@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe User do
-  it { should have_one(:love_page) }
+  it { should have_many(:love_pages).through(:user_love_pages) }
 
   describe "create new page after create new user" do
     before do

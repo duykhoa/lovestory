@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
-  has_one :love_page
+  has_many :user_love_pages
+  has_many :love_pages, through: :user_love_pages
 
   after_create :create_new_page
 
@@ -19,6 +20,6 @@ class User < ActiveRecord::Base
   private
 
   def create_new_page
-    create_love_page
+    love_pages.create
   end
 end

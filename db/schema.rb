@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150531021848) do
 
   create_table "user_love_pages", force: :cascade do |t|
     t.integer "user_id"
-    t.uuid    "love_page_id"
+    t.integer "love_page_id"
   end
 
   create_table "users", force: :cascade do |t|

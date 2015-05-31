@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   end
 
   def join_love_page(love_page_id)
+    if love_page_id
+      user_love_pages.create(love_page_id: love_page_id, user_id: id)
+    end
   end
 
   private

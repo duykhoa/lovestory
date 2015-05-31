@@ -20,6 +20,6 @@ class User < ActiveRecord::Base
   private
 
   def create_new_page
-    create_love_page
+    love_pages.create
   end
 end

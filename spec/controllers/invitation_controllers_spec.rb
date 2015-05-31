@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe InvitationsController do
   let!(:user) { create(:user) }
-  let(:love_page) { { love_page_id: user.love_page.id } }
+  let(:love_page) { { love_page_id: user.love_pages.first.id } }
 
   describe "POST create" do
     context "login user" do

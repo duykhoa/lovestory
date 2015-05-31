@@ -7,7 +7,7 @@ class LovePagesController < ApplicationController
   def facebook
     sign_in @user
     @user.join_love_page(love_page_id)
-    redirect_to @user.love_page
+    redirect_to @user.love_pages.first
   end
 
   def show
@@ -20,7 +20,7 @@ class LovePagesController < ApplicationController
   end
 
   def set_love_page
-    @love_page = current_user.love_page
+    @love_page = current_user.love_pages.first
   end
 
   def set_recent_posts

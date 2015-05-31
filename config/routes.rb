@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :invitations, only: [:show]
 
   resources :posts, only: %i(new create show edit update destroy)
+
+  get "/", to: "high_voltage/pages#show", id: "index", as: :create_account
 end

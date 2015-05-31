@@ -33,12 +33,10 @@ describe InvitationsController do
     let(:user) { invitation.user }
     let(:page) { invitation.love_page }
 
-    before { sign_in user }
-
     context "valid invitation link" do
       it "redirect_to love_page_path" do
         get :show, id: invitation.id
-        expect(response).to redirect_to(love_page_path(page))
+        expect(response).to redirect_to(create_account_path)
       end
 
       after { expect(response.cookies['invitation_id']).to eq(invitation.id) }

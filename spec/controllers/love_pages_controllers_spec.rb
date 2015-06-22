@@ -64,6 +64,7 @@ describe LovePagesController do
 
   describe "GET show" do
     let!(:user) { create(:user) }
+    let!(:love_page) { create(:love_page, user: user) }
     let!(:posts) { create_list(:post, 5, love_page_id: user.love_pages.first.id) }
 
     before { sign_in user }

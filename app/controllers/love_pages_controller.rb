@@ -6,6 +6,7 @@ class LovePagesController < ApplicationController
 
   def facebook
     sign_in @user
+
     @user.join_love_page(love_page_id)
     redirect_to @user.love_pages.first
   end
@@ -16,7 +17,9 @@ class LovePagesController < ApplicationController
   private
 
   def love_page_id
-    cookies.key?("love_page_id") ? cookies.fetch("love_page_id") : nil
+    invitation_id = cookies["invitation_id"]
+
+    invitation_id ?  Invitation.find_by_id(invitation_id).try(:love_page_id) : nil
   end
 
   def set_love_page

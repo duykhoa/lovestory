@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   private
 
   def create_new_page
+    #TODO: not automatically create love_page
     love_pages.create
   end
 end

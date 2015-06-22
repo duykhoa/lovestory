@@ -41,11 +41,23 @@ describe LovePagesController do
     context "register account login" do
       let!(:user) { create(:user, uid: "123") }
 
-      it "returns the existed account" do
-        get :facebook
-        expect(response).to redirect_to(
-          love_page_path(user.love_pages.first)
-        )
+      context "user has 1 love_page" do
+        it "log in and redirects to this page" do
+          get :facebook
+          expect(response).to redirect_to(
+            love_page_path(user.love_pages.first)
+          )
+        end
+      end
+
+      context "user has more than 1 love_page" do
+        let!(:another_love_page) { create(:love_page, user: user) }
+
+        it "log in and redirect to index action" do
+          get :facebook
+
+          expect(response).to redirect_to(love_pages_path)
+        end
       end
     end
   end

@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   private
 
   def create_new_page
+    #FIXME: not automatically create love_page
     love_pages.create
   end
 end

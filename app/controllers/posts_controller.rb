@@ -41,7 +41,8 @@ class PostsController < ApplicationController
   end
 
   def love_page
-    current_user.love_page
+    #FIXME: wrong way
+    current_user.love_pages.first
   end
 
   def post_params

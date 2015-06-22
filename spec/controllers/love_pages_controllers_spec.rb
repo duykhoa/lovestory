@@ -1,6 +1,21 @@
 require "rails_helper"
 
 describe LovePagesController do
+  describe "GET index" do
+    let!(:user) { create(:user) }
+
+    before do
+      sign_in user
+      get :index
+    end
+
+    it "renders index template" do
+      expect(response.status).to eq 200
+      expect(response).to render_template("index")
+      expect(assigns(:love_pages)).to eq user.love_pages
+    end
+  end
+
   describe "GET facebook" do
     before do
       allow(controller).to receive(:omniauth_params).and_return({
@@ -11,18 +26,38 @@ describe LovePagesController do
     end
 
     context "new account registered" do
-      it "create new account" do
+      before { expect(User.count).to eq 0 }
+
+      it "creates new account" do
         get :facebook
-        expect(response).to redirect_to(love_page_path(User.first.love_pages.first.id))
+        user = User.first
+
+        expect(response).to redirect_to(
+          love_page_path(user.love_pages.first)
+        )
       end
     end
 
     context "register account login" do
       let!(:user) { create(:user, uid: "123") }
 
-      it "return the existed account" do
-        get :facebook
-        expect(response).to redirect_to(love_page_path(user.love_pages.first.id))
+      context "user has 1 love_page" do
+        it "log in and redirects to this page" do
+          get :facebook
+          expect(response).to redirect_to(
+            love_page_path(user.love_pages.first)
+          )
+        end
+      end
+
+      context "user has more than 1 love_page" do
+        let!(:another_love_page) { create(:love_page, user: user) }
+
+        it "log in and redirect to index action" do
+          get :facebook
+
+          expect(response).to redirect_to(love_pages_path)
+        end
       end
     end
   end

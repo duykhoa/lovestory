@@ -11,18 +11,26 @@ describe LovePagesController do
     end
 
     context "new account registered" do
-      it "create new account" do
+      before { expect(User.count).to eq 0 }
+
+      it "creates new account" do
         get :facebook
-        expect(response).to redirect_to(love_page_path(User.first.love_pages.first.id))
+        user = User.first
+
+        expect(response).to redirect_to(
+          love_page_path(user.love_pages.first)
+        )
       end
     end
 
     context "register account login" do
       let!(:user) { create(:user, uid: "123") }
 
-      it "return the existed account" do
+      it "returns the existed account" do
         get :facebook
-        expect(response).to redirect_to(love_page_path(user.love_pages.first.id))
+        expect(response).to redirect_to(
+          love_page_path(user.love_pages.first)
+        )
       end
     end
   end

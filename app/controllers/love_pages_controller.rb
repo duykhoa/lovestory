@@ -1,14 +1,23 @@
 class LovePagesController < ApplicationController
   before_action :set_user, only: [:facebook]
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, except: [:facebook]
   before_action :set_love_page, only: [:show]
   before_action :set_recent_posts, only: [:show]
+
+  def index
+    @love_pages = current_user.love_pages
+  end
 
   def facebook
     sign_in @user
 
     @user.join_love_page(love_page_id)
-    redirect_to @user.love_pages.first
+
+    if @user.love_pages.count.eql? 1
+      redirect_to @user.love_pages.first
+    else
+      redirect_to action: :index
+    end
   end
 
   def show

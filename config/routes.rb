@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "love_pages" }
 
-  resources :love_pages, only: [:show] do
+  resources :love_pages, only: [:show, :index] do
     resources :invitations, only: [:create]
   end
 

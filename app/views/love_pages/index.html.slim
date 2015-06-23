@@ -1,1 +1,5 @@
-ABCDE
+table
+  - @love_pages.each do |love_page|
+    tr
+      td
+        = link_to love_page.id, love_page

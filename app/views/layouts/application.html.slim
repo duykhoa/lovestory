@@ -6,6 +6,7 @@ html
       = content_for?(:title) ? yield(:title) : 'Lovestory'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Lovestory'}"
     == stylesheet_link_tag "application", :media => 'all'
+    link href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel = "stylesheet"
     == javascript_include_tag 'application'
     == csrf_meta_tags
   body

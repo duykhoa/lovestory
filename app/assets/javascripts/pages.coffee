@@ -1,7 +1,8 @@
 ready = ->
   $("#owl-carousel").owlCarousel({
-    slideSpeed : 300,
-    paginationSpeed : 400,
+    slideSpeed : 1000,
+    paginationSpeed : 700,
+    transitionStyle : "fade",
     singleItem:true,
     autoPlay: 5000,
     pagination: true

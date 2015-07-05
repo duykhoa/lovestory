@@ -13,3 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require skrollr.min
+//= require owl.carousel
+//= require pages

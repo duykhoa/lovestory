@@ -10,4 +10,7 @@ ready = ->
   $("#invite-link").bind "ajax:success", (event, data, status) ->
     $("#invitation_link__output").val(data.invitation_link)
 
+  s = skrollr.init(
+    forceHeight: false
+  )
 $(document).ready(ready)

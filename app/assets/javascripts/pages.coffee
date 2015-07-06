@@ -14,4 +14,6 @@ ready = ->
   s = skrollr.init(
     forceHeight: false
   )
+
+  $('[data-remodal-id=modal]').remodal()
 $(document).ready(ready)

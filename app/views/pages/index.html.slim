@@ -16,6 +16,7 @@ header
 
             h1.extra-big lovestory.space
             h2 Keep your love memo
+            p= link_to 'Create your love space', '#modal', class: 'btn btn-primary'
 
       .slide#slide2
         .slide-wrapper [
@@ -83,3 +84,7 @@ header
           | Lovestory.space
         .col-md-4.pull-right
           | Copyright &copy; 2015 Love Story
+
+.remodal [ data-remodal-id = 'modal' ]
+  button.remodal-close [ data-remodal-action = 'close' ]
+  = link_to 'Login by Facebook', user_omniauth_authorize_path(:facebook)

@@ -15,3 +15,4 @@
 //= require skrollr.min
 //= require owl.carousel
 //= require pages
+//= require remodal

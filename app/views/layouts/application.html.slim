@@ -6,11 +6,13 @@ html
       = content_for?(:title) ? yield(:title) : 'Lovestory'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Lovestory'}"
     == stylesheet_link_tag "application", :media => 'all'
+    link href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel = "stylesheet"
     == javascript_include_tag 'application'
     == csrf_meta_tags
+    link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
   body
-    header
-      == render 'layouts/navigation'
+    /header
+      /== render 'layouts/navigation'
     main[role="main"]
       == render 'layouts/messages'
       == yield

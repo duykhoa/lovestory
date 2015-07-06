@@ -1,5 +1,99 @@
-.container
-  .row
-    .col-md-8.col-md-offset-2
-      h1 Login
-      = link_to "Sign in", user_omniauth_authorize_path(:facebook)
+/= link_to "Sign in", user_omniauth_authorize_path(:facebook)
+header
+.page-container
+  section#header
+    #owl-carousel
+      .slide#slide1
+        .slide-wrapper [
+            data-bottom-top = "transform: translate(0%, 30%)"
+            data-top-bottom = "transform: translate(0%, -30%)"
+          ]
+
+          .center-content.white-text [
+            data-bottom-top = "transform: translate(-50%, -200%)"
+            data-top-bottom = "transform: translate(-50%, 100%)"
+          ]
+
+            h1.extra-big lovestory.space
+            h2 Keep your love memo
+            .cta= link_to 'Keep it now', '#modal', class: 'btn'
+
+      .slide#slide2
+        .slide-wrapper [
+            data-bottom-top = "transform: translate(0%, 30%)"
+            data-top-bottom = "transform: translate(0%, -30%)"
+          ]
+
+          .center-content.white-text [
+            data-bottom-top = "transform: translate(-50%, -200%)"
+            data-top-bottom = "transform: translate(-50%, 100%)"
+          ]
+
+            h1.extra-big lovestory.space
+            h2 Keep your love memo
+            .cta= link_to 'Create your', '#modal', class: 'btn'
+
+      .slide#slide3
+        .slide-wrapper [
+            data-bottom-top = "transform: translate(0%, 30%)"
+            data-top-bottom = "transform: translate(0%, -30%)"
+          ]
+
+          .center-content.white-text [
+            data-bottom-top = "transform: translate(-50%, -200%)"
+            data-top-bottom = "transform: translate(-50%, 100%)"
+          ]
+
+            h1.extra-big lovestory.space
+            h2 Keep your love memo
+            .cta= link_to 'Start keeping', '#modal', class: 'btn'
+
+  section#intro
+    .center-content
+      h1 Welcome to lovestory.space
+      h1 Designed for couples
+
+  section#features
+    .center-content
+      .container
+        .row
+          .col-md-4
+            h1 Integrated with Facebook
+            h3 Easy to create a new account and login
+          .col-md-4
+            h1 Both you and your honey can access this page
+            h3 Just use your fb account and login to view your page
+          .col-md-4
+            h1 Timeline support
+            h3 Just use your fb account and login to view your page
+  section#updates
+    .center-content
+      .container
+        .row
+          .col-md-4
+            h1 USER FRIENDLY
+            h3 We design for couples
+          .col-md-4
+            h1 KEEP UPDATING
+            h3 We update features often
+          .col-md-4
+            h1 GOOD SUPPORT
+            h3 Ping me whenevery you have trouble
+  footer
+    .container
+      .row
+        .col-md-2
+          | Lovestory.space
+        .col-md-4.pull-right
+          | Copyright &copy; 2015 Love Story
+
+.remodal [ data-remodal-id = 'modal' ]
+  button.remodal-close [ data-remodal-action = 'close' ]
+  .content
+    h1 Create your love page
+    h2 At lovestory.space
+    .login
+      = link_to user_omniauth_authorize_path(:facebook), class: 'facebook-login' do
+        i.fa.fa-facebook
+        span Facebook
+    h5 100% guarantees your privacy

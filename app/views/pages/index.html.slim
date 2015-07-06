@@ -89,4 +89,11 @@ header
 
 .remodal [ data-remodal-id = 'modal' ]
   button.remodal-close [ data-remodal-action = 'close' ]
-  = link_to 'Login by Facebook', user_omniauth_authorize_path(:facebook)
+  .content
+    h1 Create your love page
+    h2 At lovestory.space
+    .login
+      = link_to user_omniauth_authorize_path(:facebook), class: 'facebook-login' do
+        i.fa.fa-facebook
+        span Facebook
+    h5 100% guarantees your privacy

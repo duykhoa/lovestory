@@ -1,14 +1,25 @@
 /= link_to "Sign in", user_omniauth_authorize_path(:facebook)
-header
+header#nav
+  nav
+    .container
+      .row
+        .col-md-2
+          .logo
+            | lovestory.space
+        .col-md-4.pull-right
+          ul
+            li
+              = link_to 'Home', '#'
+            li
+              = link_to 'Page', '#'
+            li
+              = link_to 'Login', '#'
+
 .page-container
   section#header
     #owl-carousel
       .slide#slide1
-        .slide-wrapper [
-            data-bottom-top = "transform: translate(0%, 30%)"
-            data-top-bottom = "transform: translate(0%, -30%)"
-          ]
-
+        .slide-wrapper
           .center-content.white-text [
             data-bottom-top = "transform: translate(-50%, -200%)"
             data-top-bottom = "transform: translate(-50%, 100%)"
@@ -19,11 +30,7 @@ header
             .cta= link_to 'Keep it now', '#modal', class: 'btn'
 
       .slide#slide2
-        .slide-wrapper [
-            data-bottom-top = "transform: translate(0%, 30%)"
-            data-top-bottom = "transform: translate(0%, -30%)"
-          ]
-
+        .slide-wrapper
           .center-content.white-text [
             data-bottom-top = "transform: translate(-50%, -200%)"
             data-top-bottom = "transform: translate(-50%, 100%)"
@@ -34,11 +41,7 @@ header
             .cta= link_to 'Create your', '#modal', class: 'btn'
 
       .slide#slide3
-        .slide-wrapper [
-            data-bottom-top = "transform: translate(0%, 30%)"
-            data-top-bottom = "transform: translate(0%, -30%)"
-          ]
-
+        .slide-wrapper
           .center-content.white-text [
             data-bottom-top = "transform: translate(-50%, -200%)"
             data-top-bottom = "transform: translate(-50%, 100%)"

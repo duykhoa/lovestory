@@ -16,4 +16,5 @@ ready = ->
   )
 
   $('[data-remodal-id=modal]').remodal()
+  $('#nav').sticky()
 $(document).ready(ready)

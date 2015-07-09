@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     if love_page_id
       user_love_pages.create(love_page_id: love_page_id, user_id: id)
     else
-      love_pages.create
+      love_pages.create if love_pages.count.eql?(0)
     end
   end
 end

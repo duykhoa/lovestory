@@ -17,7 +17,7 @@ class InvitationsController < ApplicationController
 
     if page
       cookies['invitation_id'] = @invitation.id
-      redirect_to create_account_path
+      redirect_to root_path
     else
       render status: 404
     end

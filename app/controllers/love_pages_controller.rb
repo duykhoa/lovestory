@@ -28,7 +28,7 @@ class LovePagesController < ApplicationController
   def love_page_id
     invitation_id = cookies["invitation_id"]
 
-    invitation_id ?  Invitation.find_by_id(invitation_id).try(:love_page_id) : nil
+    invitation_id ? Invitation.find_by_id(invitation_id).try(:love_page_id) : nil
   end
 
   def set_love_page

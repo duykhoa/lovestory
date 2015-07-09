@@ -51,13 +51,7 @@ describe LovePagesController do
       end
 
       context "user has more than 1 love_page" do
-        let!(:another_love_page) { create(:love_page, user: user) }
-
-        it "log in and redirect to index action" do
-          get :facebook
-
-          expect(response).to redirect_to(love_pages_path)
-        end
+        pending
       end
     end
   end

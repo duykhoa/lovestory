@@ -1,14 +1,14 @@
 br
 .container
   .row
-    .col-md-2
-      = link_to "Create a new post", new_post_path, class: "btn btn-primary"
-    .col-md-2.col-md-offset-6
+    .col.s2
+      = link_to "Create a new post", new_post_path, class: "btn btn-primary waves-effect"
+    .col.s3.offset-s6
       .field-group
         = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn btn-primary", id: "invite-link"
       .field-group
         = text_field_tag :invitation_link__output, nil, class: "btn"
 
   .row
-    .col.md-8
+    .col.m8
       = render partial: "posts/post", collection: @posts

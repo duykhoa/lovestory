@@ -4,6 +4,9 @@
       h4= link_to post.title, post
     .col.m8.offset-m2.s12
       h6= post.created_at.to_s(:short)
+      .row
+        .col.m12
+          = image_tag "https://graph.facebook.com/#{post.user.uid}/picture", class: "circle responsive-img"
       .artilce= simple_format(post.content)
     .actions.col.m3.offset-m9.s12
       .col

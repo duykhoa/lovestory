@@ -1,14 +1,14 @@
 .wrapper
   .row
-    .col.m8.s10.offset-s1
+    .col.m8.offset-m2.s10
       h4= link_to post.title, post
-    .col.m12.s12
+    .col.m8.offset-m2.s12
       h6= post.created_at.to_s(:short)
       .artilce= simple_format(post.content)
-    .actions.col.m2.offset-m10.s10.offset-s1
-      .col.s6.right-align
+    .actions.col.m3.offset-m9.s12
+      .col
         = link_to edit_post_path(post), class: "btn-floating btn-large teal lighten-1 waves-effect waves-light" do
           i class = "material-icons" edit
-      .col.s6.right-align
+      .col
         = link_to post_path(post), method: :delete, class: "btn-floating btn-large orange lighten-3 waves-effect waves-light" do
           i class = "material-icons" clear

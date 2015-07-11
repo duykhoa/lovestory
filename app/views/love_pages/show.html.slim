@@ -1,16 +1,3 @@
-.navbar-fixed
-  nav.love_pages
-    .nav-wrapper
-      = link_to "lovestory.space", "#", class: "brand-logo"
-      ul
-        #nav-mobile.right.hide-on-med-and-down
-          li
-            = link_to "My account", "#"
-          li
-            = link_to "My page", "#"
-          li
-            = link_to "Logout", "#"
-
 br
 .container
   .row
@@ -22,5 +9,5 @@ br
       .input-field
         = text_field_tag :invitation_link__output, nil, class: ""
   .row
-    .col.m8
+    .col.m12
       = render partial: "posts/post", collection: @posts

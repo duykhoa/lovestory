@@ -8,6 +8,7 @@ br
         = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn btn-primary", id: "invite-link"
       .input-field
         = text_field_tag :invitation_link__output, nil, class: ""
+      = label_tag "Copy me and send to your partner"
   .row
     .col.m12
       = render partial: "posts/post", collection: @posts

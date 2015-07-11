@@ -10,9 +10,21 @@ html
     == csrf_meta_tags
     link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
   body
-    /header
-      /== render 'layouts/navigation'
+    .navbar-fixed
+      nav.love_pages
+        .nav-wrapper
+          = link_to "lovestory.space", "#", class: "brand-logo"
+          ul
+            #nav-mobile.right.hide-on-med-and-down
+              li
+                = link_to "My account", "#"
+              li
+                = link_to "My page", "#"
+              li
+                = link_to "Logout", "#"
+
     main[role="main"]
       == render 'layouts/messages'
       == yield

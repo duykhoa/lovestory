@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    love_page.posts.create(post_params)
+    love_page.posts.create(post_params.merge(user: current_user))
 
     redirect_to love_page
   end

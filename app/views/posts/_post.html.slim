@@ -7,8 +7,8 @@
       .artilce= simple_format(post.content)
     .actions.col.m2.offset-m10.s10.offset-s1
       .col.s6.right-align
-        = link_to edit_post_path(post), class: "btn-floating btn-large green lighten-1 waves-effect waves-light" do
+        = link_to edit_post_path(post), class: "btn-floating btn-large teal lighten-1 waves-effect waves-light" do
           i class = "material-icons" edit
       .col.s6.right-align
-        = link_to post_path(post), method: :delete, class: "btn-floating btn-large amber lighten-1 waves-effect waves-light" do
+        = link_to post_path(post), method: :delete, class: "btn-floating btn-large orange lighten-3 waves-effect waves-light" do
           i class = "material-icons" clear

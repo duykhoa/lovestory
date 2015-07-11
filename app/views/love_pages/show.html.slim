@@ -1,14 +1,13 @@
 br
 .container
   .row
-    .col.s3
+    .col.m3.s12
       = link_to "New post", new_post_path, class: "btn btn-primary waves-effect"
-    .col.s3.offset-s6
-      .input-field
-        = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn btn-primary", id: "invite-link"
+    .col.m3.offset-m6.s12
+      = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn btn-primary", id: "invite-link"
       .input-field
         = text_field_tag :invitation_link__output, nil, class: ""
-      = label_tag "Copy me and send to your partner"
+      .hide-on-med-and-down= label_tag "Copy me and send to your partner"
   .row
     .col.m12
       = render partial: "posts/post", collection: @posts

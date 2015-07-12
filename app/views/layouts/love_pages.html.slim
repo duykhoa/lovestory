@@ -23,7 +23,7 @@ html
               li
                 = link_to "My page", "#"
               li
-                = link_to "Logout", "#"
+                = link_to "Logout", destroy_user_session_path, method: :delete
 
     main[role="main"]
       == render 'layouts/messages'

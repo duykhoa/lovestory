@@ -1,10 +1,10 @@
 .row
-  .col-md-6.col-md-offset-3
+  .col.m8.s10.offset-m2
     h2.title= @post.title
     article= @post.content
 
 .row
-  .col-md-3.col-md-offset-9
+  .col.m8.s10.offset-m2
     span.action
       = link_to "Edit", edit_post_path(@post)
     span.action

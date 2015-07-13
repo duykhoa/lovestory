@@ -1,6 +1,17 @@
 .wrapper
   .row
-    .col-md-8.col-md-offset-2
-      h2= link_to post.title, post
+    .col.m8.offset-m2.s10
+      h4= link_to post.title, post
+    .col.m8.offset-m2.s12
+      h6= post.created_at.to_s(:short)
+      .row
+        .col.m12
+          = image_tag "https://graph.facebook.com/#{post.user.uid}/picture", class: "circle responsive-img"
       .artilce= simple_format(post.content)
-    .col-md-4.text-right= post.created_at
+    .actions.col.m3.offset-m9.s12
+      .col
+        = link_to edit_post_path(post), class: "btn-floating btn-large teal lighten-1 waves-effect waves-light" do
+          i class = "material-icons" edit
+      .col
+        = link_to post_path(post), method: :delete, class: "btn-floating btn-large orange lighten-3 waves-effect waves-light" do
+          i class = "material-icons" clear

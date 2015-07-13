@@ -11,9 +11,7 @@ html
     == csrf_meta_tags
     link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
   body
-    /header
-      /== render 'layouts/navigation'
     main[role="main"]
-      == render 'layouts/messages'
+      /== render 'layouts/messages'
       == yield
   script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"

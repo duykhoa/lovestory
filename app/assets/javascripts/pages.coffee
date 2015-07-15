@@ -12,7 +12,7 @@ ready = ->
     $("#invitation_link__output").val(data.invitation_link)
 
   s = skrollr.init(
-    forceHeight: false
+    forceHeight: true
   )
 
   $('[data-remodal-id=modal]').remodal()

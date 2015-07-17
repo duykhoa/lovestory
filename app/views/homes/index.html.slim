@@ -1,80 +1,88 @@
-header#nav
-  nav
-    .container
-      .row
-        .col-md-2
-          .logo
-            | lovestory.space
-        .col-md-4.pull-right
-          ul
-            li
-              = link_to 'Home', '#'
-            li
-              = link_to 'Page', '#'
-            li
-              = link_to 'Login', '#login-modal'
+/header#nav
+  /nav
+    /.container
+      /.row
+        /.col-md-2
+          /.logo
+            /| lovestory.space
+        /.col-md-4.pull-right
+          /ul
+            /li
+              /= link_to 'Home', '#'
+            /li
+              /= link_to 'Page', '#'
+            /li
+              /= link_to 'Login', '#login-modal'
 
 .page-container#skrollr-body
   section#header
-    #owl-carousel
+    .owl-carousel
       .slide#slide1
-        .slide-wrapper
-          .center-content.white-text
-            h1.extra-big lovestory.space
-            h2 Keep your love memo
+        .valign-wrapper.slide-wrapper
+          .valign.white-text
+            h3 lovestory.space
+            h5 Keep your love memo
             .cta= link_to 'Keep it now', '#signup-modal', class: 'btn'
 
       .slide#slide2
-        .slide-wrapper
-          .center-content.white-text
-            h1.extra-big lovestory.space
-            h2 Keep your love memo
+        .valign-wrapper.slide-wrapper
+          .valign.white-text
+            h3 lovestory.space
+            h5 Keep your love memo
             .cta= link_to 'Create your', '#signup-modal', class: 'btn'
 
       .slide#slide3
-        .slide-wrapper
-          .center-content.white-text
-            h1.extra-big lovestory.space
-            h2 Keep your love memo
+        .valign-wrapper.slide-wrapper
+          .valign.white-text
+            h3 lovestory.space
+            h5 Keep your love memo
             .cta= link_to 'Start keeping', '#signup-modal', class: 'btn'
 
   section#intro
-    .center-content
-      h1 Welcome to lovestory.space
-      h1 Designed for couples
+    .valign-wrapper
+      .valign
+        h3 Welcome to lovestory.space
+        h4 Designed for couples
 
   section#features
-    .center-content
-      .container
-        .row
-          .col-md-4
-            h1 Integrated with Facebook
-            h3 Easy to create a new account and login
-          .col-md-4
-            h1 Both you and your honey can access this page
-            h3 Just use your fb account and login to view your page
-          .col-md-4
-            h1 Timeline support
-            h3 Just use your fb account and login to view your page
+    .container
+      .valign-wrapper
+        .row.valign
+          .col.m4.s12
+            .content-container
+              h5 Integrated with Facebook
+              p Easy to create a new account and login
+          .col.m4.s12
+            .content-container
+              h5 Both you and your honey can access this page
+              p Just use your fb account and login to view your page
+          .col.m4.s12
+            .content-container
+              h5 Timeline support
+              p Just use your fb account and login to view your page
+
   section#updates
-    .center-content
-      .container
-        .row
-          .col-md-4
-            h1 USER FRIENDLY
-            h3 We design for couples
-          .col-md-4
-            h1 KEEP UPDATING
-            h3 We update features often
-          .col-md-4
-            h1 GOOD SUPPORT
-            h3 Ping me whenevery you have trouble
+    .container
+      .valign-wrapper
+        .row.valign
+          .col.m4.s12
+            .content-container
+              h5 USER FRIENDLY
+              p We design for couples
+          .col.m4.s12
+            .content-container
+              h5 KEEP UPDATING
+              p We update features often
+          .col.m4.s12
+            .content-container
+              h5 GOOD SUPPORT
+              p Ping me whenevery you have trouble
   footer
     .container
       .row
-        .col-md-2
+        .col.m2.s6
           | Lovestory.space
-        .col-md-4.pull-right
+        .col.m4.offset-m6.s6
           | Copyright &copy; 2015 Love Story
 
 .remodal [ data-remodal-id = 'signup-modal' ]

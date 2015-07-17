@@ -18,5 +18,6 @@ ready = ->
   #)
 
   $('[data-remodal-id=modal]').remodal()
-  $('#nav').sticky()
+  #$('#nav').sticky()
+  $(".button-collapse").sideNav()
 $(document).ready(ready)

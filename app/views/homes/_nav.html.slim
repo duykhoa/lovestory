@@ -1,0 +1,26 @@
+header.navbar-fixed
+  nav [
+    data-0="background: rgba(0, 150, 136, 0); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0)"
+    data-64="background: rgba(0, 150, 136, 1); box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)"
+    ]
+    .nav-wrapper
+      = link_to "lovestory.space", root_path, class: "brand-logo white-text"
+      = link_to "#", "data-activates" => "mobile-menu", class: "white-text button-collapse" do
+        i class="material-icons" menu
+      ul.right.hide-on-med-and-down
+        li
+          = link_to 'Home', root_path, class: 'white-text'
+        li
+          = link_to 'Page', '#', class: 'white-text'
+        li
+          = link_to 'Login', '#login-modal', class: 'white-text'
+
+      ul.side-nav#mobile-menu
+        li.logo
+          = link_to "lovestory.space", root_path, class: "brand-logo"
+        li
+          = link_to 'Home', root_path
+        li
+          = link_to 'Page', '#'
+        li
+          = link_to 'Login', '#login-modal'

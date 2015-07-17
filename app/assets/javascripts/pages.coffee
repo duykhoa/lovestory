@@ -13,11 +13,10 @@ ready = ->
   $("#invite-link").bind "ajax:success", (event, data, status) ->
     $("#invitation_link__output").val(data.invitation_link)
 
-  #s = skrollr.init(
-    #forceHeight: false
-  #)
+  s = skrollr.init(
+    forceHeight: false
+  )
 
   $('[data-remodal-id=modal]').remodal()
-  $('#navigation').sticky()
   $(".button-collapse").sideNav()
 $(document).ready(ready)

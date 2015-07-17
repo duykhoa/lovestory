@@ -1,43 +1,37 @@
-header#navigation
-  nav.white
-    .nav-wrapper
-      = link_to "lovestory.space", root_path, class: "brand-logo grey-text"
-      = link_to "#", "data-activates" => "mobile-menu", class: "grey-text button-collapse" do
-        i class="material-icons" menu
-      ul.right.hide-on-med-and-down
-        li
-          = link_to 'Home', '#', class: 'grey-text'
-        li
-          = link_to 'Page', '#', class: 'grey-text'
-        li
-          = link_to 'Login', '#login-modal', class: 'grey-text'
-
-      ul.side-nav#mobile-menu
-        li
-          = link_to 'Home', '#', class: 'grey-text'
-        li
-          = link_to 'Page', '#', class: 'grey-text'
-        li
-          = link_to 'Login', '#login-modal', class: 'grey-text'
-
+= render 'nav'
 .page-container#skrollr-body
   section#header
-    .owl-carousel
-      .slide#slide1
+    .owl-carousel [
+      data-bottom-top="transform: translate3d(0, 80%, 0)"
+      data-top-bottom="transform: translate3d(0, -80%, 0)"
+      ]
+      .slide#slide1 [
+        data-bottom-top="transform: translate3d(0, -100%, 0)"
+        data-top-bottom="transform: translate3d(0, 100%, 0)"
+        ]
+
         .valign-wrapper.slide-wrapper
           .valign.white-text
             h3 lovestory.space
             h5 Keep your love memo
             .cta= link_to 'Keep it now', '#signup-modal', class: 'btn'
 
-      .slide#slide2
+      .slide#slide2 [
+        data-bottom-top="transform: translate3d(0, -100%, 0)"
+        data-top-bottom="transform: translate3d(0, 100%, 0)"
+        ]
+
         .valign-wrapper.slide-wrapper
           .valign.white-text
             h3 lovestory.space
             h5 Keep your love memo
             .cta= link_to 'Create your', '#signup-modal', class: 'btn'
 
-      .slide#slide3
+      .slide#slide3 [
+        data-bottom-top="transform: translate3d(0, -100%, 0)"
+        data-top-bottom="transform: translate3d(0, 100%, 0)"
+        ]
+
         .valign-wrapper.slide-wrapper
           .valign.white-text
             h3 lovestory.space
@@ -82,7 +76,7 @@ header#navigation
           .col.m4.s12
             .content-container
               h5 GOOD SUPPORT
-              p Ping me whenevery you have trouble
+              p Ping me whenever you have trouble
   footer
     .container
       .row

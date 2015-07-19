@@ -17,14 +17,25 @@ html
       nav.love_pages
         .nav-wrapper
           = link_to "lovestory.space", root_path, class: "brand-logo"
-          ul
-            #nav-mobile.right.hide-on-med-and-down
-              li
-                = link_to "My account", "#"
-              li
-                = link_to "My page", "#"
-              li
-                = link_to "Logout", destroy_user_session_path, method: :delete
+          = link_to "#", "data-activates" => "mobile-menu", class: "white-text button-collapse" do
+            i class="material-icons" menu
+          ul.right.hide-on-med-and-down
+            li
+              = link_to "My account", "#"
+            li
+              = link_to "My page", "#"
+            li
+              = link_to "Logout", destroy_user_session_path, method: :delete
+
+          ul.side-nav#mobile-menu
+            li.logo
+              = link_to "lovestory.space", root_path, class: "brand-logo"
+            li
+              = link_to "My account", "#"
+            li
+              = link_to "My page", "#"
+            li
+              = link_to "Logout", destroy_user_session_path, method: :delete
 
     main[role="main"]
       /== render 'layouts/messages'

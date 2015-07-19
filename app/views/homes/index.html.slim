@@ -88,21 +88,21 @@
 .remodal [ data-remodal-id = 'signup-modal' ]
   button.remodal-close [ data-remodal-action = 'close' ]
   .content
-    h1 Create your love page
-    h2 At lovestory.space
+    h4 Create your love page
+    h5 At lovestory.space
     .login
       = link_to user_omniauth_authorize_path(:facebook), class: 'facebook-login' do
         i.fa.fa-facebook
         span Facebook
-    h5 100% guarantees your privacy
+    h6 100% guarantees your privacy
 
 .remodal [ data-remodal-id = 'login-modal' ]
   button.remodal-close [ data-remodal-action = 'close' ]
   .content
-    h1 Login & continue writing
-    h2 your love page at lovestory.space
+    h4 Login & continue writing
+    h5 your love page at lovestory.space
     .login
       = link_to user_omniauth_authorize_path(:facebook), class: 'facebook-login' do
         i.fa.fa-facebook
         span Facebook
-    h5 100% guarantees your privacy
+    h6 100% guarantees your privacy

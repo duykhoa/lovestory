@@ -1,17 +1,21 @@
 .wrapper
-  .row
-    .col.m8.offset-m2.s10
-      h4= link_to post.title, post
-    .col.m8.offset-m2.s12
-      h6= post.created_at.to_s(:short)
+  .card
+    .card-content
       .row
-        .col.m12
-          = image_tag "https://graph.facebook.com/#{post.user.uid}/picture", class: "circle responsive-img"
-      .artilce= simple_format(post.content)
-    .actions.col.m3.offset-m9.s12
-      .col
-        = link_to edit_post_path(post), class: "btn-floating btn-large teal lighten-1 waves-effect waves-light" do
-          i class = "material-icons" edit
-      .col
-        = link_to post_path(post), method: :delete, class: "btn-floating btn-large orange lighten-3 waves-effect waves-light" do
-          i class = "material-icons" clear
+        .col.m8.offset-m2.s10
+          h4= link_to post.title, post, class: "teal-text"
+        .col.m8.offset-m2.s12
+          h6= post.created_at.to_s(:short)
+          .row
+            .col.m12
+              = image_tag "https://graph.facebook.com/#{post.user.uid}/picture", class: "circle responsive-img"
+          .artilce= simple_format(post.content)
+    .card-action
+      .row
+        .col.offset-m2.s10
+          = link_to edit_post_path(post), class: "btn teal lighten-1 waves-effect waves-light white-text" do
+            i class = "material-icons left" edit
+            | Edit
+          = link_to post_path(post), method: :delete, class: "btn transparent lighten-3 waves-effect waves-light grey-text" do
+            i class = "material-icons left" clear
+            | Delete

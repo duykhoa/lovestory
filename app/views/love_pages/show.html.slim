@@ -1,12 +1,12 @@
-br
 .container#skrollr-body
   .row
     .col.m8.offset-m2.s12
       .row.hide-on-med-and-up
         .col.m3.s12
-          = link_to "New Post", new_post_path, class: "btn pink accent-2 waves-effect"
-        .col.m3.offset-m6.s12
-          = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn invite-link"
+          p
+            = link_to "New Post", new_post_path, class: "btn pink accent-2 waves-effect"
+          p
+            = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn invite-link"
           .input-field
             = text_field_tag :invitation_link__output, nil, class: "invitation_link__output-top"
           = label_tag "Copy me and send to your partner"

@@ -1,10 +1,11 @@
 br
 .container#skrollr-body
   .row
-    .col.m10.offset-m1.s12
+    .col.m8.offset-m2.s12
       .row
         .col.m3.s12
-          = link_to "New post", new_post_path, class: "btn btn-primary waves-effect"
+          = link_to new_post_path, class: "btn-floating btn-large pink accent-2 waves-effect" do
+            i.material-icons add
         .col.m3.offset-m6.s12
           = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn btn-primary", id: "invite-link"
           .input-field

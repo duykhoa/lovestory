@@ -1,5 +1,5 @@
 br
-.container
+.container#skrollr-body
   .row
     .col.m3.s12
       = link_to "New post", new_post_path, class: "btn btn-primary waves-effect"
@@ -11,3 +11,10 @@ br
   .row
     .col.m12
       = render partial: "posts/post", collection: @posts
+  footer
+    .container
+      .row
+        .col.m2.s6
+          | Lovestory.space
+        .col.m4.offset-m6.s6
+          | Copyright &copy; 2015 Love Story

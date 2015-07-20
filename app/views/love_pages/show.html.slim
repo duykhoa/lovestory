@@ -4,17 +4,30 @@ br
     .col.m8.offset-m2.s12
       .row.hide-on-med-and-up
         .col.m3.s12
-          = link_to new_post_path, class: "btn-floating btn-large pink accent-2 waves-effect" do
-            i.material-icons add
+          = link_to "New Post", new_post_path, class: "btn pink accent-2 waves-effect"
         .col.m3.offset-m6.s12
-          = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn btn-primary", id: "invite-link"
+          = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn invite-link"
           .input-field
-            = text_field_tag :invitation_link__output, nil, class: ""
-          .hide-on-med-and-down= label_tag "Copy me and send to your partner"
+            = text_field_tag :invitation_link__output, nil, class: "invitation_link__output-top"
+          = label_tag "Copy me and send to your partner"
       .row
         = render partial: "posts/post", collection: @posts
-    .col.m2.hide-on-med-and-down
+    .col.m2.hide-on-small-only
       .new-post-push-pin
         .row
+          .col
           = link_to new_post_path, class: "btn-floating btn-large pink accent-2 waves-effect" do
             i.material-icons add
+        .row
+          .col
+          = link_to love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn-floating btn-large blue accent-2 waves-effect invite-link-floating" do
+            i.material-icons person
+
+#invitation-modal.modal
+  .modal-content
+    h4 Invitation link
+    .input-field
+      = text_field_tag :invitation_link__output, nil, class: "invitation_link__output"
+    = label_tag "Copy me and send to your partner"
+  .modal-footer
+    = link_to "Close", "#", class: "modal-action modal-close waves-effect wave-teal btn-flat"

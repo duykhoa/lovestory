@@ -10,8 +10,12 @@ ready = ->
     smartSpeed: 800
   })
 
-  $("#invite-link").bind "ajax:success", (event, data, status) ->
-    $("#invitation_link__output").val(data.invitation_link)
+  $(".invite-link").bind "ajax:success", (event, data, status) ->
+    $(".invitation_link__output-top").val(data.invitation_link)
+
+  $(".invite-link-floating").bind "ajax:success", (event, data, status) ->
+    $("#invitation-modal .invitation_link__output").val(data.invitation_link)
+    $("#invitation-modal").openModal()
 
   s = skrollr.init(
     forceHeight: false

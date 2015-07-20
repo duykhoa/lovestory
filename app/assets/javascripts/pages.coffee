@@ -18,5 +18,8 @@ ready = ->
   )
 
   $('[data-remodal-id=modal]').remodal()
-  $(".button-collapse").sideNav()
+  $('.button-collapse').sideNav()
+
+  $('.new-post-push-pin').pushpin({ top: $('.new-post-push-pin').offset().top - 85 })
+
 $(document).ready(ready)

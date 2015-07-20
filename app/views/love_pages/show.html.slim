@@ -2,7 +2,7 @@ br
 .container#skrollr-body
   .row
     .col.m8.offset-m2.s12
-      .row
+      .row.hide-on-med-and-up
         .col.m3.s12
           = link_to new_post_path, class: "btn-floating btn-large pink accent-2 waves-effect" do
             i.material-icons add
@@ -13,3 +13,8 @@ br
           .hide-on-med-and-down= label_tag "Copy me and send to your partner"
       .row
         = render partial: "posts/post", collection: @posts
+    .col.m2.hide-on-med-and-down
+      .new-post-push-pin
+        .row
+          = link_to new_post_path, class: "btn-floating btn-large pink accent-2 waves-effect" do
+            i.material-icons add

@@ -1,20 +1,33 @@
-br
 .container#skrollr-body
   .row
-    .col.m3.s12
-      = link_to "New post", new_post_path, class: "btn btn-primary waves-effect"
-    .col.m3.offset-m6.s12
-      = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn btn-primary", id: "invite-link"
-      .input-field
-        = text_field_tag :invitation_link__output, nil, class: ""
-      .hide-on-med-and-down= label_tag "Copy me and send to your partner"
-  .row
-    .col.m12
-      = render partial: "posts/post", collection: @posts
-  footer
-    .container
+    .col.m8.offset-m2.s12
+      .row.hide-on-med-and-up
+        .col.m3.s12
+          p
+            = link_to "New Post", new_post_path, class: "btn pink accent-2 waves-effect"
+          p
+            = link_to "Invite people", love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn invite-link"
+          .input-field
+            = text_field_tag :invitation_link__output, nil, class: "invitation_link__output-top"
+          = label_tag "Copy me and send to your partner"
       .row
-        .col.m2.s6
-          | Lovestory.space
-        .col.m4.offset-m6.s6
-          | Copyright &copy; 2015 Love Story
+        = render partial: "posts/post", collection: @posts
+    .col.m2.hide-on-small-only
+      .new-post-push-pin
+        .row
+          .col
+          = link_to new_post_path, class: "btn-floating btn-large pink accent-2 waves-effect" do
+            i.material-icons add
+        .row
+          .col
+          = link_to love_page_invitations_path(@love_page), method: :post, remote: true, class: "btn-floating btn-large blue accent-2 waves-effect invite-link-floating" do
+            i.material-icons person
+
+#invitation-modal.modal
+  .modal-content
+    h4 Invitation link
+    .input-field
+      = text_field_tag :invitation_link__output, nil, class: "invitation_link__output"
+    = label_tag "Copy me and send to your partner"
+  .modal-footer
+    = link_to "Close", "#", class: "modal-action modal-close waves-effect wave-teal btn-flat"

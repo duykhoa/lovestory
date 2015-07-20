@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require materialize
 //= require jquery_ujs
 //= require skrollr.min
 //= require owl.carousel
 //= require pages
 //= require remodal
-//= require jquery.sticky

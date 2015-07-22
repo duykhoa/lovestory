@@ -16,6 +16,7 @@ set :linked_files, %w{config/database.yml config/secrets.yml config/application.
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 2
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 namespace :deploy do
 
@@ -23,15 +24,6 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute :touch, release_path.join('tmp/restart.txt')
-    end
-  end
-
-  desc 'update crontab with whenever'
-  task :cronjob do
-    on roles(:app) do
-      within "#{release_path}" do
-        execute "whenever --set environment=#{fetch(:stage)}; whenever --update-crontab #{fetch(:application)}"
-      end
     end
   end
 

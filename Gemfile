@@ -23,6 +23,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'slim-rails'
 
+gem 'whenever'
+
 group :development do
   gem 'better_errors'
   gem 'capistrano'

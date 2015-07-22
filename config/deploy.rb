@@ -26,6 +26,15 @@ namespace :deploy do
     end
   end
 
+  desc 'update crontab with whenever'
+  task :cronjob do
+    on roles(:app) do
+      within "#{release_path}" do
+        execute "whenever --set environment=#{fetch(:stage)}; whenever --update-crontab #{fetch(:application)}"
+      end
+    end
+  end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:

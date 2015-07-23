@@ -1,7 +1,6 @@
 set :application, 'lovestory'
 set :repo_url, 'git@github.com:duykhoa/lovestory.git'
 
-set :deploy_to, '/home/deploy/lovestory'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :linked_files, %w{config/database.yml config/secrets.yml config/application.yml}

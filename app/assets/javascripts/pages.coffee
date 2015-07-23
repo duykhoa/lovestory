@@ -24,6 +24,7 @@ ready = ->
   $('[data-remodal-id=modal]').remodal()
   $('.button-collapse').sideNav()
 
-  $('.new-post-push-pin').pushpin({ top: $('.new-post-push-pin').offset().top - 85 })
+  if $('.new-post-push-pin').count > 0
+    $('.new-post-push-pin').pushpin({ top: $('.new-post-push-pin').offset().top - 85 })
 
 $(document).ready(ready)

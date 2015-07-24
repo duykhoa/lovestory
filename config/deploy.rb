@@ -3,7 +3,7 @@ set :repo_url, 'git@github.com:duykhoa/lovestory.git'
 
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :linked_files, %w{config/database.yml config/secrets.yml config/application.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml config/application.yml config/newrelic.yml}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 2

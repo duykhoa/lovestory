@@ -25,6 +25,8 @@ gem 'slim-rails'
 
 gem 'whenever'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem 'better_errors'
   gem 'capistrano'

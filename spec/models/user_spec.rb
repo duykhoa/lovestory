@@ -20,7 +20,8 @@ describe User do
       let(:love_page_id) { love_page.id }
 
       it "add user to the love_page" do
-        expect { user.join_love_page(love_page_id) }.to change { user.love_pages.count }.by(1)
+        expect { user.join_love_page(love_page_id) }
+          .to change { user.love_pages.count }.by(1)
       end
     end
 

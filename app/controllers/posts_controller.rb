@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i(show edit update destroy)
+
+  load_and_authorize_resource
   layout 'love_pages'
 
   def new
@@ -8,7 +10,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    love_page.posts.create(post_params.merge(user: current_user))
+    @post = love_page.posts.new(post_params.merge(user: current_user))
+    @post.save
 
     redirect_to love_page
   end

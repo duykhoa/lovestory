@@ -8,9 +8,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'squeel'
+gem 'slim-rails'
 
-gem 'figaro'
 gem 'omniauth-facebook'
 
 group :development, :test do
@@ -19,9 +18,11 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'figaro'
 gem 'devise'
 gem 'simple_form'
-gem 'slim-rails'
+gem 'squeel'
+gem 'cancancan'
 
 gem 'whenever'
 

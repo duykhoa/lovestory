@@ -19,6 +19,7 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'paperclip', '~> 4.3'
 gem 'figaro'
 gem 'devise'
 gem 'simple_form'

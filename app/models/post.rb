@@ -3,4 +3,6 @@ class Post < ActiveRecord::Base
 
   belongs_to :love_page
   belongs_to :user
+
+  has_many :assets
 end

@@ -7,6 +7,7 @@ html
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Lovestory'}"
     == stylesheet_link_tag "application", :media => 'all'
     == javascript_include_tag 'application'
+    = html_import_tag "application"
     == csrf_meta_tags
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"

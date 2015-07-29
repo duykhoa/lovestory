@@ -10,6 +10,7 @@
             .col.m12
               = image_tag "https://graph.facebook.com/#{post.user.uid}/picture", class: "circle responsive-img"
           .artilce= simple_format(post.content)
+          br
           - post.assets.each do |asset|
             = image_tag asset.photo.url, class: "responsive-img"
     .card-action

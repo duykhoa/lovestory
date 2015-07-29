@@ -36,7 +36,7 @@ class LovePagesController < ApplicationController
   end
 
   def set_recent_posts
-    @posts = @love_page.posts
+    @posts = @love_page.posts.includes(:assets)
   end
 
   def set_user

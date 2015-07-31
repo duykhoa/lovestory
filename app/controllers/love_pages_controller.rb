@@ -1,6 +1,7 @@
 class LovePagesController < ApplicationController
   before_action :set_user, only: [:facebook]
   before_action :authenticate_user!, except: [:facebook]
+
   before_action :set_love_page, only: [:show]
   before_action :set_recent_posts, only: [:show]
 

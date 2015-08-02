@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+
+:host ::content article {
+  white-space: pre-line
+}

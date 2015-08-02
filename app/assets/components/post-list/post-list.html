@@ -1,8 +1,45 @@
 <dom-module id="post-list">
   <link rel="stylesheet" href="post-list.css" />
-  <template>
 
-    <h2>Post list</h2>
+  <template>
+    <template is="dom-repeat" items="{{data}}">
+      <div class="wrapper">
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col m8 offset-m2 s10">
+                <h4>
+                  <a href$="[[postShowUrl(item.id)]]" class="teal-text">[[item.title]]</a>
+                </h4>
+              </div>
+
+              <div class="col m8 offset-m2 s12">
+                <h6>[[item.created_at]]</h6>
+                <div class="row">
+                  <div class="col m12"><img src="#" alt="[[item.user_id]]"></div>
+                </div>
+                <article>[[item.content]]</article>
+                <br>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-action">
+            <div class="row">
+              <div class="col offset-m2 s10">
+                <a href="#" class="btn teal lighten-1 waves-effect waves-light white-text">
+                  <i class="material-icons left">edit</i>Edit
+                </a>
+
+                <a href="#" class="btn transparent lighten-3 waves-effect waves-light grey-text">
+                  <i class="material-icons left">clear</i>Delete
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
   </template>
 
   <script src="post-list.js"></script>

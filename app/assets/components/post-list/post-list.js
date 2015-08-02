@@ -5,7 +5,8 @@ Polymer({
     $.ajax({
       url: "/love_pages/1.json",
       success: function(data) {
-        currentObject.data = data
+        currentObject.data = data;
+        console.log(data);
       }
     })
   },

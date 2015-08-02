@@ -26,6 +26,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'squeel'
 gem 'cancancan'
+gem 'active_model_serializers'
 
 gem 'whenever'
 

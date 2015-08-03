@@ -18,3 +18,4 @@
 //= require owl.carousel
 //= require pages
 //= require remodal
+//= require jquery.timeago

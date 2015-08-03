@@ -3,7 +3,6 @@ class LovePagesController < ApplicationController
   before_action :authenticate_user!, except: [:facebook]
 
   before_action :set_love_page, only: [:show]
-  before_action :set_recent_posts, only: [:show]
 
   def index
     @love_pages = current_user.love_pages
@@ -24,7 +23,7 @@ class LovePagesController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @posts, root: false }
+      format.json { render json: recent_posts, root: false }
     end
   end
 
@@ -40,8 +39,8 @@ class LovePagesController < ApplicationController
     @love_page = current_user.love_pages.find params[:id]
   end
 
-  def set_recent_posts
-    @posts = @love_page.posts.includes(:assets, :user)
+  def recent_posts
+    @love_page.posts.includes(:assets, :user)
   end
 
   def set_user

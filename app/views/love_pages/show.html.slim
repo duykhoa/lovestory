@@ -8,7 +8,6 @@
           p
             invitation-link(love_page_id="#{@love_page.id}")
       .row
-        /= render partial: "posts/post", collection: @posts
         post-list page-id="#{@love_page.id}"
     .col.m2.hide-on-small-only
       .new-post-push-pin

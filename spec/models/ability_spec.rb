@@ -38,5 +38,17 @@ describe Ability do
 
       it { should_not be_able_to(:manage, post) }
     end
+
+    context "can read a post that authored by partner" do
+      let(:page) { create(:love_page, user: user) }
+
+      let(:another_user) { create(:user) }
+      let!(:post) { create(:post, love_page: page, user: user) }
+
+      before { create(:user_love_page, user: another_user, love_page: page) }
+      subject { Ability.new(another_user) }
+
+      it { should be_able_to(:read, post) }
+    end
   end
 end

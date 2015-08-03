@@ -12,5 +12,8 @@ class Ability
     can :create, LovePage
 
     can :manage, Post, user_id: user.id
+    can :read, Post do |post|
+      post.love_page.users.include? user
+    end
   end
 end

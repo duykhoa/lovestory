@@ -26,7 +26,7 @@ describe Ability do
 
     context "can manage any post than in any page that belongs to this user" do
       let(:page) { create(:love_page, user: user) }
-      let!(:post) { create(:post, love_page: page) }
+      let!(:post) { create(:post, love_page: page, user: user) }
 
       it { should be_able_to(:manage, post) }
     end
@@ -34,7 +34,7 @@ describe Ability do
     context "cannot manage a post that not belongs to this user" do
       let(:another_user) { create(:user) }
       let(:page) { create(:love_page, user: another_user) }
-      let!(:post) { create(:post, love_page: page) }
+      let!(:post) { create(:post, love_page: page, user: another_user) }
 
       it { should_not be_able_to(:manage, post) }
     end

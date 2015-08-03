@@ -9,7 +9,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
-gem 'polymer-rails'
+gem 'polymer-rails', '~> 1.0'
+gem 'polymer-iron-rails'
 
 gem 'omniauth-facebook'
 
@@ -19,11 +20,13 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'paperclip', '~> 4.3'
 gem 'figaro'
 gem 'devise'
 gem 'simple_form'
 gem 'squeel'
 gem 'cancancan'
+gem 'active_model_serializers'
 
 gem 'whenever'
 
@@ -47,6 +50,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
+  gem "bullet"
 end
 
 group :development, :test do

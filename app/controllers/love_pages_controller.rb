@@ -24,7 +24,7 @@ class LovePagesController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @posts }
+      format.json { render json: @posts, root: false }
     end
   end
 

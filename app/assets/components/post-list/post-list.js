@@ -22,5 +22,11 @@ Polymer({
   },
   timeAgoValue: function(time) {
     return $.timeago(time)
+  },
+  editLink: function(id) {
+    return "/posts/" + id + "/edit"
+  },
+  deleteLink: function(id) {
+    return "/posts/" + id
   }
 });

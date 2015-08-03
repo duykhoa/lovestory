@@ -33,11 +33,11 @@
           <div class="card-action">
             <div class="row">
               <div class="col offset-m1 s10">
-                <a href="#" class="btn teal lighten-1 waves-effect waves-light white-text">
+                <a href$="[[editLink(item.id)]]" class="btn teal lighten-1 waves-effect waves-light white-text">
                   <i class="material-icons left">edit</i>Edit
                 </a>
 
-                <a href="#" class="btn transparent lighten-3 waves-effect waves-light grey-text">
+                <a href$="[[deleteLink(item.id)]]" data-method="delete" class="btn transparent lighten-3 waves-effect waves-light grey-text">
                   <i class="material-icons left">clear</i>Delete
                 </a>
               </div>

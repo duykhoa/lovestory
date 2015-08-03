@@ -7,16 +7,16 @@
         <div class="card">
           <div class="card-content">
             <div class="row">
-              <div class="col m8 offset-m2 s10">
+              <div class="col m10 offset-m1">
                 <h4>
                   <a href$="[[postShowUrl(item.id)]]" class="teal-text">[[item.title]]</a>
                 </h4>
               </div>
 
-              <div class="col m8 offset-m2 s12">
+              <div class="col m10 offset-m1 s12">
                 <h6>[[item.created_at]]</h6>
                 <div class="row">
-                  <div class="col m12"><img src="" alt="[[item.user_id]]"></div>
+                  <div class="col m12"><img src$="[[item.assets.0]]" alt="[[item.user_id]]" class="responsive-img"></div>
                 </div>
                 <article>[[item.content]]</article>
                 <br>
@@ -26,7 +26,7 @@
 
           <div class="card-action">
             <div class="row">
-              <div class="col offset-m2 s10">
+              <div class="col offset-m1 s10">
                 <a href="#" class="btn teal lighten-1 waves-effect waves-light white-text">
                   <i class="material-icons left">edit</i>Edit
                 </a>

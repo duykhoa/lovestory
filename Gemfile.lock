@@ -213,8 +213,6 @@ GEM
     pg (0.18.2)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
-    polymer-iron-rails (1.0.0.pre.rc.3)
-      polymer-rails (~> 1.0, >= 1.0.3)
     polymer-rails (1.0.8)
       nokogiri (~> 1.6)
       nokogumbo (~> 1.1)
@@ -403,7 +401,6 @@ DEPENDENCIES
   omniauth-facebook
   paperclip (~> 4.3)
   pg
-  polymer-iron-rails
   polymer-rails (~> 1.0)
   pry-rails
   pry-rescue

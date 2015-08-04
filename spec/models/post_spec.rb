@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Post do
   it { should belong_to(:love_page) }
   it { should belong_to(:user) }
+  it { should have_many(:assets) }
 
   describe "order descreasing" do
     let(:post) { create(:post)  }

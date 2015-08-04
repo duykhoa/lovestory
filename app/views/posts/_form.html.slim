@@ -5,4 +5,15 @@ br
     = f.input :title
   .input-field
     = f.input :content, input_html: { class: 'materialize-textarea' }
-  = f.submit "Post", class: "btn btn-primary"
+  .input-field.file-field
+    .left
+      span.grey-text.grey-lighten-2
+        i.material-icons.medium photo
+
+      = f.simple_fields_for :assets do |asset|
+        = asset.input_field :photo
+    .file-path-wrapper
+      input.file-path.validate type="text"
+
+  .input-field
+    = f.submit "Post", class: "btn btn-large"

@@ -32,4 +32,20 @@ describe Invitation do
       end
     end
   end
+
+  describe ".remove_expired_link" do
+    let!(:invitation_link) { create(:invitation) }
+    let!(:expired_invitation_link) { create(:invitation, created_at: Invitation::EXPIRED_IN.ago) }
+
+    before do
+      expect(Invitation.count).to eq(1)
+      expect(Invitation.unscoped.count).to eq(2)
+
+      Invitation.remove_expired_link
+    end
+
+    it "removes expired_link" do
+      expect(Invitation.count).to eq(1)
+    end
+  end
 end

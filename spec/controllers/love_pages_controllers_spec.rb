@@ -67,11 +67,5 @@ describe LovePagesController do
       get :show, id: user.love_pages.first.id
       expect(response.status).to eq 200
     end
-
-    it "returns posts" do
-      get :show, id: user.love_pages.first
-      expect(assigns(:posts)).not_to be nil
-      expect(assigns(:posts).count).to eq 5
-    end
   end
 end

@@ -1,21 +1,13 @@
 set :application, 'lovestory'
 set :repo_url, 'git@github.com:duykhoa/lovestory.git'
 
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-
-set :deploy_to, '/home/deploy/lovestory'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-# set :scm, :git
 
-# set :format, :pretty
-# set :log_level, :debug
-# set :pty, true
-
-set :linked_files, %w{config/database.yml config/secrets.yml config/application.yml}
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_files, %w{config/database.yml config/secrets.yml config/application.yml config/newrelic.yml}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 2
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 namespace :deploy do
 
@@ -28,10 +20,6 @@ namespace :deploy do
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
     end
   end
 

@@ -1,6 +1,5 @@
 class InvitationsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
-  before_action :set_love_page, only: [:create]
+  before_action :authenticate_user!, :set_love_page, only: [:create]
   before_action :set_invitation, only: [:show]
 
   def create

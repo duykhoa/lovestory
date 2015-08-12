@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable, :validatable
-
   devise :omniauthable, omniauth_providers: [:facebook]
 
   has_many :user_love_pages

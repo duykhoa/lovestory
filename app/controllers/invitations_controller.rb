@@ -29,15 +29,15 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.find_by(id: invitation_id[:id])
   end
 
+  def love_page_id
+    params.permit(:love_page_id)
+  end
+
   def invitation_id
     params.permit(:id)
   end
 
   def set_love_page
     @love_page = LovePage.find love_page_id[:love_page_id]
-  end
-
-  def love_page_id
-    params.permit(:love_page_id)
   end
 end

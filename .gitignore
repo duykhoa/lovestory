@@ -83,3 +83,4 @@ pickle-email-*.html
 
 output.html
 rubocop.html
+brakeman.html

@@ -13,12 +13,6 @@ gem 'polymer-rails', '~> 1.0'
 
 gem 'omniauth-facebook'
 
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
-
 gem 'paperclip', '~> 4.3'
 gem 'figaro'
 gem 'devise'
@@ -49,7 +43,9 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
-  gem "bullet"
+  gem 'bullet'
+  gem 'brakeman', require: false
+  gem 'rubocop', require: false
 end
 
 group :development, :test do
@@ -60,7 +56,9 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
-  gem 'rubocop'
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
 
 group :test do
@@ -68,4 +66,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end

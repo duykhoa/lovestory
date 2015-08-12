@@ -1,6 +1,5 @@
 class InvitationsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
-  before_action :set_love_page, only: [:create]
+  before_action :authenticate_user!, :set_love_page, only: [:create]
   before_action :set_invitation, only: [:show]
 
   def create
@@ -17,6 +16,8 @@ class InvitationsController < ApplicationController
 
     if page
       cookies['invitation_id'] = @invitation.id
+      @invitation.destroy
+
       redirect_to root_path
     else
       render status: 404
@@ -29,15 +30,15 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.find_by(id: invitation_id[:id])
   end
 
+  def love_page_id
+    params.permit(:love_page_id)
+  end
+
   def invitation_id
     params.permit(:id)
   end
 
   def set_love_page
     @love_page = LovePage.find love_page_id[:love_page_id]
-  end
-
-  def love_page_id
-    params.permit(:love_page_id)
   end
 end

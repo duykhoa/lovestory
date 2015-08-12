@@ -16,6 +16,8 @@ class InvitationsController < ApplicationController
 
     if page
       cookies['invitation_id'] = @invitation.id
+      @invitation.destroy
+
       redirect_to root_path
     else
       render status: 404

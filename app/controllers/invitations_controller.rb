@@ -18,6 +18,7 @@ class InvitationsController < ApplicationController
       cookies['invitation_id'] = @invitation.id
       @invitation.destroy
 
+      # FIXME root_path isn't correct
       redirect_to root_path
     else
       render status: 404

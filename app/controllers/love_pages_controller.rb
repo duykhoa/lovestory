@@ -11,9 +11,9 @@ class LovePagesController < ApplicationController
   def facebook
     sign_in @user
 
-    @user.join_love_page(love_page_id)
+    JoinPage.new(@user, love_page_id).call
 
-    if @user.love_pages.count.eql? 1
+    if @user.love_pages.present?
       redirect_to @user.love_pages.first
     else
       redirect_to action: :index

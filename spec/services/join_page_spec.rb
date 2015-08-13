@@ -24,12 +24,33 @@ describe JoinPage do
 
           before do
             expect(UserLovePage.count).to eq 0
-            join_page_service.call
             user.reload
           end
 
-          it "does not add new love page to user's love_pages" do
-            is_expected.to eq 0
+          context "user doesn't have any love_page" do
+            before do
+              join_page_service.call
+            end
+
+            it "create new love_page for user" do
+              is_expected.to eq 1
+            end
+          end
+
+          context "user had love_page already" do
+            before do
+              create(:love_page, user: user)
+            end
+
+            it "create new love_page for user" do
+              expect(user.love_pages).to(
+                receive(:create!)
+                  .exactly(0)
+                  .times
+              )
+
+              join_page_service.call
+            end
           end
         end
 
@@ -48,37 +69,21 @@ describe JoinPage do
           it "add love_pages for user" do
             is_expected.to eq 1
           end
-
-          it "returns user" do
-            expect(service_call).to eq(user)
-          end
         end
       end
     end
 
-    # more context
     context "user doesn't exist" do
       let(:join_page_service) { JoinPage.new(user, love_page_id) }
       subject { join_page_service.call }
 
       context "user is nil" do
         let(:user) { nil }
+        let(:love_page) { create(:love_page) }
+        let(:love_page_id) { love_page.id }
 
-        context "love_page with love_page_id exist" do
-          let(:love_page) { create(:love_page) }
-          let(:love_page_id) { love_page.id }
-
-          it "returns nil" do
-            is_expected.to be nil
-          end
-        end
-
-        context "love_page isn't exist" do
-          let(:love_page_id) { 999 }
-
-          it "returns nil" do
-            is_expected.to be nil
-          end
+        it "returns nil" do
+          is_expected.to be nil
         end
       end
 

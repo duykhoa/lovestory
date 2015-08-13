@@ -11,12 +11,11 @@ class LovePagesController < ApplicationController
   def facebook
     sign_in @user
 
-    # TODO WIP refactor to command pattern
     JoinPage.new(@user, love_page_id).call
-    remove_invitation_link
-    remove_invitation_cookies
+    Invitations::Remove.new(invitation_id, cookies).call
 
     if @user.love_pages.present?
+      # FIXME: return to page#index if has > 1 page
       redirect_to @user.love_pages.first
     else
       redirect_to action: :index
@@ -32,9 +31,11 @@ class LovePagesController < ApplicationController
 
   private
 
-  def love_page_id
-    invitation_id = cookies["invitation_id"]
+  def invitation_id
+    cookies["invitation_id"]
+  end
 
+  def love_page_id
     invitation_id ? Invitation.find_by_id(invitation_id).try(:love_page_id) : nil
   end
 
@@ -60,15 +61,6 @@ class LovePagesController < ApplicationController
 
   def omniauth_data
     request.env["omniauth.auth"]
-  end
-
-  def remove_invitation_link
-    invitation_id = cookies["invitation_id"]
-    Invitation.find_by_id(invitation_id).try :destroy
-  end
-
-  def remove_invitation_cookies
-    cookies.delete "invitation_id"
   end
 
   def default_email

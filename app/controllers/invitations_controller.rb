@@ -18,7 +18,6 @@ class InvitationsController < ApplicationController
       cookies['invitation_id'] = @invitation.id
       @invitation.destroy
 
-      # FIXME root_path isn't correct
       redirect_to root_path(anchor: "signup-modal")
     else
       render status: 404

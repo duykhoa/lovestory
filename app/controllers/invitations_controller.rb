@@ -16,7 +16,6 @@ class InvitationsController < ApplicationController
 
     if page
       cookies['invitation_id'] = @invitation.id
-      @invitation.destroy
 
       redirect_to root_path(anchor: "signup-modal")
     else

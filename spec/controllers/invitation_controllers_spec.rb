@@ -37,7 +37,7 @@ describe InvitationsController do
     context "valid invitation link" do
       it "redirect_to love_page_path" do
         get :show, id: invitation.id
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(root_path + "#signup-modal")
       end
 
       after { expect(response.cookies['invitation_id']).to eq(invitation.id) }

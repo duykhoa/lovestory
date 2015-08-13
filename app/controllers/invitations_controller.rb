@@ -19,7 +19,7 @@ class InvitationsController < ApplicationController
       @invitation.destroy
 
       # FIXME root_path isn't correct
-      redirect_to root_path
+      redirect_to root_path(anchor: "signup-modal")
     else
       render status: 404
     end

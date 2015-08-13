@@ -68,7 +68,7 @@ class LovePagesController < ApplicationController
   end
 
   def remove_invitation_cookies
-    cookies.delete 'invitation_id'
+    cookies.delete "invitation_id"
   end
 
   def default_email

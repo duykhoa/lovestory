@@ -10,12 +10,4 @@ class User < ActiveRecord::Base
       find_by_uid(uid) || create(uid: uid, provider: provider, email: email, password: SecureRandom.hex(25))
     end
   end
-
-  def join_love_page(love_page_id)
-    if love_page_id
-      user_love_pages.create(love_page_id: love_page_id, user_id: id)
-    else
-      love_pages.create if love_pages.count.eql?(0)
-    end
-  end
 end

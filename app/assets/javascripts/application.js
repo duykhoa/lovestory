@@ -19,3 +19,4 @@
 //= require pages
 //= require remodal
 //= require jquery.timeago
+//= require clipboard

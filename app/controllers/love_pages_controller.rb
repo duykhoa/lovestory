@@ -11,9 +11,11 @@ class LovePagesController < ApplicationController
   def facebook
     sign_in @user
 
-    @user.join_love_page(love_page_id)
+    JoinPage.new(@user, love_page_id).call
+    Invitations::Remove.new(invitation_id, cookies).call
 
-    if @user.love_pages.count.eql? 1
+    if @user.love_pages.present?
+      # FIXME: return to page#index if has > 1 page
       redirect_to @user.love_pages.first
     else
       redirect_to action: :index
@@ -29,9 +31,11 @@ class LovePagesController < ApplicationController
 
   private
 
-  def love_page_id
-    invitation_id = cookies["invitation_id"]
+  def invitation_id
+    cookies["invitation_id"]
+  end
 
+  def love_page_id
     invitation_id ? Invitation.find_by_id(invitation_id).try(:love_page_id) : nil
   end
 

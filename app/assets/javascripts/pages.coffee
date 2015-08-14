@@ -14,9 +14,10 @@ ready = ->
     $("#invitation-modal .invitation_link__output").val(data.invitation_link)
     $("#invitation-modal").openModal()
 
-  s = skrollr.init(
-    forceHeight: false
-  )
+  if $('#skrollr-body').length > 0
+    s = skrollr.init(
+      forceHeight: false
+    )
 
   $('[data-remodal-id=modal]').remodal()
   $('.button-collapse').sideNav()

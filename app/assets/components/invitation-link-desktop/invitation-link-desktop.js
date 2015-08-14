@@ -15,5 +15,9 @@ Polymer({
       currentObject.invitationLink = data.invitation_link
       $("#invitation-modal").openModal()
     })
+  },
+  copyLink: function() {
+    clipboard.copy(this.invitationLink)
+    Materialize.toast("Copied!", 2000)
   }
 });

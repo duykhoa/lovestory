@@ -35,12 +35,33 @@ describe InvitationsController do
     let(:page) { invitation.love_page }
 
     context "valid invitation link" do
-      it "redirect_to love_page_path" do
-        get :show, id: invitation.id
-        expect(response).to redirect_to(root_path)
+      context "non signin user" do
+        it "redirect_to love_page_path" do
+          get :show, id: invitation.id
+          expect(response).to redirect_to(root_path + "#signup-modal")
+        end
+
+        after { expect(response.cookies['invitation_id']).to eq(invitation.id) }
       end
 
-      after { expect(response.cookies['invitation_id']).to eq(invitation.id) }
+      context "signin user" do
+        let(:another_user) { create(:user) }
+
+        before { sign_in another_user }
+
+        it "redirect_to love_page_path" do
+          expect(another_user.love_pages.count).to eq 0
+
+          get :show, id: invitation.id
+          expect(response).to redirect_to(root_path)
+        end
+
+        after do
+          expect(response.cookies['invitation_id']).to be_nil
+          expect(another_user.love_pages.count).to eq 1
+          expect(Invitation.count).to eq 0
+        end
+      end
     end
 
     context "invalid invitation link" do

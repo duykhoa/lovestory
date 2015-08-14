@@ -8,8 +8,8 @@ html
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Lovestory'}"
     == stylesheet_link_tag "application", :media => 'all'
     == javascript_include_tag 'application'
+    == javascript_include_tag 'skrollr.min'
     == csrf_meta_tags
-    link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
     link href="http://fonts.googleapis.com/css?family=Oxygen:400,300" rel='stylesheet' type="text/css"

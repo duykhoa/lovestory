@@ -8,9 +8,10 @@ Polymer({
   ready: function() {
     currentObject = this
     $.ajax({
-      url: "/love_pages/" + this.pageId + ".json",
+      url: "/love_pages/" + currentObject.pageId + ".json",
       success: function(data) {
         currentObject.data = data;
+        $(".preloader-wrapper").addClass("hide");
       }
     })
   },

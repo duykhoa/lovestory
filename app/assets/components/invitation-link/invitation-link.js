@@ -5,13 +5,14 @@ Polymer({
       type: String
     }
   },
-  ready: function() {
-  },
   createInvitationLink: function() {
     currentObject = this
 
     $.post(this.love_page_id + "/invitations", function (data) {
       currentObject.invitationLink = data.invitation_link
     })
+  },
+  selectAll: function() {
+    $("#result-link").select();
   }
 });

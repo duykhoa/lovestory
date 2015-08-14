@@ -3,13 +3,21 @@
   <template>
   <a href="#" class="btn invite-link" on-click="createInvitationLink">Invite people</a>
 
-  <div class="input-field">
-    <input type="text" value="{{invitationLink}}">
+  <div class="row">
+    <div class="col s8">
+      <div class="input-field">
+        <input type="text" value="{{invitationLink}}">
+      </div>
+    </div>
+    <div class="col s4">
+      <div class="input-field">
+        <a on-click="copyLink" class="waves-effect waves-teal transparent grey-text btn-flat">
+          <i class="material-icons left">content_copy</i>
+          Copy me
+        </a>
+      </div>
+    </div>
   </div>
-  <a on-click="copyLink" class="waves-effect waves-teal transparent grey-text btn-flat">
-    <i class="material-icons left">content_copy</i>
-    Copy me
-  </a>
   </template>
 
   <script src="invitation-link.js"></script>

@@ -15,9 +15,15 @@ class InvitationsController < ApplicationController
     page = @invitation.try :love_page
 
     if page
-      cookies['invitation_id'] = @invitation.id
+      if current_user
+        JoinPage.new(current_user, page.id).call
+        Invitations::Remove.new(@invitation.id, cookies).call
 
-      redirect_to root_path(anchor: "signup-modal")
+        redirect_to root_path
+      else
+        cookies['invitation_id'] = @invitation.id
+        redirect_to root_path(anchor: "signup-modal")
+      end
     else
       render status: 404
     end

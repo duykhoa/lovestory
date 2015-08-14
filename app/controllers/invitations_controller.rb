@@ -17,7 +17,7 @@ class InvitationsController < ApplicationController
         .new(current_user, love_page.id, @invitation.id, cookies)
         .call
 
-      redirect_to root_path(anchor: root_path_options)
+      redirect_to root_path(anchor: root_path_options) # fix the path
     else
       render status: 404
     end

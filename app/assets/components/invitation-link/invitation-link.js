@@ -13,6 +13,6 @@ Polymer({
     })
   },
   selectAll: function() {
-    $("#result-link").select();
+    $("#result-link").focus().select();
   }
 });

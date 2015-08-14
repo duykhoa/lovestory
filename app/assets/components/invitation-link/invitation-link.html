@@ -6,7 +6,10 @@
   <div class="input-field">
     <input type="text" value="{{invitationLink}}">
   </div>
-  <label for="#invite-link--top">{{label}}</label>
+  <a on-click="copyLink" class="waves-effect waves-teal transparent grey-text btn-flat">
+    <i class="material-icons left">content_copy</i>
+    Copy me
+  </a>
   </template>
 
   <script src="invitation-link.js"></script>

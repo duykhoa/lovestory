@@ -6,7 +6,6 @@ Polymer({
     }
   },
   ready: function() {
-    this.label = "Copy me"
   },
   createInvitationLink: function() {
     currentObject = this
@@ -14,5 +13,9 @@ Polymer({
     $.post(this.love_page_id + "/invitations", function (data) {
       currentObject.invitationLink = data.invitation_link
     })
+  },
+  copyLink: function() {
+    clipboard.copy(this.invitationLink)
+    Materialize.toast("Copied!", 2000)
   }
 });

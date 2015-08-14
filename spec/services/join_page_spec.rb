@@ -19,7 +19,7 @@ describe JoinPage do
       subject { user.love_pages.count }
 
       context "love_page_id exist" do
-        context "love_page with love_page_id isn't exist" do
+        context "love_page with love_page_id doesn't exist" do
           let(:love_page_id) { 999 }
 
           before do
@@ -42,7 +42,7 @@ describe JoinPage do
               create(:love_page, user: user)
             end
 
-            it "create new love_page for user" do
+            it "doesn't create new love_page for user" do
               expect(user.love_pages).to(
                 receive(:create!)
                   .exactly(0)
@@ -50,6 +50,12 @@ describe JoinPage do
               )
 
               join_page_service.call
+            end
+
+            after do
+              user.reload
+              expect(user.love_pages.count).to eq(1)
+              expect(user.user_love_pages.count).to eq(1)
             end
           end
         end
@@ -59,15 +65,41 @@ describe JoinPage do
           let(:love_page_id) { love_page.id }
           let(:service_call) { join_page_service.call }
 
-          before do
-            expect(user.love_pages).to be_empty
-            user.reload
+          context "user has no love_page" do
+            before do
+              expect(user.love_pages).to be_empty
+              join_page_service.call
+            end
 
-            service_call
+            it "add love_pages for user" do
+              expect(user.love_pages.count).to eq 1
+            end
           end
 
-          it "add love_pages for user" do
-            is_expected.to eq 1
+          context "user has another love page" do
+            let!(:love_page) { create(:love_page, user: user) }
+
+            before do
+              expect(user.love_pages.count).to eq 1
+              join_page_service.call
+            end
+
+            it "doesn't add new love page" do
+              expect(user.love_pages.count).to eq 1
+            end
+          end
+
+          context "user owned love page" do
+            let!(:another_love_page) { create(:love_page, user: user) }
+
+            before do
+              is_expected.to eq 1
+              join_page_service.call
+            end
+
+            it "add love_pages for user" do
+              expect(user.love_pages.count).to eq 2
+            end
           end
         end
       end

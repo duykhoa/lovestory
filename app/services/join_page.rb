@@ -10,14 +10,17 @@ class JoinPage
     return nil unless user && user.persisted?
 
     if love_page_id && love_page
-      user.love_pages << love_page
-      user.save!
+      user.love_pages << love_page unless love_page_existed?
     else
       create_first_love_page!
     end
   end
 
   private
+
+  def love_page_existed?
+    user.love_pages.include?(love_page)
+  end
 
   def create_first_love_page!
     user.love_pages.create! if user.love_pages.empty?

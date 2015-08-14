@@ -19,7 +19,7 @@ class InvitationsController < ApplicationController
         JoinPage.new(current_user, page.id).call
         Invitations::Remove.new(@invitation.id, cookies).call
 
-        redirect_to root_path
+        redirect_to root_path # FIXME: later
       else
         cookies['invitation_id'] = @invitation.id
         redirect_to root_path(anchor: "signup-modal")

@@ -12,11 +12,9 @@ class InvitationsController < ApplicationController
   end
 
   def show
-    page = @invitation.try :love_page
-
-    if page
+    if love_page
       ProcessLovePage
-        .new(current_user, page.id, @invitation.id, cookies)
+        .new(current_user, love_page.id, @invitation.id, cookies)
         .call
 
       redirect_to root_path(anchor: root_path_options)
@@ -26,6 +24,10 @@ class InvitationsController < ApplicationController
   end
 
   private
+
+  def love_page
+    @love_page ||= @invitation.try(:love_page)
+  end
 
   def root_path_options
     user_signed_in? ? nil : "signup-modal"

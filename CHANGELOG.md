@@ -13,3 +13,5 @@
   - UI improvement and change copy
 #1.1.1 - 23, Aug, 2015
   - Move uploaded assets to shared/public/system/assets folder
+#1.1.2 - 23, Aug, 2015
+  - Improve layout for post page (new & edit action `.s12.m8.offset-m2`)

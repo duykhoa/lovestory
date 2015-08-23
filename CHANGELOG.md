@@ -11,3 +11,5 @@
   - Refactor skinny controller using Service pattern
   - Remove skrollr on production version
   - UI improvement and change copy
+#1.1.1 - 23, Aug, 2015
+  - Move uploaded assets to shared/public/system/assets folder

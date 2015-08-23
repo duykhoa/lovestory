@@ -1,6 +1,8 @@
 @import 'remodal-custom'
 @import 'nav'
 
+$asset_url : "https://raw.githubusercontent.com/duykhoa/lovestory-assets/master/"
+
 html
   width: 100%
   height: 100%
@@ -71,15 +73,15 @@ section#header
 
   #slide1
     .slide-wrapper
-      background-image: asset-url("slide1.jpg")
+      background-image: url($asset_url + "slide1.jpg")
 
   #slide2
     .slide-wrapper
-      background-image: asset-url("slide2.jpg")
+      background-image: url($asset_url + "slide2.jpg")
 
   #slide3
     .slide-wrapper
-      background-image: asset-url("slide3.jpg")
+      background-image: url($asset_url + "slide3.jpg")
 
 section#features
   background: #F6F6F6

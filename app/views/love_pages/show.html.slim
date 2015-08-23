@@ -8,7 +8,7 @@
           p
             invitation-link(love_page_id="#{@love_page.id}")
       .row
-        post-list page-id="#{@love_page.id}"
+        post-list page-id="#{@love_page.id}" current-user-id="#{current_user.id}"
     .col.m2.hide-on-small-only
       .new-post-push-pin
         .row

@@ -3,6 +3,9 @@ Polymer({
   properties: {
     pageId: {
       type: String
+    },
+    currentUserId: {
+      type: String
     }
   },
   ready: function() {
@@ -29,5 +32,8 @@ Polymer({
   },
   deleteLink: function(id) {
     return "/posts/" + id
+  },
+  author: function(item) {
+    return item.user_id == this.currentUserId
   }
 });

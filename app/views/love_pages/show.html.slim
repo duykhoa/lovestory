@@ -4,7 +4,7 @@
       .row.hide-on-med-and-up
         .col.m3.s12
           p
-            = link_to "New Post", new_post_path, class: "btn pink accent-2 waves-effect"
+            = link_to "New Post", new_love_page_post_path(@love_page), class: "btn pink accent-2 waves-effect"
           p
             invitation-link(love_page_id="#{@love_page.id}")
       .row
@@ -13,7 +13,7 @@
       .new-post-push-pin
         .row
           .col
-          = link_to new_post_path, class: "btn-floating btn-large pink accent-2 waves-effect" do
+          = link_to new_love_page_post_path(@love_page), class: "btn-floating btn-large pink accent-2 waves-effect" do
             i.material-icons add
         .row
           .col

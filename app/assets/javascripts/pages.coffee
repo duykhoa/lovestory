@@ -36,7 +36,7 @@ ready = ->
     $('<img src="' + this[0] + '" alt="" />').prependTo(".slide#slide" + index);
 
     if (last)
-      console.log("Finish preload")
+      $("#preload").addClass("hide")
   )
 
 

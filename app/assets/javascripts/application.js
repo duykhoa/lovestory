@@ -20,3 +20,4 @@
 //= require remodal
 //= require jquery.timeago
 //= require clipboard
+//= require jquery.preload.min

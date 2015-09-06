@@ -4,6 +4,6 @@ class Post < ActiveRecord::Base
   belongs_to :love_page
   belongs_to :user
 
-  has_many :assets
+  has_many :assets, dependent: :destroy
   accepts_nested_attributes_for :assets
 end

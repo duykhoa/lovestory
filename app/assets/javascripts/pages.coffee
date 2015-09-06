@@ -25,4 +25,19 @@ ready = ->
   if $('.new-post-push-pin').count > 0
     $('.new-post-push-pin').pushpin({ top: $('.new-post-push-pin').offset().top - 85 })
 
+  images = [
+    "https://raw.githubusercontent.com/duykhoa/lovestory-assets/master/slide1.jpg"
+    "https://raw.githubusercontent.com/duykhoa/lovestory-assets/master/slide2.jpg"
+    "https://raw.githubusercontent.com/duykhoa/lovestory-assets/master/slide3.jpg"
+  ]
+
+  $.preload(images, 1, (last) ->
+    index = images.indexOf(this[0])
+    $('<img src="' + this[0] + '" alt="" />').prependTo(".slide#slide" + index);
+
+    if (last)
+      $("#preload").addClass("hide")
+  )
+
+
 $(document).ready(ready)

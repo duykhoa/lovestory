@@ -21,3 +21,5 @@
   - Fix post routes (should belongs to to a page)
 #1.2.1 - 6, Sep, 2015
   - Add dependent: :destroy for assets in post model
+#1.3.0 - 6, Sep, 2015
+  - Add Preloader effect for homepage

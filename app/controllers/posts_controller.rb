@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   layout 'love_pages'
 
   def new
+    @love_page = love_page
     @post = Post.new
     @post.assets.build
   end
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @love_page = love_page
   end
 
   def update
@@ -50,11 +52,14 @@ class PostsController < ApplicationController
   end
 
   def love_page
-    #FIXME: wrong way
-    current_user.love_pages.first
+    LovePage.find_by_id(love_page_param[:love_page_id])
   end
 
   def post_params
     params.require(:post).permit(:title, :content, assets_attributes: [:photo])
+  end
+
+  def love_page_param
+    params.permit(:love_page_id)
   end
 end

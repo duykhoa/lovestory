@@ -3,6 +3,9 @@ Polymer({
   properties: {
     pageId: {
       type: String
+    },
+    currentUserId: {
+      type: String
     }
   },
   ready: function() {
@@ -16,7 +19,7 @@ Polymer({
     })
   },
   postShowUrl: function(id) {
-    return "/posts/" + id
+    return "/love_pages/" + this.pageId +"/posts/" + id
   },
   fbImage: function(uid) {
     return "https://graph.facebook.com/" + uid + "/picture"
@@ -25,9 +28,12 @@ Polymer({
     return $.timeago(time)
   },
   editLink: function(id) {
-    return "/posts/" + id + "/edit"
+    return "/love_pages/" + this.pageId +"/posts/" + id + "/edit"
   },
   deleteLink: function(id) {
-    return "/posts/" + id
+    return "/love_pages/" + this.pageId +"/posts/" + id
+  },
+  author: function(item) {
+    return item.user_id == this.currentUserId
   }
 });

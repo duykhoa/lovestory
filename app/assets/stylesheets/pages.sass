@@ -66,28 +66,21 @@ section#header
   .slide
     @extend .owl-carousel
     overflow: hidden
+    position: relative
 
     .slide-wrapper
       background-size: cover
       background-repeat: no-repeat
-
-  #slide1
-    .slide-wrapper
-      background-image: url($asset_url + "slide1.jpg")
-
-  #slide2
-    .slide-wrapper
-      background-image: url($asset_url + "slide2.jpg")
-
-  #slide3
-    .slide-wrapper
-      background-image: url($asset_url + "slide3.jpg")
 
 section#features
   background: #F6F6F6
 
 .valign-wrapper
   height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
 
   .row
     width: 100%

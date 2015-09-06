@@ -19,3 +19,5 @@
   - Move assets to github content
 #1.2.0 - 6, Sep, 2015
   - Fix post routes (should belongs to to a page)
+#1.2.1 - 6, Sep, 2015
+  - Add dependent: :destroy for assets in post model

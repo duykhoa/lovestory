@@ -17,3 +17,5 @@
   - Improve layout for post page (new & edit action `.s12.m8.offset-m2`)
 #1.1.3 - 23, Aug, 2015
   - Move assets to github content
+#1.2.0 - 6, Sep, 2015
+  - Fix post routes (should belongs to to a page)

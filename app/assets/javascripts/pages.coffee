@@ -22,7 +22,7 @@ ready = ->
   $('[data-remodal-id=modal]').remodal()
   $('.button-collapse').sideNav()
 
-  if $('.new-post-push-pin').count > 0
+  if $('.new-post-push-pin').length > 0
     $('.new-post-push-pin').pushpin({ top: $('.new-post-push-pin').offset().top - 85 })
 
   images = [

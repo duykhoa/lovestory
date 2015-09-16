@@ -39,5 +39,16 @@ ready = ->
       $("#preload").addClass("hide")
   )
 
+  $('form#new_asset').submit () ->
+    event.preventDefault()
+    formData = new FormData(document.querySelector("form#new_asset"))
+
+    $.ajax({
+      type: 'post'
+      url: '/assets'
+      data: formData
+      processData: false
+      contentType: false
+    })
 
 $(document).ready(ready)

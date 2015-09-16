@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   def new
     @love_page = love_page
     @post = Post.new
-    @post.assets.build
   end
 
   def create

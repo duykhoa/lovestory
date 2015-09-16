@@ -17,10 +17,27 @@
           <textarea class="text optional materialize-textarea form-control" name="post[content]" id="post_content"></textarea>
         </div>
       </div>
+      <div class="photo-attachments">
+      </div>
       <div class="input-field">
         <input type="submit" name="commit" value="Post" class="btn btn-large">
       </div>
     </form>
+
+    <div class="input-field file-field">
+      <form action="/assets" enctype="multipart/form-data" method="post" name="new_asset">
+        <div class="left">
+          <span class="grey-text grey-lighten-2">
+            <i class="material-icons medium">photo</i>
+          </span>
+          <input type="file" name="asset[photo]" on-change="submitForm">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </form>
+    </div>
+
   </template>
 
   <script src="new-post-form.js"></script>

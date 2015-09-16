@@ -14,10 +14,12 @@ class PostsController < ApplicationController
     @post = love_page.posts.new(post_params.merge(user: current_user))
     @post.save
 
-    photo_ids.each do |photo_id|
-      asset = Asset.find_by_id(photo_id)
-      asset.post_id = @post.id
-      asset.save
+    if params.key?("photo_ids")
+      photo_ids.each do |photo_id|
+        asset = Asset.find_by_id(photo_id)
+        asset.post_id = @post.id
+        asset.save
+      end
     end
 
     redirect_to love_page

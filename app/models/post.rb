@@ -5,4 +5,6 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   has_many :assets, dependent: :destroy
+
+  attr_accessor :photo_ids
 end

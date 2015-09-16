@@ -7,7 +7,7 @@ br
     = f.input :content, input_html: { class: 'materialize-textarea' }
   .input-field
     = f.submit "Post", class: "btn btn-large"
+  .photo-attachments
 .input-field
   = simple_form_for Asset.new do |f1|
     = f1.input :photo, label: false
-    = f1.submit "Save"

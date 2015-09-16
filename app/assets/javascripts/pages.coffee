@@ -39,8 +39,7 @@ ready = ->
       $("#preload").addClass("hide")
   )
 
-  $('form#new_asset').submit () ->
-    event.preventDefault()
+  $('form#new_asset #asset_photo').change () ->
     formData = new FormData(document.querySelector("form#new_asset"))
 
     $.ajax({
@@ -49,6 +48,8 @@ ready = ->
       data: formData
       processData: false
       contentType: false
+      success: (data) ->
+        $(".photo-attachments").append('<input name="photo_ids[]" type="hidden" value=' + data.id + '>')
     })
 
 $(document).ready(ready)

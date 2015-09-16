@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803153534) do
+ActiveRecord::Schema.define(version: 20150916132215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "assets", force: :cascade do |t|
+  create_table "assets", id: :uuid, default: "uuid_generate_v1()", force: :cascade do |t|
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "post_id"
+    t.uuid     "post_id"
   end
 
   create_table "invitations", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|

@@ -1,0 +1,27 @@
+<dom-module id="new-post-form">
+  <link rel="stylesheet" href="new-post-form.css" />
+  <template>
+    <form action$=[[createPostUrl(pageId)]]" method="post" accept-charset="UTF8">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value="[[CSRFToken]]">
+      <div class="input-field">
+        <div class="form-group string optional post_title">
+          <label class="string optional control-label" for="post_title">Title</label>
+          <input class="string optional form-control" type="text" name="post[title]" id="post_title">
+        </div>
+      </div>
+
+      <div class="input-field">
+        <div class="form-group text optional post_content">
+          <label class="text optional control-label" for="post_content">Content</label>
+          <textarea class="text optional materialize-textarea form-control" name="post[content]" id="post_content"></textarea>
+        </div>
+      </div>
+      <div class="input-field">
+        <input type="submit" name="commit" value="Post" class="btn btn-large">
+      </div>
+    </form>
+  </template>
+
+  <script src="new-post-form.js"></script>
+</dom-module>

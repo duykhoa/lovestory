@@ -1,13 +1,14 @@
 h4 Add a new post
 br
-= simple_form_for [@love_page, @post] do |f|
-  .input-field
-    = f.input :title
-  .input-field
-    = f.input :content, input_html: { class: 'materialize-textarea' }
-  .input-field
-    = f.submit "Post", class: "btn btn-large"
-  .photo-attachments
-.input-field
-  = simple_form_for Asset.new do |f1|
-    = f1.input :photo, label: false
+new-post-form(page-id="#{@love_page.id}")
+/= simple_form_for [@love_page, @post] do |f|
+  /.input-field
+    /= f.input :title
+  /.input-field
+    /= f.input :content, input_html: { class: 'materialize-textarea' }
+  /.input-field
+    /= f.submit "Post", class: "btn btn-large"
+  /.photo-attachments
+/.input-field
+  /= simple_form_for Asset.new do |f1|
+    /= f1.input :photo, label: false

@@ -5,6 +5,9 @@ Polymer({
       type: String
     }
   },
+  ready: function() {
+    this.photoIds = [];
+  },
   createPostUrl: function(id) {
     return "/love_pages/" + id + "/posts"
   },
@@ -12,6 +15,7 @@ Polymer({
     $("meta[name=csrf-token]").attr("content")
   },
   submitForm: function() {
+    currentObject = this
     formData = new FormData(document.querySelector("form[name=new_asset]"))
 
     $.ajax({
@@ -21,7 +25,7 @@ Polymer({
       processData: false,
       contentType: false,
       success: function(data) {
-        $(".photo-attachments").append('<input name="photo_ids[]" type="hidden" value=' + data.id + '>')
+        currentObject.photoIds = currentObject.photoIds.concat([data])
       }
     })
   }

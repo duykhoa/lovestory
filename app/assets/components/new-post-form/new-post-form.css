@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+:host ::content .file-field {
+  transform: translate(0, -100%);
+}
+
+:host ::content .submit-button {
+  transform: translate(0, 150%);
+}

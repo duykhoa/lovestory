@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="photo-attachments">
-        <template is="dom-repeat" items="{{photoIds}}">
+        <template is="dom-repeat" items="[[photos]]">
           <input name="photo_ids[]" type="hidden" value$=[[item.id]]>
         </template>
       </div>

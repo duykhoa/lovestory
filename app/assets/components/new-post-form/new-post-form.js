@@ -6,7 +6,7 @@ Polymer({
     }
   },
   ready: function() {
-    this.photoIds = [];
+    this.photos = [];
   },
   createPostUrl: function(id) {
     return "/love_pages/" + id + "/posts"
@@ -25,7 +25,7 @@ Polymer({
       processData: false,
       contentType: false,
       success: function(data) {
-        currentObject.photoIds = currentObject.photoIds.concat([data])
+        currentObject.photos = currentObject.photos.concat([data])
       }
     })
   }

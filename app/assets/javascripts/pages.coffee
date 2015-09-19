@@ -39,5 +39,4 @@ ready = ->
       $("#preload").addClass("hide")
   )
 
-
 $(document).ready(ready)

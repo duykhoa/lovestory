@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :posts, only: %i(new create show edit update destroy)
   end
 
+  resources :assets
+
   resources :invitations, only: [:show]
 
   root to: 'homes#index'

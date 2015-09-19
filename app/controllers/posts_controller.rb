@@ -8,12 +8,19 @@ class PostsController < ApplicationController
   def new
     @love_page = love_page
     @post = Post.new
-    @post.assets.build
   end
 
   def create
     @post = love_page.posts.new(post_params.merge(user: current_user))
     @post.save
+
+    if params.key?("photo_ids")
+      photo_ids.each do |photo_id|
+        asset = Asset.find_by_id(photo_id)
+        asset.post_id = @post.id
+        asset.save
+      end
+    end
 
     redirect_to love_page
   end
@@ -56,7 +63,11 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, assets_attributes: [:photo])
+    params.require(:post).permit(:title, :content)
+  end
+
+  def photo_ids
+    params.require("photo_ids")
   end
 
   def love_page_param

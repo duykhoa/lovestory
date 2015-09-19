@@ -23,3 +23,6 @@
   - Add dependent: :destroy for assets in post model
 #1.3.0 - 6, Sep, 2015
   - Add Preloader effect for homepage
+#1.4.0 - 19, Sep, 2015
+  - Facebook uploading style
+  - Fix problem with UUID for posts and assets

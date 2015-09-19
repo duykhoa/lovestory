@@ -1,0 +1,47 @@
+<dom-module id="new-post-form">
+  <link rel="stylesheet" href="new-post-form.css" />
+  <template>
+    <form action$=[[createPostUrl(pageId)]]" method="post" accept-charset="UTF8">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value="[[CSRFToken]]">
+      <div class="input-field">
+        <div class="form-group string optional post_title">
+          <label class="string optional control-label" for="post_title">Title</label>
+          <input class="string optional form-control" type="text" name="post[title]" id="post_title">
+        </div>
+      </div>
+
+      <div class="input-field">
+        <div class="form-group text optional post_content">
+          <label class="text optional control-label" for="post_content">Content</label>
+          <textarea class="text optional materialize-textarea form-control" name="post[content]" id="post_content"></textarea>
+        </div>
+      </div>
+      <div class="photo-attachments">
+        <template is="dom-repeat" items="[[photos]]">
+          <input name="photo_ids[]" type="hidden" value$=[[item.id]]>
+        </template>
+      </div>
+      <div class="input-field submit-button">
+        <input type="submit" name="commit" value="Post" class="btn btn-large">
+      </div>
+    </form>
+
+    <div class="input-field file-field">
+      <form action="/assets" enctype="multipart/form-data" method="post" name="new_asset">
+        <div class="left">
+          <span class="grey-text grey-lighten-2">
+            <i class="material-icons medium">photo</i>
+          </span>
+          <input type="file" name="asset[photo]" on-change="submitForm">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </form>
+    </div>
+
+  </template>
+
+  <script src="new-post-form.js"></script>
+</dom-module>

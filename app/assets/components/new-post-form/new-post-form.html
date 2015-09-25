@@ -1,7 +1,7 @@
 <dom-module id="new-post-form">
   <link rel="stylesheet" href="new-post-form.css" />
   <template>
-    <form action$=[[createPostUrl(pageId)]]" method="post" accept-charset="UTF8">
+    <form action$=[[createPostUrl(pageId)]]" method="post" accept-charset="UTF8" id="newPostForm">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value="[[CSRFToken]]">
       <div class="input-field">
@@ -22,9 +22,6 @@
           <input name="photo_ids[]" type="hidden" value$=[[item.id]]>
         </template>
       </div>
-      <!--<div class="input-field submit-button">-->
-        <!--<input type="submit" name="commit" value="Post" class="btn btn-large" id="new-post-submit-button">-->
-      <!--</div>-->
     </form>
 
     <div class="photo-attachments">
@@ -48,7 +45,7 @@
           </form>
         </div>
         <div class="col m2">
-          <input type="submit"/ class="btn btn-large">
+          <input type="submit"/ disabled$="[[postDisabled]]" class="btn btn-large" on-click="postSubmitHandle">
         </div>
       </div>
     </div>

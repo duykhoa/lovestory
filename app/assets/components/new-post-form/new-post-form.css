@@ -19,3 +19,7 @@
 :host ::content .asset-input-field {
   position: relative;
 }
+
+:host ::content input.new-post-form {
+  margin-top: 7px;
+}

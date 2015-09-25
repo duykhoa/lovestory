@@ -25,12 +25,15 @@ Polymer({
       processData: false,
       contentType: false,
       beforeSend: function() {
-        $('#new-post-submit-button').addClass("disabled");
+        currentObject.postDisabled = true
       },
       success: function(data) {
-        $('#new-post-submit-button').removeClass("disabled");
+        currentObject.postDisabled = false
         currentObject.photos = currentObject.photos.concat([data])
       }
     })
+  },
+  postSubmitHandle: function() {
+    $("#newPostForm").submit();
   }
 });

@@ -26,3 +26,5 @@
 #1.4.0 - 19, Sep, 2015
   - Facebook uploading style
   - Fix problem with UUID for posts and assets
+#1.5.0 - 25, Sep, 2015
+  - Upload image with effect and thumbnail preview

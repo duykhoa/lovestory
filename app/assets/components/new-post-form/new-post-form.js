@@ -24,9 +24,16 @@ Polymer({
       data: formData,
       processData: false,
       contentType: false,
+      beforeSend: function() {
+        currentObject.postDisabled = true
+      },
       success: function(data) {
+        currentObject.postDisabled = false
         currentObject.photos = currentObject.photos.concat([data])
       }
     })
+  },
+  postSubmitHandle: function() {
+    $("#newPostForm").submit();
   }
 });

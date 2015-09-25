@@ -22,23 +22,35 @@
           <input name="photo_ids[]" type="hidden" value$=[[item.id]]>
         </template>
       </div>
-      <div class="input-field submit-button">
-        <input type="submit" name="commit" value="Post" class="btn btn-large">
-      </div>
+      <!--<div class="input-field submit-button">-->
+        <!--<input type="submit" name="commit" value="Post" class="btn btn-large" id="new-post-submit-button">-->
+      <!--</div>-->
     </form>
 
+    <div class="photo-attachments">
+      <template is="dom-repeat" items="[[photos]]">
+        <div class="image-container">
+          <img src$="[[item.photo_url]]" class="responsive-img thumbnail">
+        </div>
+      </template>
+    </div>
+
     <div class="input-field file-field">
-      <form action="/assets" enctype="multipart/form-data" method="post" name="new_asset">
-        <div class="left">
-          <span class="grey-text grey-lighten-2">
-            <i class="material-icons medium">photo</i>
-          </span>
-          <input type="file" name="asset[photo]" on-change="submitForm">
+      <div class="row">
+        <div class="col m2 offset-m8">
+          <form action="/assets" enctype="multipart/form-data" method="post" name="new_asset">
+            <div class="left asset-input-field">
+              <span class="grey-text grey-lighten-2">
+                <i class="material-icons medium">photo</i>
+              </span>
+              <input type="file" name="asset[photo]" on-change="submitForm">
+            </div>
+          </form>
         </div>
-        <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
+        <div class="col m2">
+          <input type="submit"/ class="btn btn-large">
         </div>
-      </form>
+      </div>
     </div>
 
   </template>

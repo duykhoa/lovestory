@@ -2,10 +2,20 @@
   display: block;
 }
 
-:host ::content .file-field {
-  transform: translate(0, -100%);
+:host ::content .image-container {
+  width: 100%;
 }
 
-:host ::content .submit-button {
-  transform: translate(0, 150%);
+:host ::content .image-container {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-left: 3px;
+}
+
+:host ::content .asset-input-field {
+  position: relative;
 }

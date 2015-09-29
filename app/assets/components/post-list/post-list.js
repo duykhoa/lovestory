@@ -6,6 +6,9 @@ Polymer({
     },
     currentUserId: {
       type: String
+    },
+    data: {
+      observer: "_dataChanged"
     }
   },
   ready: function() {
@@ -18,9 +21,11 @@ Polymer({
       }
     })
 
+  },
+  _dataChanged: function() {
     setTimeout(function() {
       $('article').linkify(null);
-    }, 200)
+    }, 300)
   },
   postShowUrl: function(id) {
     return "/love_pages/" + this.pageId +"/posts/" + id

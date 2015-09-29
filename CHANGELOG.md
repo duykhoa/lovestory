@@ -30,3 +30,5 @@
   - Upload image with effect and thumbnail preview
 #1.5.1 - 29, Sep, 2015
   - Convert link to <a> tag using a setTimeout function
+#1.5.2 - 29, Sep, 2015
+  - Add AssetsCleaning to remove unused assets

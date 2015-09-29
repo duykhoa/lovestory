@@ -28,3 +28,5 @@
   - Fix problem with UUID for posts and assets
 #1.5.0 - 25, Sep, 2015
   - Upload image with effect and thumbnail preview
+#1.5.1 - 29, Sep, 2015
+  - Convert link to <a> tag using a setTimeout function

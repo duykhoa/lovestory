@@ -17,6 +17,10 @@ Polymer({
         $(".preloader-wrapper").addClass("hide");
       }
     })
+
+    setTimeout(function() {
+      $('article').linkify(null);
+    }, 200)
   },
   postShowUrl: function(id) {
     return "/love_pages/" + this.pageId +"/posts/" + id

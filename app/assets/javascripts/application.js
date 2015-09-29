@@ -21,3 +21,5 @@
 //= require jquery.timeago
 //= require clipboard
 //= require jquery.preload.min
+//= require linkify.min
+//= require linkify-jquery.min

@@ -1,9 +1,9 @@
 <dom-module id="love-pages">
   <link rel="stylesheet" href="love-pages.css" />
   <template>
-    <div class="container">
-      <div class="main-content">
-        <section>
+    <div class="main-content">
+      <div class="row">
+        <div class="col m10 offset-m1">
           <div class="page-header">
             <h5 class="pink-text">
               <i class="material-icons md">list</i>
@@ -13,49 +13,35 @@
               This is the list of your love pages
             </div>
           </div>
-          <div class="row top-20">
-            <table class="responsive-table highlight">
-              <thead>
-                <th>
-                  Collaborators
-                </th>
-                <th>
-                  Page name
-                </th>
-                <th>
-                  Created at
-                </th>
-                <th>
-                  Post Count
-                </th>
-                <th>
-                  Action
-                </th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <img src="https://graph.facebook.com/518031188/picture" class="responsive circle" />
-                  </td>
-                  <td>
-                    Tittle
-                  </td>
-                  <td>
-                    Tittle
-                  </td>
-                  <td>
-                    Tittle
-                  </td>
-                  <td>
-                    <a href="" class="waves-effect waves-teal btn btn-link transparent tooltipped" data-delay="50" data-tooltip="Leave this page" data-position="top">
-                      <i class="material-icons red-text">input</i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="top-20">
+            <div class="table">
+              <div class="row header">
+                <div class="col s4">Collaborators</div>
+                <div class="col s3">Page name</div>
+                <div class="col s2">Created at</div>
+                <div class="col s1">Posts</div>
+                <div class="col s2">Action</div>
+              </div>
+              <div class="table-content">
+                <template is="dom-repeat" items="{{lovePages}}">
+                  <div class="row table-row">
+                    <div class="col s4">
+                      <img src="https://graph.facebook.com/518031188/picture" class="responsive circle" />
+                    </div>
+                    <div class="col s3 cell">Title</div>
+                    <div class="col s2 cell">[[timeAgoValue(item.created_at)]]</div>
+                    <div class="col s1 cell">[[item.post_count]]</div>
+                    <div class="col s2 cell">
+                      <a href="" class="waves-effect waves-teal btn btn-link transparent tooltipped" data-delay="50" data-tooltip="Leave this page" data-position="top">
+                        <i class="material-icons red-text">input</i>
+                      </a>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </template>

@@ -2,9 +2,6 @@
   display: block;
 }
 
-:host ::content section {
-  margin-top: 30px;
-}
 
 :host ::content .top-20 {
   margin-top: 20px;
@@ -18,24 +15,35 @@
   vertical-align: bottom;
 }
 
-:host ::content thead {
-  text-transform: uppercase;
-}
-
-:host ::content tr {
-  transition: all 0.23s ease-in-out;
-}
-
-:host ::content tbody tr:hover {
-  background: #eee;
-}
-
 :host ::content .btn {
   width: 40px;
   height: 40px;
   line-height: 40px;
   padding: 0;
   border-radius: 100%;
+}
+
+:host ::content .header {
+  text-transform: uppercase;
+  font-height: 500;
+}
+
+:host ::content .table-content {
+  border-top: 1px solid #D0D0D0;
+  overflow: hidden;
+}
+
+:host ::content .table-row {
+  transition: 0.25s ease;
+  padding: 4px;
+}
+
+:host ::content .table-row:hover {
+  background: #F2F2F2;
+}
+
+:host ::content .cell {
+  line-height: 40px;
 }
 
 :host ::content .btn-link {

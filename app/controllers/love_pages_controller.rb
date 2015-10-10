@@ -5,7 +5,10 @@ class LovePagesController < ApplicationController
   before_action :set_love_page, only: [:show]
 
   def index
-    @love_pages = current_user.love_pages
+    respond_to do |format|
+      format.html
+      format.json { render json: current_user.love_pages }
+    end
   end
 
   def facebook

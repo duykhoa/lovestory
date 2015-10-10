@@ -34,9 +34,16 @@
                     <div class="col s2 cell">[[timeAgoValue(item.created_at)]]</div>
                     <div class="col s1 cell">[[item.post_count]]</div>
                     <div class="col s2 cell">
-                      <a href="" class="waves-effect waves-teal btn btn-link transparent tooltipped" data-delay="50" data-tooltip="Leave this page" data-position="top">
-                        <i class="material-icons red-text">input</i>
+                      <a href="#" class="waves-effect waves-red dropdown-button btn btn-link transparent" data-activates$="[[dropDownID(item.id)]]">
+                        <i class="material-icons red-text">more_vert</i>
                       </a>
+
+                      <ul id="[[dropDownID(item.id)]]" class='dropdown-content'>
+                        <li><a href="#!">one</a></li>
+                        <li><a href="#!">two</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">three</a></li>
+                      </ul>
                     </div>
                   </div>
                 </template>

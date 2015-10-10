@@ -14,5 +14,8 @@ Polymer({
   },
   fbImageUrl: function(uid) {
     return "https://graph.facebook.com/" + uid + "/picture"
+  },
+  dropDownID: function(id) {
+    return "dropdown-menu-" + id;
   }
 });

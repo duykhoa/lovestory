@@ -2,11 +2,31 @@
   display: block;
 }
 
-:host ::content tr:hover {
+:host ::content section {
+  margin-top: 30px;
+}
+
+:host ::content .top-20 {
+  margin-top: 20px;
+}
+
+:host ::content .lead {
+  opacity: 0.7;
+}
+
+:host ::content .md {
+  vertical-align: bottom;
+}
+
+:host ::content thead {
+  text-transform: uppercase;
+}
+
+:host ::content tr {
   transition: all 0.23s ease-in-out;
 }
 
-:host ::content tr:hover {
+:host ::content tbody tr:hover {
   background: #eee;
 }
 

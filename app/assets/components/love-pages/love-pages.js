@@ -5,12 +5,14 @@ Polymer({
     $.ajax({
       url: "/love_pages.json",
       success: function(lovePages) {
-        console.log(lovePages.love_pages[0]);
         currentObject.lovePages = lovePages.love_pages
       }
     })
   },
   timeAgoValue: function(time) {
     return $.timeago(time);
+  },
+  fbImageUrl: function(uid) {
+    return "https://graph.facebook.com/" + uid + "/picture"
   }
 });

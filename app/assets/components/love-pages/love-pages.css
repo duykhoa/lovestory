@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+:host ::content tr:hover {
+  transition: all 0.23s ease-in-out;
+}
+
+:host ::content tr:hover {
+  background: #eee;
+}
+
+:host ::content .btn {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  border-radius: 100%;
+}
+
+:host ::content .btn-link {
+  box-shadow: none;
+}
+
+:host ::content .btn-link:hover {
+  background: #333;
+}

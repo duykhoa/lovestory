@@ -6,8 +6,11 @@ Polymer({
       url: "/love_pages.json",
       success: function(lovePages) {
         currentObject.lovePages = lovePages.love_pages
+        setTimeout(function(){
+          $('.dropdown-button').dropdown();
+        }, 100);
       }
-    })
+    });
   },
   timeAgoValue: function(time) {
     return $.timeago(time);

@@ -8,6 +8,7 @@ Polymer({
         currentObject.lovePages = lovePages.love_pages
         setTimeout(function(){
           $('.dropdown-button').dropdown();
+          $('.modal-trigger').leanModal();
         }, 100);
       }
     });

@@ -32,6 +32,9 @@ class LovePagesController < ApplicationController
     end
   end
 
+  def update
+  end
+
   private
 
   def invitation_id

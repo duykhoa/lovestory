@@ -34,7 +34,7 @@ class LovePagesController < ApplicationController
 
   def update
     @love_page.update(love_page_update_params)
-    render nothing: true, status: 200
+    head 200
   end
 
   private

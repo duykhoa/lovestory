@@ -74,4 +74,17 @@ describe LovePagesController do
       expect(response.status).to eq 200
     end
   end
+
+  describe "PUT update" do
+    let(:user) { create(:user) }
+    let(:love_page) { create(:love_page, user: user) }
+    before { sign_in user }
+
+    it "returns success status" do
+      put :update, id: love_page.id, love_page: { title: "A" }
+
+      expect(response.status).to eq 200
+      expect(love_page.reload.title).to eq "A"
+    end
+  end
 end

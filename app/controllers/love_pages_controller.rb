@@ -2,7 +2,7 @@ class LovePagesController < ApplicationController
   before_action :set_user, only: [:facebook]
   before_action :authenticate_user!, except: [:facebook]
 
-  before_action :set_love_page, only: [:show]
+  before_action :set_love_page, only: [:show, :update]
 
   def index
     respond_to do |format|
@@ -33,9 +33,15 @@ class LovePagesController < ApplicationController
   end
 
   def update
+    @love_page.update(love_page_update_params)
+    render nothing: true, status: 200
   end
 
   private
+
+  def love_page_update_params
+    params.require(:love_page).permit(:title)
+  end
 
   def invitation_id
     cookies["invitation_id"]

@@ -24,37 +24,7 @@
               </div>
               <div class="table-content">
                 <template is="dom-repeat" items="{{lovePages}}">
-                  <div class="row table-row">
-                    <div class="col s4">
-                      <template is="dom-repeat" items="{{item.users}}" as="user">
-                        <img src$="[[fbImageUrl(user.uid)]]" class="responsive circle" />
-                      </template>
-                    </div>
-                    <div class="col s3 cell">Title</div>
-                    <div class="col s2 cell">[[timeAgoValue(item.created_at)]]</div>
-                    <div class="col s1 cell">[[item.post_count]]</div>
-                    <div class="col s2 cell">
-                      <a href="#" class="waves-effect waves-red dropdown-button btn btn-link transparent" data-activates$="[[dropDownID(item.id)]]" data-constrainwidth=false>
-                        <i class="material-icons red-text">more_vert</i>
-                      </a>
-
-                      <ul id="[[dropDownID(item.id)]]" class="dropdown-content">
-                        <li><a href="#modal1" class="modal-trigger">Change Title</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Leave page</a></li>
-                      </ul>
-                    </div>
-
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                          <h4>Modal Header</h4>
-                          <p>A bunch of text</p>
-                        </div>
-                        <div class="modal-footer">
-                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                        </div>
-                      </div>
-                  </div>
+                  <love-page-row data="[[item]]"/>
                 </template>
               </div>
             </div>

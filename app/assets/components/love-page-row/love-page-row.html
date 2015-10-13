@@ -1,0 +1,50 @@
+<dom-module id="love-page-row">
+  <link rel="stylesheet" href="love-page-row.css" />
+  <template>
+    <div class="row table-row">
+      <div class="col s4">
+        <template is="dom-repeat" items="{{data.users}}" as="user">
+          <img src$="[[fbImageUrl(user.uid)]]" class="responsive circle" />
+        </template>
+      </div>
+      <div class="col s3 cell">
+        <template is="dom-if" if="[[editMode]]">
+          <form>
+            <input type="text" name="title">
+            <input type="submit" value="Save">
+          </form>
+        </template>
+
+        <template is="dom-if" if="[[!editMode]]">
+          <span>{{data.title}}</span>
+          <a
+            href="#"
+            class="waves-effect btn btn-link transparent"
+            on-click="toggleEditMode"
+          >
+            <i class="material-icons grey-text">edit</i>
+          </a>
+
+        </template>
+        <span class="form"></span>
+      </div>
+      <div class="col s2 cell">[[timeAgoValue(data.created_at)]]</div>
+      <div class="col s1 cell">[[data.post_count]]</div>
+      <div class="col s2 cell">
+        <a href="#"
+          class="waves-effect waves-red dropdown-button btn btn-link transparent"
+          data-activates$="[[dropDownID(data.id)]]"
+          data-constrainwidth=false
+        >
+          <i class="material-icons red-text">more_vert</i>
+        </a>
+
+        <ul id="[[dropDownID(data.id)]]" class="dropdown-content">
+          <li><a href="#">Leave page</a></li>
+        </ul>
+      </div>
+    </div>
+  </template>
+
+  <script src="love-page-row.js"></script>
+</dom-module>

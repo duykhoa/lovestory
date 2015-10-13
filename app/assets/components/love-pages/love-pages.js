@@ -6,20 +6,7 @@ Polymer({
       url: "/love_pages.json",
       success: function(lovePages) {
         currentObject.lovePages = lovePages.love_pages
-        setTimeout(function(){
-          $('.dropdown-button').dropdown();
-          $('.modal-trigger').leanModal();
-        }, 100);
       }
     });
-  },
-  timeAgoValue: function(time) {
-    return $.timeago(time);
-  },
-  fbImageUrl: function(uid) {
-    return "https://graph.facebook.com/" + uid + "/picture"
-  },
-  dropDownID: function(id) {
-    return "dropdown-menu-" + id;
   }
 });

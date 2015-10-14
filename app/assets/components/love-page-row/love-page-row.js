@@ -12,8 +12,9 @@ Polymer({
     }, 100);
   },
   updateTitleFormSubmit: function(e) {
+    currentObject = this;
     e.preventDefault();
-    form = document.getElementById("update-title-form");
+    form = e.target;
     fd = new FormData(form);
 
     $.ajax ({
@@ -23,7 +24,7 @@ Polymer({
       processData: false,
       contentType: false,
       success: function() {
-        console.log("good job");
+        currentObject.editMode = false;
       }
     })
   },

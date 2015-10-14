@@ -14,12 +14,12 @@
             <input type="hidden" name="authenticity_token" value$="[[CSRFToken()]]">
             <input name="_method" type="hidden" value="patch" />
 
-            <input type="text" name="love_page[title]" value$="[[data.title]]">
+            <input type="text" name="love_page[title]" value="{{data.title::input}}">
           </form>
         </template>
 
         <template is="dom-if" if="[[!editMode]]">
-          <span>{{data.title}}</span>
+          <span>[[data.title]]</span>
           <a
             href="#"
             class="waves-effect btn btn-custom btn-link transparent"
@@ -27,9 +27,8 @@
           >
             <i class="material-icons grey-text">edit</i>
           </a>
-
         </template>
-        <span class="form"></span>
+
       </div>
       <div class="col s2 cell">[[timeAgoValue(data.created_at)]]</div>
       <div class="col s1 cell">[[data.post_count]]</div>

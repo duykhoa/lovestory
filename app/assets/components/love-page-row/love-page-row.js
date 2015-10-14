@@ -7,9 +7,9 @@ Polymer({
   },
   ready: function() {
     this.editMode = false;
-    setTimeout(function(){
-      $('.dropdown-button').dropdown();
-    }, 100);
+    this.async(function() {
+      $('.dropdown-button').dropdown()
+    });
   },
   updateTitleFormSubmit: function(e) {
     currentObject = this;

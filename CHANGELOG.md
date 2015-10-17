@@ -32,3 +32,5 @@
   - Convert link to <a> tag using a setTimeout function
 #1.5.2 - 29, Sep, 2015
   - Add AssetsCleaning to remove unused assets
+#1.6.0 - 17, Oct, 2015
+  - My Lovepage basic settings

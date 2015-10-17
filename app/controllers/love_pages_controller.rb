@@ -52,7 +52,7 @@ class LovePagesController < ApplicationController
   end
 
   def set_love_page
-    @love_page = current_user.love_pages.find params[:id]
+    @love_page = current_user.love_pages.friendly.find params[:id]
   end
 
   def recent_posts

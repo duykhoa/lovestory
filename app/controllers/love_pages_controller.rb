@@ -33,7 +33,7 @@ class LovePagesController < ApplicationController
   end
 
   def update
-    @love_page.update(love_page_update_params)
+    @love_page.update(love_page_update_params.merge(slug: nil))
     head 200
   end
 

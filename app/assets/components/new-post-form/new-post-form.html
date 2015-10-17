@@ -1,7 +1,7 @@
 <dom-module id="new-post-form">
   <link rel="stylesheet" href="new-post-form.css" />
   <template>
-    <form action$=[[createPostUrl(pageId)]]" method="post" accept-charset="UTF8" id="newPostForm">
+    <form action$="[[createPostUrl(pageId)]]" method="post" accept-charset="UTF8" id="newPostForm">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value="[[CSRFToken]]">
       <div class="input-field">

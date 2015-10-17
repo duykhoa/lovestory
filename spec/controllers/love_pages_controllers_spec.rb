@@ -3,16 +3,22 @@ require "rails_helper"
 describe LovePagesController do
   describe "GET index" do
     let!(:user) { create(:user) }
+    let!(:love_page) { create(:love_page, user: user) }
 
     before do
       sign_in user
-      get :index
     end
 
     it "renders index template" do
+      get :index
       expect(response.status).to eq 200
       expect(response).to render_template("index")
-      expect(assigns(:love_pages)).to eq user.love_pages
+    end
+
+    it "renders index template" do
+      get :index, format: :json
+      expect(response.status).to eq 200
+      expect(JSON.parse(response.body)['love_pages'].length).to eq 1
     end
   end
 
@@ -66,6 +72,19 @@ describe LovePagesController do
     it "redirects to show page" do
       get :show, id: user.love_pages.first.id
       expect(response.status).to eq 200
+    end
+  end
+
+  describe "PUT update" do
+    let(:user) { create(:user) }
+    let(:love_page) { create(:love_page, user: user) }
+    before { sign_in user }
+
+    it "returns success status" do
+      put :update, id: love_page.id, love_page: { title: "A" }
+
+      expect(response.status).to eq 200
+      expect(love_page.reload.title).to eq "A"
     end
   end
 end

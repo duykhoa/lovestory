@@ -2,10 +2,13 @@ class LovePagesController < ApplicationController
   before_action :set_user, only: [:facebook]
   before_action :authenticate_user!, except: [:facebook]
 
-  before_action :set_love_page, only: [:show]
+  before_action :set_love_page, only: [:show, :update]
 
   def index
-    @love_pages = current_user.love_pages
+    respond_to do |format|
+      format.html
+      format.json { render json: current_user.love_pages }
+    end
   end
 
   def facebook
@@ -29,7 +32,16 @@ class LovePagesController < ApplicationController
     end
   end
 
+  def update
+    @love_page.update(love_page_update_params.merge(slug: nil))
+    head 200
+  end
+
   private
+
+  def love_page_update_params
+    params.require(:love_page).permit(:title)
+  end
 
   def invitation_id
     cookies["invitation_id"]
@@ -40,7 +52,7 @@ class LovePagesController < ApplicationController
   end
 
   def set_love_page
-    @love_page = current_user.love_pages.find params[:id]
+    @love_page = current_user.love_pages.friendly.find params[:id]
   end
 
   def recent_posts

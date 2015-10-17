@@ -39,4 +39,5 @@ ready = ->
       $("#preload").addClass("hide")
   )
 
+  $("#my-page .button-collapse").sideNav()
 $(document).ready(ready)

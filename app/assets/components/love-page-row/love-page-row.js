@@ -46,4 +46,7 @@ Polymer({
   updateTitleUrl: function() {
     return "/love_pages/" + this.data.id;
   },
+  showPageUrl: function(id) {
+    return "/love_pages/" + id;
+  }
 });

@@ -2,12 +2,12 @@
   <link rel="stylesheet" href="love-page-row.css" />
   <template>
     <div class="row table-row">
-      <div class="col s4">
+      <div class="col s3">
         <template is="dom-repeat" items="{{data.users}}" as="user">
           <img src$="[[fbImageUrl(user.uid)]]" class="responsive circle" />
         </template>
       </div>
-      <div class="col s3 cell">
+      <div class="col s4 cell">
         <template is="dom-if" if="[[editMode]]">
           <form action$="[[updateTitleUrl()]]" method="post" accept-charset="UTF8" on-submit="updateTitleFormSubmit" id="update-title-form">
             <input name="utf8" type="hidden" value="✓">

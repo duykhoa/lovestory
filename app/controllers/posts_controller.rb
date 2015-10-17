@@ -59,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def love_page
-    LovePage.find_by_id(love_page_param[:love_page_id])
+    LovePage.friendly.find(love_page_param[:love_page_id])
   end
 
   def post_params

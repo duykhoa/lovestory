@@ -34,3 +34,5 @@
   - Add AssetsCleaning to remove unused assets
 #1.6.0 - 17, Oct, 2015
   - My Lovepage basic settings
+#1.6.2 - 17, Oct, 2015
+  - Small bug fixed

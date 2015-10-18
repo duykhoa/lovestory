@@ -36,3 +36,5 @@
   - My Lovepage basic settings
 #1.6.2 - 17, Oct, 2015
   - Small bug fixed
+#1.6.3 - 18, Oct, 2015
+  - Prevent login render devise form, redirect to homepage instead

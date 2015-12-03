@@ -1,0 +1,19 @@
+{
+  "name": "lovestory",
+  "homepage": "https://github.com/duykhoa/lovestory",
+  "authors": [
+    "Duy Khoa <duykhoa12t@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}

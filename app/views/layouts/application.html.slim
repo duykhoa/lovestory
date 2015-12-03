@@ -5,7 +5,6 @@ html
     title
       = content_for?(:title) ? yield(:title) : 'Lovestory'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Lovestory'}"
-    = html_import_tag "application"
     == csrf_meta_tags
   body
     main[role="main"]

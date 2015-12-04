@@ -1,8 +1,96 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../components/custom-style.html">
+
+
 <dom-module id="ls-home">
+  <style>
+    paper-scroll-header-panel {
+      height: 100%;
+    }
+
+    :host ::content .paper-header {
+      height: 300px;
+      max-height: 30%;
+    }
+
+    :host ::content img {
+      display: block;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 800px;
+    }
+
+    :host ::content .image-wrapper {
+      overflow: hidden;
+      height: 400px;
+      position: relative;
+      max-height: 70%;
+    }
+
+    :host {
+      display: block;
+      height: 100%;
+      @apply(--paper-font-body1);
+    }
+
+    :host ::content paper-toolbar {
+      --paper-toolbar-background: var(--google-green-300);
+    }
+
+  </style>
   <template>
-    yeah
+    <paper-scroll-header-panel fixed class="flex">
+      <paper-toolbar>
+        <div>Hello world</div>
+      </paper-toolbar>
+
+      <div class="image-wrapper">
+        <img src="https://raw.githubusercontent.com/duykhoa/lovestory-assets/master/slide2.jpg" alt="Home">
+      </div>
+
+      <div class="content">
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+				<p>12131</p>
+      </div>
+    </paper-scroll-header-panel>
   </template>
 
   <script>

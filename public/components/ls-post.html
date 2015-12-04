@@ -1,0 +1,24 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="ls-post">
+  <style></style>
+
+  <template>
+    <div class="container">
+      <paper-card heading="[[item.title]]" elevation="2" class="flex self-center">
+        <div class="card-content">[[item.content]]</div>
+      </paper-card>
+    <div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: "ls-post",
+    properties: {
+      item: Object
+    }
+  })
+</script>
+

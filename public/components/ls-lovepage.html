@@ -12,6 +12,8 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/iron-list/iron-list.html">
 
+<link rel="import" href="../components/ls-post.html">
+
 <dom-module id="ls-lovepage">
   <style>
     :host ::content iron-list {
@@ -21,6 +23,18 @@
       -webkit-flex: 1 1;
       flex: 1 1;
     }
+
+    :host ::content #items {
+      width: 100%;
+    }
+
+    :host ::content .container {
+      width: 100%;
+    }
+
+    :host ::content paper-card {
+      width: 80%;
+    }
   </style>
 
   <template>
@@ -29,6 +43,7 @@
 
       <iron-list items="[[data]]" as="item" class="layout vertical center-center">
         <template>
+          <ls-post item="[[item]]"></ls-post>
         </template>
       </iron-list>
   </template>

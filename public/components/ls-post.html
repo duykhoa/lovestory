@@ -1,10 +1,23 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
 <dom-module id="ls-post">
-  <style></style>
+  <style>
+    :host {
+      @apply(--paper-font-body1);
+    }
+
+    :host ::content .container {
+      width: 100%;
+    }
+
+    :host ::content paper-card {
+      width: 60%;
+      border-radius: 0;
+    }
+  </style>
 
   <template>
-    <div class="container">
+    <div class="container layout vertical center-center">
       <paper-card heading="[[item.title]]" elevation="2" class="flex self-center">
         <div class="card-content">[[item.content]]</div>
       </paper-card>

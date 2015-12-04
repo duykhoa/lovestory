@@ -1,11 +1,14 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+<link rel="import" href="../bower_components/paper-materials/paper-materials.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+
 <link rel="import" href="../components/custom-style.html">
 
 
@@ -31,7 +34,7 @@
 
     :host ::content .image-wrapper {
       overflow: hidden;
-      height: 400px;
+      height: 500px;
       position: relative;
       max-height: 70%;
     }
@@ -46,49 +49,44 @@
       --paper-toolbar-background: var(--google-green-300);
     }
 
+    :host ::content .header-action-link {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      bottom: 50px;
+    }
+
+    :host ::content paper-button {
+      background: var(--google-green-300);
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    :host ::content .content {
+      height: 300px;
+    }
+
   </style>
   <template>
     <paper-scroll-header-panel fixed class="flex">
       <paper-toolbar>
-        <div>Hello world</div>
+        <div class="title">Love Story</div>
+        <div><a href="/users/auth/facebook">Login</a></div>
       </paper-toolbar>
 
       <div class="image-wrapper">
         <img src="https://raw.githubusercontent.com/duykhoa/lovestory-assets/master/slide2.jpg" alt="Home">
+
+        <a href="/users/auth/facebook" class="header-action-link">
+          <paper-button raised>Keep memories now</paper-button>
+        </a>
       </div>
 
-      <div class="content">
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
-				<p>12131</p>
+      <div class="content layout vertical center around-justified">
+        <h1 class="self-center">
+          <p>Welcome to lovestory</p>
+          <p>Design for couples</p>
+        </h1>
       </div>
     </paper-scroll-header-panel>
   </template>

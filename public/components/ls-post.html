@@ -14,12 +14,26 @@
       width: 60%;
       border-radius: 0;
     }
+
+    :host ::content .card-content {
+      padding: 16px 0;
+    }
+
+    :host ::content .wrapper {
+      padding: 0 10px;
+    }
   </style>
 
   <template>
-    <div class="container layout vertical center-center">
-      <paper-card heading="[[item.title]]" elevation="2" class="flex self-center">
-        <div class="card-content">[[item.content]]</div>
+    <div class="container layout vertical center">
+      <paper-card heading="[[item.title]]" elevation="2" class="flex">
+        <div class="card-content">
+          <div class="wrapper">[[item.content]]</div>
+        </div>
+        <div class="card-actions">
+          <paper-button>Edit</paper-button>
+          <paper-button>Delete</paper-button>
+        </div>
       </paper-card>
     <div>
   </template>

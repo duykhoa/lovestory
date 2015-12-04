@@ -1,24 +1,54 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
-<link rel="import" href="../bower_components/paper-materials/paper-materials.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-list/iron-list.html">
 
 <dom-module id="ls-lovepage">
   <style>
+    :host ::content iron-list {
+      --iron-list-items-container: {
+        max-width: 800px;
+        margin: auto;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-bottom: 1px solid #ddd;
+      };
+      display: flex;
+      padding-top: 1px;
+      padding-bottom: 16px;
+      -webkit-flex: 1 1;
+      flex: 1 1;
+
+    }
   </style>
 
   <template>
-    <h1>H111</h1>
+      <iron-ajax url="[[url]]" last-response="{{data}}" auto>
+      </iron-ajax>
+
+      <div class="flex horizontal layout">
+        <iron-list items="[[data]]" as="item">
+          <template>
+            <span>[[item.title]]</span>
+            <div>[[item.content]]</div>
+          </template>
+        </iron-list>
+      </div>
   </template>
 
   <script>
     Polymer({
-      is: 'ls-lovepage'
+      is: 'ls-lovepage',
+      properties: {
+        url: String
+      }
     })
   </script>
 </dom-module>

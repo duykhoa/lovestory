@@ -5,6 +5,8 @@
 <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
@@ -13,19 +15,11 @@
 <dom-module id="ls-lovepage">
   <style>
     :host ::content iron-list {
-      --iron-list-items-container: {
-        max-width: 800px;
-        margin: auto;
-        margin-top: 60px;
-        margin-bottom: 60px;
-        border-bottom: 1px solid #ddd;
-      };
       display: flex;
       padding-top: 1px;
       padding-bottom: 16px;
       -webkit-flex: 1 1;
       flex: 1 1;
-
     }
   </style>
 
@@ -33,14 +27,10 @@
       <iron-ajax url="[[url]]" last-response="{{data}}" auto>
       </iron-ajax>
 
-      <div class="flex horizontal layout">
-        <iron-list items="[[data]]" as="item">
-          <template>
-            <span>[[item.title]]</span>
-            <div>[[item.content]]</div>
-          </template>
-        </iron-list>
-      </div>
+      <iron-list items="[[data]]" as="item" class="layout vertical center-center">
+        <template>
+        </template>
+      </iron-list>
   </template>
 
   <script>

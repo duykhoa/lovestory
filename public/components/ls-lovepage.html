@@ -22,23 +22,23 @@
       padding-bottom: 16px;
       -webkit-flex: 1 1;
       flex: 1 1;
+      width: 100%;
     }
 
     :host ::content #items {
       width: 100%;
     }
-
   </style>
 
   <template>
-      <iron-ajax url="[[url]]" last-response="{{data}}" auto>
-      </iron-ajax>
+    <iron-ajax url="[[url]]" last-response="{{data}}" auto>
+    </iron-ajax>
 
-      <iron-list items="[[data]]" as="item" class="layout vertical center-center">
-        <template>
-          <ls-post item="[[item]]"></ls-post>
-        </template>
-      </iron-list>
+    <iron-list items="[[data]]" as="item" class="layout vertical center">
+      <template>
+        <ls-post item="[[item]]"></ls-post>
+      </template>
+    </iron-list>
   </template>
 
   <script>

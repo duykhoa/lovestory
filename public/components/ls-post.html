@@ -7,12 +7,12 @@
     }
 
     :host ::content .container {
-      width: 100%;
+      width: 60%;
     }
 
     :host ::content paper-card {
-      width: 60%;
-      border-radius: 0;
+      margin-bottom: 15px;
+      width: 100%;
     }
 
     :host ::content .card-content {
@@ -25,17 +25,19 @@
   </style>
 
   <template>
-    <div class="container layout vertical center">
-      <paper-card heading="[[item.title]]" elevation="2" class="flex">
-        <div class="card-content">
-          <div class="wrapper">[[item.content]]</div>
-        </div>
-        <div class="card-actions">
-          <paper-button>Edit</paper-button>
-          <paper-button>Delete</paper-button>
-        </div>
-      </paper-card>
-    <div>
+    <div class="vertical layout center">
+      <div class="container">
+        <paper-card heading="[[item.title]]" elevation="2" class="flex">
+          <div class="card-content">
+            <div class="wrapper">[[item.content]]</div>
+          </div>
+          <div class="card-actions">
+            <paper-button>Edit</paper-button>
+            <paper-button>Delete</paper-button>
+          </div>
+        </paper-card>
+      <div>
+    </div>
   </template>
 
 </dom-module>

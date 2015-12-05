@@ -13,6 +13,7 @@
 <link rel="import" href="../bower_components/iron-list/iron-list.html">
 
 <link rel="import" href="../components/ls-post.html">
+<link rel="import" href="../components/ls-show.html">
 
 <dom-module id="ls-lovepage">
   <style>
@@ -31,14 +32,7 @@
   </style>
 
   <template>
-    <iron-ajax url="[[url]]" last-response="{{data}}" auto>
-    </iron-ajax>
-
-    <iron-list items="[[data]]" as="item" class="layout vertical center">
-      <template>
-        <ls-post item="[[item]]"></ls-post>
-      </template>
-    </iron-list>
+    <ls-show url="[[url]]"></ls-show>
   </template>
 
   <script>

@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="ls-show">
+  <template>
+    <style>
+    </style>
+
+    <iron-ajax url="[[url]]" last-response="{{data}}" auto>
+    </iron-ajax>
+
+    <iron-list items="[[data]]" as="item" class="layout vertical center">
+      <template>
+        <ls-post item="[[item]]"></ls-post>
+      </template>
+    </iron-list>
+  </template>
+
+  <script>
+    Polymer({
+      is: "ls-show",
+      properties: {
+        url: String
+      }
+    })
+  </script>
+</dom-module>

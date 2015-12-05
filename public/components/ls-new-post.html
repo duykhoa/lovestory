@@ -2,11 +2,33 @@
 
 <dom-module id="ls-new-post">
   <style>
+    :host ::content paper-fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
   </style>
 
   <template>
-    <form action="[[post_url]]" is="iron-form">
-    </form>
+    <paper-fab icon="add" on-tap="toggleDialog"></paper-fab>
+
+    <paper-dialog
+      with-backdrop
+      opened="{{enabled}}"
+      entry-animation="scale-up-animation"
+      exit-animation="fade-out-animation"
+    >
+      <paper-dialog-scrollable>
+        <h2>What's in your mind?</h2>
+
+        <form action="[[post_url]]" is="iron-form" method="post">
+          <paper-input name="post[title]"></paper-input>
+        </form>
+
+        <div class="buttons">
+        </div>
+      </paper-dialog-scrollable>
+    </paper-dialog>
   </template>
 
   <script>
@@ -16,11 +38,18 @@
         url: String,
         post_url: {
           type: String,
-          compute: "_postURL"
+          computed: "postURL(url)"
+        },
+        enable: {
+          type: Boolean,
+          value: false
         }
       },
-      _postURL: function() {
-        return this.url
+      postURL: function(url) {
+        return url + "/posts";
+      },
+      toggleDialog: function() {
+        this.enabled = !this.enabled;
       }
     })
   </script>

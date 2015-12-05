@@ -1,0 +1,27 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="ls-new-post">
+  <style>
+  </style>
+
+  <template>
+    <form action="[[post_url]]" is="iron-form">
+    </form>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'ls-new-post',
+      properties: {
+        url: String,
+        post_url: {
+          type: String,
+          compute: "_postURL"
+        }
+      },
+      _postURL: function() {
+        return this.url
+      }
+    })
+  </script>
+</dom-module>

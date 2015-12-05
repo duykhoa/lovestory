@@ -12,9 +12,11 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
 
 <link rel="import" href="../components/ls-post.html">
 <link rel="import" href="../components/ls-show.html">
+<link rel="import" href="../components/ls-new-post.html">
 
 <dom-module id="ls-lovepage">
   <style>
@@ -41,6 +43,7 @@
   <template>
     <ls-show url="[[url]]"></ls-show>
     <paper-fab icon="add"></paper-fab>
+    <ls-new-post url=[[url]]></ls-new-post>
   </template>
 
   <script>

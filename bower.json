@@ -43,6 +43,7 @@
     "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
     "iron-list": "PolymerElements/iron-list#~1.1.6",
     "Materialize": "materialize#~0.97.3",
-    "paper-fab": "PolymerElements/paper-fab#~1.1.0"
+    "paper-fab": "PolymerElements/paper-fab#~1.1.0",
+    "iron-form": "PolymerElements/iron-form#~1.0.13"
   }
 }

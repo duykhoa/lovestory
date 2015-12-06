@@ -3,6 +3,9 @@
 <dom-module id="ls-show">
   <template>
     <style>
+      :host ::content iron-list {
+        height: 100vh;
+      }
     </style>
 
     <iron-ajax url="[[url]]" last-response="{{data}}" auto>

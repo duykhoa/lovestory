@@ -27,8 +27,22 @@
   <template>
     <div class="vertical layout center">
       <div class="container">
-        <paper-card heading="[[item.title]]" elevation="2" class="flex">
+        <paper-card
+          heading="[[item.title]]"
+          elevation="2"
+          class="flex"
+        >
           <div class="card-content">
+            <div class="wrapper">
+              <sc-timeago
+                datetime="[[item.created_at]]"
+              ></sc-timeago>
+
+              <bit-avatar
+                user-id="[[item.fb_uid]]"
+                provider="facebook"
+              ></bit-avatar>
+            </div>
             <div class="wrapper">[[item.content]]</div>
           </div>
           <div class="card-actions">

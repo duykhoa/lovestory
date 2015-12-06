@@ -35,6 +35,8 @@
           is="iron-form"
           method="post"
           id="new_post"
+          on-iron-form-response="reloadList"
+
         >
 
           <input
@@ -73,6 +75,9 @@
           type: String,
         }
       },
+      ready: function() {
+        this.authValue = document.querySelector("meta[name=csrf-token]").content;
+      },
       postURL: function(url) {
         return url + "/posts";
       },
@@ -82,8 +87,9 @@
       submitForm: function(e) {
         this.$.new_post.submit();
       },
-      ready: function() {
-        this.authValue = document.querySelector("meta[name=csrf-token]").content;
+      reloadList: function(e) {
+        this.toggleDialog();
+        this.fire('iron-signal', {name: 'updateposts', data: null});
       }
     })
   </script>

@@ -8,8 +8,16 @@
       }
     </style>
 
-    <iron-ajax url="[[url]]" last-response="{{data}}" auto>
-    </iron-ajax>
+    <iron-ajax
+      url="[[url]]"
+      last-response="{{data}}"
+      id="posts"
+      auto
+    ></iron-ajax>
+
+    <iron-signals
+      on-iron-signal-updateposts="updatePosts"
+    ></iron-signals>
 
     <iron-list items="[[data]]" as="item" class="layout vertical center">
       <template>
@@ -23,6 +31,9 @@
       is: "ls-show",
       properties: {
         url: String
+      },
+      updatePosts: function(e) {
+        this.$.posts.generateRequest();
       }
     })
   </script>

@@ -7,6 +7,15 @@
       bottom: 20px;
       right: 20px;
     }
+
+    :host paper-dialog {
+      width: 50%;
+    }
+
+    :host ::content paper-button.green {
+      background: var(--google-green-500);
+      color: white;
+    }
   </style>
 
   <template>
@@ -21,13 +30,29 @@
       <paper-dialog-scrollable>
         <h2>What's in your mind?</h2>
 
-        <form action="[[post_url]]" is="iron-form" method="post">
-          <paper-input name="post[title]"></paper-input>
+        <form
+          action="[[post_url]]"
+          is="iron-form"
+          method="post"
+          id="new_post"
+        >
+
+          <input
+            value="{{authValue}}"
+            name="authenticity_token"
+            type="hidden"
+          ></input>
+
+          <paper-input name="post[title]" label="Title"></paper-input>
+          <paper-textarea name="post[content]" label="Content go here"></paper-input>
         </form>
 
-        <div class="buttons">
-        </div>
       </paper-dialog-scrollable>
+
+      <div class="buttons">
+        <paper-button dialog-dismiss>Cancel</paper-button>
+        <paper-button raised on-tap="submitForm" class="green">Post</paper-button>
+      </div>
     </paper-dialog>
   </template>
 
@@ -43,6 +68,9 @@
         enable: {
           type: Boolean,
           value: false
+        },
+        authValue: {
+          type: String,
         }
       },
       postURL: function(url) {
@@ -50,6 +78,12 @@
       },
       toggleDialog: function() {
         this.enabled = !this.enabled;
+      },
+      submitForm: function(e) {
+        this.$.new_post.submit();
+      },
+      ready: function() {
+        this.authValue = document.querySelector("meta[name=csrf-token]").content;
       }
     })
   </script>

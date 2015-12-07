@@ -34,14 +34,15 @@
         >
           <div class="card-content">
             <div class="wrapper">
+              <fb-avatar
+                uid="[[item.fb_uid]]"
+                imgtype="small"
+
+              ></fb-avatar>
               <sc-timeago
                 datetime="[[item.created_at]]"
               ></sc-timeago>
 
-              <bit-avatar
-                user-id="[[item.fb_uid]]"
-                provider="facebook"
-              ></bit-avatar>
             </div>
             <div class="wrapper">[[item.content]]</div>
           </div>

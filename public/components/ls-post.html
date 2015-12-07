@@ -26,18 +26,27 @@
     :host ::content .content {
       white-space: pre-line;
     }
+
+    :host ::content paper-ripple {
+      color: var(--paper-green-a400);
+    }
   </style>
 
   <template>
     <div class="vertical layout center">
+
       <div class="container">
         <paper-card
           heading="[[item.title]]"
           elevation="2"
           class="flex"
         >
+
+          <paper-ripple></paper-ripple>
+
           <div class="card-content">
             <div class="wrapper">
+
               <fb-avatar
                 uid="[[item.fb_uid]]"
                 imgtype="small"

@@ -8,11 +8,11 @@
 
     :host ::content paper-material {
       width: 60%;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     :host ::content .wrapper {
-      padding: 15px;
+      padding: 15px 15px 0 15px;
     }
 
     :host ::content paper-button.green {
@@ -20,11 +20,16 @@
       color: white;
     }
 
+    :host ::content paper-ripple {
+      color: var(--paper-green-300);
+    }
+
   </style>
 
   <template>
     <div class="layout vertical center">
       <paper-material>
+        <paper-ripple></paper-ripple>
         <div class="wrapper">
           <h2>What's in your mind?</h2>
 
@@ -34,6 +39,7 @@
             method="post"
             id="new_post"
             on-iron-form-response="reloadList"
+            on-iron-form-presubmit="toggleShowSpinner"
           >
 
             <input
@@ -48,6 +54,8 @@
             <br>
             <paper-button raised on-tap="submitForm" class="green">Post</paper-button>
           </form>
+
+          <paper-spinner active="[[loading]]"></paper-spinner>
 
         </div>
       </paper-material>
@@ -65,6 +73,10 @@
         },
         authValue: {
           type: String,
+        },
+        loading: {
+          type: Boolean,
+          value: false
         }
       },
       ready: function() {
@@ -79,7 +91,12 @@
       reloadList: function(e) {
         this.postTitle = "";
         this.postContent = "";
+
+        this.toggleShowSpinner();
         this.fire('iron-signal', {name: 'updateposts', data: null});
+      },
+      toggleShowSpinner: function(e) {
+        this.loading = !this.loading;
       }
     })
   </script>

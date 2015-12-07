@@ -22,6 +22,10 @@
     :host ::content .wrapper {
       padding: 0 10px;
     }
+
+    :host ::content .content {
+      white-space: pre-line;
+    }
   </style>
 
   <template>
@@ -44,7 +48,7 @@
               ></sc-timeago>
 
             </div>
-            <div class="wrapper">[[item.content]]</div>
+            <div class="wrapper content">[[item.content]]</div>
           </div>
           <div class="card-actions">
             <paper-button>Edit</paper-button>

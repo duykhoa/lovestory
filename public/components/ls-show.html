@@ -4,7 +4,7 @@
   <template>
     <style>
       :host ::content iron-list {
-        height: 100vh;
+        min-height: 100vh;
       }
     </style>
 
@@ -19,9 +19,11 @@
       auto
     ></iron-ajax>
 
-    <template is="dom-repeat" items="[[data]]" as="item" class="layout vertical center">
-      <ls-post item="[[item]]"></ls-post>
-    </template>
+    <iron-list items="[[data]]" as="item" class="layout vertical center" id="list">
+      <template>
+        <ls-post item="[[item]]"></ls-post>
+      </template>
+    </iron-list>
   </template>
 
   <script>
@@ -32,6 +34,11 @@
       },
       updatePosts: function(e) {
         this.$.posts.generateRequest();
+      },
+      attached: function() {
+        this.async(function() {
+          this.$.list.notifyResize();
+        }, 500) // FIXME: Buggy here
       }
     })
   </script>

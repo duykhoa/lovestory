@@ -25,6 +25,19 @@
 
     :host ::content .card-content {
       padding: 16px 0;
+      position: relative;
+    }
+
+    :host ::content .menu-wrapper {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: var(--google-grey-300);
+      z-index: 100;
+    }
+
+    :host ::content .menu-wrapper paper-icon-button:hover {
+      color: var(--google-grey-500);
     }
 
     :host ::content .wrapper {
@@ -50,11 +63,14 @@
           class="flex"
         >
 
-          <paper-icon-button icon="more-vert" class="more-vert"></paper-icon-button>
-
           <paper-ripple></paper-ripple>
+            <div class="menu-wrapper">
+              <paper-icon-button icon="close"></paper-icon-button>
+              <paper-icon-button icon="icons:create"></paper-icon-button>
+            </div>
 
           <div class="card-content">
+
             <div class="wrapper">
 
               <fb-avatar

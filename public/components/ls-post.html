@@ -32,11 +32,15 @@
       position: absolute;
       right: 0;
       top: 0;
-      color: var(--google-grey-300);
+      color: var(--google-grey-100);
       z-index: 100;
     }
 
-    :host ::content .menu-wrapper paper-icon-button:hover {
+    :host ::content .container:hover .menu-wrapper paper-icon-button {
+      color: var(--google-grey-300);
+    }
+
+    :host ::content .container:hover .menu-wrapper paper-icon-button:hover {
       color: var(--google-grey-500);
     }
 

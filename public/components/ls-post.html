@@ -7,7 +7,15 @@
     }
 
     :host ::content .container {
-      width: 60%;
+      width: 50%;
+      position: relative;
+    }
+
+    :host ::content .more-vert  {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: var(--google-grey-500);
     }
 
     :host ::content paper-card {
@@ -42,6 +50,8 @@
           class="flex"
         >
 
+          <paper-icon-button icon="more-vert" class="more-vert"></paper-icon-button>
+
           <paper-ripple></paper-ripple>
 
           <div class="card-content">
@@ -57,10 +67,6 @@
 
             </div>
             <div class="wrapper content">[[item.content]]</div>
-          </div>
-          <div class="card-actions">
-            <paper-button>Edit</paper-button>
-            <paper-button>Delete</paper-button>
           </div>
         </paper-card>
       <div>

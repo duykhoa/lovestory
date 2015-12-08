@@ -45,7 +45,10 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
 
-    redirect_to love_page
+    respond_to do |format|
+      format.json { render json: { status: :success } }
+      format.html { redirect_to love_page }
+    end
   end
 
   private

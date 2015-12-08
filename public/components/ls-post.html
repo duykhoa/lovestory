@@ -68,10 +68,25 @@
         >
 
           <paper-ripple></paper-ripple>
-            <div class="menu-wrapper">
-              <paper-icon-button icon="close"></paper-icon-button>
-              <!--<paper-icon-button icon="icons:create"></paper-icon-button>-->
-            </div>
+          <div class="menu-wrapper">
+
+            <form
+              is="iron-form"
+              action="[[deleteURL(item.id)]]"
+              method="post"
+              id="delete"
+            >
+              <input type="hidden" name="_method" value="delete" />
+              <input
+                value="{{authValue}}"
+                name="authenticity_token"
+                type="hidden"
+              ></input>
+            </form>
+
+            <paper-icon-button icon="close" on-tap="deleteAjax"></paper-icon-button>
+            <!--<paper-icon-button icon="icons:create"></paper-icon-button>-->
+          </div>
 
           <div class="card-content">
 
@@ -81,9 +96,8 @@
                 uid="[[item.fb_uid]]"
                 imgtype="small"
               ></fb-avatar>
-              <sc-timeago
-                datetime="[[item.created_at]]"
-              ></sc-timeago>
+
+              <sc-timeago datetime="[[item.created_at]]"></sc-timeago>
 
             </div>
             <div class="wrapper content">[[item.content]]</div>
@@ -99,7 +113,23 @@
   Polymer({
     is: "ls-post",
     properties: {
-      item: Object
+      item: Object,
+      url: String,
+      authValue: {
+        type: String,
+      }
+    },
+    ready: function() {
+      this.authValue = document.querySelector("meta[name=csrf-token]").content;
+    },
+    deleteURL: function(id) {
+      return this.url + "/posts/" + id + ".json";
+    },
+    handleResponse: function(e) {
+      this.fire('iron-signal', {name: 'updateposts', data: null});
+    },
+    deleteAjax: function(e) {
+      this.$.delete.submit();
     }
   })
 </script>

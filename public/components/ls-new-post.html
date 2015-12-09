@@ -60,7 +60,13 @@
             <paper-button raised on-tap="submitForm" class="green">Post</paper-button>
           </form>
 
-          <file-upload target="/assets" droppable="true" raise="true" multi="true" method="post">Choose File</file-upload>
+          <file-upload
+            target="/assets"
+            raise
+            multi="true"
+            method="post"
+            progress-hidden="true"
+          >Choose File</file-upload>
 
           <paper-spinner active="[[loading]]"></paper-spinner>
 

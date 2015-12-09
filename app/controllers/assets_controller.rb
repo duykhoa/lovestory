@@ -1,6 +1,8 @@
 class AssetsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
-    asset = Asset.new(asset_params)
+    asset = Asset.new(photo: asset_params.tempfile)
     asset.save!
 
     render json: { id: asset.id, photo_url: asset.photo.url }
@@ -9,6 +11,6 @@ class AssetsController < ApplicationController
   private
 
   def asset_params
-    params.require(:asset).permit(:photo)
+    params[:file]
   end
 end

@@ -74,6 +74,7 @@
               is="iron-form"
               action="[[deleteURL(item.id)]]"
               method="post"
+              on-iron-form-response="handleResponse"
               id="delete"
             >
               <input type="hidden" name="_method" value="delete" />

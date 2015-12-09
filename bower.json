@@ -50,6 +50,7 @@
     "sc-timeago": "*",
     "bit-avatar": "~1.0.4",
     "paper-menu-button": "PolymerElements/paper-menu-button#~1.0.3",
-    "paper-item": "PolymerElements/paper-item#~1.1.2"
+    "paper-item": "PolymerElements/paper-item#~1.1.2",
+    "file-upload": "duykhoa/file-upload#~1.6.5"
   }
 }

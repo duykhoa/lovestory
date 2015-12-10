@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post.save
 
     if params.key?("photo_ids")
-      photo_ids.each do |photo_id|
+      photo_ids.split(",").each do |photo_id|
         asset = Asset.find_by_id(photo_id)
         asset.post_id = @post.id
         asset.save

@@ -65,6 +65,12 @@
               type="hidden"
             ></input>
 
+            <input
+              type="hidden"
+              name="photo_ids"
+              value="[[imageIds]]"
+            ></input>
+
             <paper-input name="post[title]" label="Title" value="{{postTitle}}"></paper-input>
             <paper-textarea name="post[content]" label="Content go here" value="{{postContent}}"></paper-textarea>
 
@@ -116,6 +122,10 @@
         images: {
           type: Object,
           value: []
+        },
+        imageIds: {
+          type: Object,
+          value: []
         }
       },
       ready: function() {
@@ -125,6 +135,10 @@
         return url + "/posts";
       },
       submitForm: function(e) {
+        this.imageIds = this.images.reduce(function(ar, im) {
+          return ar.concat(im.id);
+        }, [])
+
         this.$.new_post.submit();
       },
       reloadList: function(e) {

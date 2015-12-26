@@ -34,11 +34,6 @@
       },
       updatePosts: function(e) {
         this.$.posts.generateRequest();
-      },
-      attached: function() {
-        this.async(function() {
-          this.$.list.notifyResize();
-        }, 500) // FIXME: Buggy here
       }
     })
   </script>

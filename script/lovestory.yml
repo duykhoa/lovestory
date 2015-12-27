@@ -1,5 +1,5 @@
 name: lovestory
-root: ~/Working/lovestory
+root: ~/Workspace/lovestory
 
 windows:
   - editor: vim

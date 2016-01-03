@@ -48,6 +48,11 @@
       padding: 0 15px 0 15px;
     }
 
+    :host ::content .image-wrapper {
+      width: 100%;
+      overflow: hidden;
+    }
+
     :host ::content .content {
       white-space: pre-line;
     }
@@ -59,6 +64,10 @@
     fb-avatar {
       height: 50px;
       margin-bottom: 5px;
+    }
+
+    :host ::content .image-wrapper iron-image {
+      height: 400px;
     }
   </style>
 
@@ -107,6 +116,14 @@
 
             </div>
             <div class="wrapper content">[[item.content]]</div>
+            <div class="image-wrapper">
+              <template is="dom-repeat" items="[[item.assets]]">
+                <iron-image
+                  src="{{item}}"
+                  preload
+                ></iron-image>
+              </template>
+            </div>
           </div>
         </paper-card>
       <div>

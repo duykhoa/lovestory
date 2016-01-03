@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = love_page.posts.new(post_params.merge(user: current_user))
     @post.save
 
-    if params.key?("photo_ids")
+    if params["photo_ids"].present?
       photo_ids.split(",").each do |photo_id|
         asset = Asset.find_by_id(photo_id)
         asset.post_id = @post.id

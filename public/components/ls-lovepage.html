@@ -50,9 +50,22 @@
       width: 100%;
     }
 
+    :host ::content paper-toolbar {
+      background: var(--google-green-500);
+    }
+
+    :host ::content .title span {
+      line-height: 1.1;
+    }
   </style>
 
   <template>
+    <paper-toolbar>
+      <paper-icon-button icon="menu" on-tap="menuAction"></paper-icon-button>
+      <div class="title">
+        <span>Love story</span>
+      </div>
+    </paper-toolbar>
     <ls-new-post url="[[url]]"></ls-new-post>
     <ls-show url="[[url]]"></ls-show>
   </template>

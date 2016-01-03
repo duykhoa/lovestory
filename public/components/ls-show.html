@@ -6,6 +6,11 @@
       :host ::content iron-list {
         min-height: 100vh;
       }
+
+      :host ::content .nopost-wrapper {
+        text-align: center;
+        @apply(--paper-font-body2);
+      }
     </style>
 
     <iron-signals
@@ -18,6 +23,12 @@
       id="posts"
       auto
     ></iron-ajax>
+
+    <template is="dom-if" if="{{empty(data)}}">
+      <div class="nopost-wrapper">
+        No posts :)
+      </div>
+    </template>
 
     <iron-list items="[[data]]" as="item" class="layout vertical center" id="list">
       <template>
@@ -34,6 +45,9 @@
       },
       updatePosts: function(e) {
         this.$.posts.generateRequest();
+      },
+      empty: function(data) {
+        return data.length <= 0;
       }
     })
   </script>

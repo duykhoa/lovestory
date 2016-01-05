@@ -1,0 +1,166 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="ls-post">
+  <style>
+    :host {
+      @apply(--paper-font-body1);
+    }
+
+    :host ::content .container {
+      width: 50%;
+      position: relative;
+    }
+
+    :host ::content .more-vert  {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: var(--google-grey-500);
+    }
+
+    :host ::content paper-card {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    :host ::content .card-content {
+      padding: 5px 0 15px 0;
+      position: relative;
+    }
+
+    :host ::content .menu-wrapper {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: var(--google-grey-100);
+      z-index: 100;
+    }
+
+    :host ::content .container:hover .menu-wrapper paper-icon-button {
+      color: var(--google-grey-300);
+    }
+
+    :host ::content .container:hover .menu-wrapper paper-icon-button:hover {
+      color: var(--google-grey-500);
+    }
+
+    :host ::content .wrapper {
+      padding: 0 15px;
+    }
+
+    :host ::content .image-wrapper {
+      width: calc(100% - 30px);
+      margin: 0 15px;
+      overflow: hidden;
+    }
+
+    :host ::content .content {
+      white-space: pre-line;
+    }
+
+    :host ::content paper-ripple {
+      color: var(--paper-green-a400);
+    }
+
+    fb-avatar {
+      height: 50px;
+      margin-bottom: 5px;
+    }
+
+    :host ::content .image-wrapper iron-image {
+      height: 400px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    :host ::content sc-timeago {
+      color: #888;
+    }
+  </style>
+
+  <template>
+    <div class="vertical layout center">
+
+      <div class="container">
+        <paper-card
+          heading="[[item.title]]"
+          elevation="2"
+          class="flex"
+        >
+
+          <paper-ripple></paper-ripple>
+          <div class="menu-wrapper">
+
+            <form
+              is="iron-form"
+              action="[[deleteURL(item.id)]]"
+              method="post"
+              on-iron-form-response="handleResponse"
+              id="delete"
+            >
+              <input type="hidden" name="_method" value="delete" />
+              <input
+                value="{{authValue}}"
+                name="authenticity_token"
+                type="hidden"
+              ></input>
+            </form>
+
+            <paper-icon-button icon="close" on-tap="deleteAjax"></paper-icon-button>
+            <!--<paper-icon-button icon="icons:create"></paper-icon-button>-->
+          </div>
+
+          <div class="card-content">
+
+            <div class="wrapper">
+
+              <fb-avatar
+                uid="[[item.fb_uid]]"
+                imgtype="small"
+              ></fb-avatar>
+
+              <sc-timeago datetime="[[item.created_at]]"></sc-timeago>
+
+            </div>
+            <div class="wrapper content">[[item.content]]</div>
+            <div class="image-wrapper">
+              <template is="dom-repeat" items="[[item.assets]]">
+                <iron-image
+                  src="{{item}}"
+                  preload
+                ></iron-image>
+              </template>
+            </div>
+          </div>
+        </paper-card>
+      <div>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: "ls-post",
+    properties: {
+      item: Object,
+      url: String,
+      authValue: {
+        type: String,
+      }
+    },
+    ready: function() {
+      this.authValue = document.querySelector("meta[name=csrf-token]").content;
+    },
+    deleteURL: function(id) {
+      return this.url + "/posts/" + id + ".json";
+    },
+    handleResponse: function(e) {
+      this.fire('iron-signal', {name: 'updateposts', data: null});
+    },
+    deleteAjax: function(e) {
+      this.$.delete.submit();
+    }
+  })
+</script>
+

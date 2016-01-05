@@ -131,6 +131,8 @@
         }
       },
       ready: function() {
+        this.postTitle = "";
+        this.postContent = "";
         this.authValue = document.querySelector("meta[name=csrf-token]").content;
       },
       postURL: function(url) {

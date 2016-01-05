@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+:host ::content .image-container {
+  width: 100%;
+}
+
+:host ::content .image-container {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-left: 3px;
+}
+
+:host ::content .asset-input-field {
+  position: relative;
+}
+
+:host ::content input.new-post-form {
+  margin-top: 7px;
+}

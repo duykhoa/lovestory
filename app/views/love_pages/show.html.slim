@@ -1,3 +1,20 @@
-link(rel="import" href="../components/ls-lovepage.html")
-
-ls-lovepage(url="#{love_page_url(@love_page)}")
+.container
+  .row
+    .col.m8.offset-m2.s12
+      .row.hide-on-med-and-up
+        .col.m3.s12
+          p
+            = link_to "New Post", new_love_page_post_path(@love_page), class: "btn pink accent-2 waves-effect"
+          p
+            invitation-link(love_page_id="#{@love_page.id}")
+      .row
+        post-list page-id="#{@love_page.id}" current-user-id="#{current_user.id}"
+    .col.m2.hide-on-small-only
+      .new-post-push-pin
+        .row
+          .col
+          = link_to new_love_page_post_path(@love_page), class: "btn-floating btn-large pink accent-2 waves-effect" do
+            i.material-icons add
+        .row
+          .col
+          invitation-link-desktop(love_page_id="#{@love_page.id}")

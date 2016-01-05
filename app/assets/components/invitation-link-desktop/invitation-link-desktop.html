@@ -1,0 +1,29 @@
+<dom-module id="invitation-link-desktop">
+  <link rel="stylesheet" href="invitation-link-desktop.css" />
+  <template>
+    <a href="#" class="btn-floating btn-large blue accent-2 waves-effect invite-link-floating" on-click="createInvitationLink">
+      <i class="material-icons">person</i>
+    </a>
+
+    <div id="invitation-modal" class="modal">
+      <div class="modal-content">
+        <h4>
+          Invitation link
+        </h4>
+
+        <div class="input-field">
+          <input value="{{invitationLink}}" type="text">
+        </div>
+
+        <button on-click="copyLink" class="btn">Copy Me</button>
+      </div>
+
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect wave-teal btn-flat" href="#">Close</a>
+      </div>
+    </div>
+
+  </template>
+
+  <script src="invitation-link-desktop.js"></script>
+</dom-module>

@@ -10,13 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require_tree .
+ *= require_self
+ *= require owl.carousel.min
+ *= require remodal
+ *= require remodal-default-theme
+ *= require normalize
  */
 
-html, body {
-  margin: 0;
-  height: 100%;
-}
-
-main {
-  height: 100%;
-}
+@import url(http://fonts.googleapis.com/css?family=Oxygen:300,400,500)

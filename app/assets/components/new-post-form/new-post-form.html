@@ -1,0 +1,56 @@
+<dom-module id="new-post-form">
+  <link rel="stylesheet" href="new-post-form.css" />
+  <template>
+    <form action$="[[createPostUrl(pageId)]]" method="post" accept-charset="UTF8" id="newPostForm">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value="[[CSRFToken]]">
+      <div class="input-field">
+        <div class="form-group string optional post_title">
+          <label class="string optional control-label" for="post_title">Title</label>
+          <input class="string optional form-control" type="text" name="post[title]" id="post_title">
+        </div>
+      </div>
+
+      <div class="input-field">
+        <div class="form-group text optional post_content">
+          <label class="text optional control-label" for="post_content">Content</label>
+          <textarea class="text optional materialize-textarea form-control" name="post[content]" id="post_content"></textarea>
+        </div>
+      </div>
+      <div class="photo-attachments">
+        <template is="dom-repeat" items="[[photos]]">
+          <input name="photo_ids[]" type="hidden" value$=[[item.id]]>
+        </template>
+      </div>
+    </form>
+
+    <div class="photo-attachments">
+      <template is="dom-repeat" items="[[photos]]">
+        <div class="image-container">
+          <img src$="[[item.photo_url]]" class="responsive-img thumbnail">
+        </div>
+      </template>
+    </div>
+
+    <div class="input-field file-field">
+      <div class="row">
+        <div class="col m2 offset-m8">
+          <form action="/assets" enctype="multipart/form-data" method="post" name="new_asset">
+            <div class="left asset-input-field">
+              <span class="grey-text grey-lighten-2">
+                <i class="material-icons medium">photo</i>
+              </span>
+              <input type="file" name="asset[photo]" on-change="submitForm">
+            </div>
+          </form>
+        </div>
+        <div class="col m2">
+          <input type="submit"/ disabled$="[[postDisabled]]" class="btn btn-large" on-click="postSubmitHandle">
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script src="new-post-form.js"></script>
+</dom-module>

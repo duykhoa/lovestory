@@ -14,8 +14,8 @@ class PostsController < ApplicationController
     @post = love_page.posts.new(post_params.merge(user: current_user))
     @post.save
 
-    if params["photo_ids"].present?
-      photo_ids.split(",").each do |photo_id|
+    if params.key?("photo_ids")
+      photo_ids.each do |photo_id|
         asset = Asset.find_by_id(photo_id)
         asset.post_id = @post.id
         asset.save
@@ -45,10 +45,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
 
-    respond_to do |format|
-      format.json { render json: { status: :success } }
-      format.html { redirect_to love_page }
-    end
+    redirect_to love_page
   end
 
   private

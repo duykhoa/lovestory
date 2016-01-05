@@ -85,3 +85,4 @@ output.html
 rubocop.html
 brakeman.html
 .tags
+public/bower_components/

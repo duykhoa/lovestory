@@ -86,3 +86,5 @@ rubocop.html
 brakeman.html
 .tags
 public/bower_components/
+
+node_modules/

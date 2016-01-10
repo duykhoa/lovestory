@@ -1,0 +1,43 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="fb-avatar">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      :host ::content iron-image {
+        border-radius: 100%;
+      }
+    </style>
+
+    <iron-image
+      src="{{imgurl}}"
+      preload
+      fade
+      placeholder="User image"
+    ></iron-image>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: "fb-avatar",
+      properties: {
+        uid: String,
+        imgtype: {
+          type: String,
+          value: "small"
+        },
+        imgurl: {
+          type: String,
+          computed: "imageURL(uid, imgtype)"
+        }
+      },
+      imageURL: function(uid, imgtype) {
+        return "http://graph.facebook.com/" + uid + "/picture?type=" + imgtype;
+      }
+    })
+  </script>
+</dom-module>

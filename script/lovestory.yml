@@ -1,12 +1,7 @@
 name: lovestory
-root: ~/Working/lovestory
+root: ~/Workspace/lovestory
 
 windows:
   - editor: vim
-  - server: bin/rails s
-  - logs:
-      layout: main-vertical
-      panes:
-        - guard start
-        - spring rspec
+  - server: rails s
   - console: # do nothing

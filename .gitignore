@@ -87,4 +87,8 @@ brakeman.html
 .tags
 public/bower_components/
 
+# Built files
+public/dist/
+
 node_modules/
+

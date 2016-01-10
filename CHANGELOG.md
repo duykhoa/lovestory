@@ -38,3 +38,6 @@
   - Small bug fixed
 #1.6.3 - 18, Oct, 2015
   - Prevent login render devise form, redirect to homepage instead
+#2.0.0 - 9, Jan, 2016
+  - Re design UI, using polymer
+  - WIP: many things to do next...

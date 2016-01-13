@@ -35,6 +35,7 @@
 <link rel="import" href="../components/ls-show.html">
 <link rel="import" href="../components/ls-new-post.html">
 <link rel="import" href="../components/fb-avatar.html">
+<link rel="import" href="../components/ls-sidebar.html">
 
 <dom-module id="ls-lovepage">
   <style>
@@ -58,6 +59,10 @@
     :host ::content .title span {
       line-height: 1.1;
     }
+
+    :host ::content div[main] {
+      background: var(--google-grey-100);
+    }
   </style>
 
   <template>
@@ -65,9 +70,11 @@
       <div drawer>
         <paper-toolbar>
           <div class="title">
-            <span>Love story</span>
+            <span>Sidebar</span>
           </div>
         </paper-toolbar>
+
+        <ls-sidebar></ls-sidebar>
       </div>
 
       <div main>
@@ -93,6 +100,9 @@
           type: Boolean,
           value: true
         }
+      },
+      menuAction: function(e) {
+        this.forceNarrow = !this.forceNarrow;
       }
     })
   </script>

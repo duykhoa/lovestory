@@ -10,21 +10,53 @@
       padding: 10px;
       display: block;
     }
+
+    :host ::content a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    :host ::content a:hover, a:visited {
+      color: #000;
+      text-decoration: none;
+    }
   </style>
 
   <template>
     <div class="wrapper">
       <paper-icon-item>
         <iron-icon icon="link" item-icon></iron-icon>
-        Invite yours love
+
+        <a href="#" on-tap="showInvitationDialog">
+          Invite yours love
+        </a>
       </paper-icon-item>
     </div>
+
+    <paper-dialog modal opened="{{openedDialog}}">
+      <h2>Header</h2>
+      <paper-dialog-scrollable>
+        Lorem ipsum...
+      </paper-dialog-scrollable>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Cancel</paper-button>
+        <paper-button dialog-confirm>Accept</paper-button>
+      </div>
+    </paper-dialog>
   </template>
 
   <script>
     Polymer({
       is: 'ls-sidebar',
       properties: {
+        openedDialog: {
+          type: Boolean,
+          notify: true
+        }
+      },
+      showInvitationDialog: function(e) {
+        e.preventDefault();
+        this.openedDialog = true;
       }
     })
   </script>

@@ -18,7 +18,7 @@
     ></iron-ajax>
 
     <paper-spinner active="[[loading]]"></paper-spinner>
-    <paper-input value="[[invitationLink.invitation_link]]"></paper-input>
+    <paper-input value="[[invitationLink.invitation_link]]" on-tap="selectAll"></paper-input>
   </template>
 
   <script>
@@ -40,6 +40,9 @@
       csrfToken: function() {
         csrfValue = document.querySelector("meta[name=csrf-token]").content;
         return { "authenticity_token": csrfValue };
+      },
+      selectAll: function(e) {
+        e.target.setSelectionRange(0, e.target.value.length);
       }
     })
   </script>

@@ -2,15 +2,44 @@
 
 <dom-module id="ls-invitation">
   <style>
+    :host ::content paper-spinner {
+      position: absolute;
+    }
   </style>
 
   <template>
+    <iron-ajax
+      url="[[invitationRequestURL(lovepageJson)]]"
+      method="POST"
+      body="[[csrfToken()]]"
+      content-type="application/json"
+      last-response="{{invitationLink}}"
+      loading="{{loading}}"
+    ></iron-ajax>
+
+    <paper-spinner active="[[loading]]"></paper-spinner>
+    <paper-input value="[[invitationLink.invitation_link]]"></paper-input>
   </template>
 
   <script>
     Polymer({
       is: 'ls-invitation',
       properties: {
+        lovepageJson: Object
+      },
+      ready: function() {
+        lovepage = document.querySelector('ls-lovepage');
+        this.lovepageJson = JSON.parse(lovepage.getAttribute('love_page'));
+      },
+      invitationRequestURL: function(lovepage) {
+        return "/love_pages/" + lovepage.id + "/invitations";
+      },
+      generate: function() {
+        this.$$("iron-ajax").generateRequest();
+      },
+      csrfToken: function() {
+        csrfValue = document.querySelector("meta[name=csrf-token]").content;
+        return { "authenticity_token": csrfValue };
       }
     })
   </script>

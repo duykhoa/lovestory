@@ -57,6 +57,7 @@
       showInvitationDialog: function(e) {
         e.preventDefault();
         this.openedDialog = true;
+        this.$$('ls-invitation').generate();
       }
     })
   </script>

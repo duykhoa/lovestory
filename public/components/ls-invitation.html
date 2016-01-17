@@ -1,0 +1,78 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<script src="../bower_components/clipboard/dist/clipboard.min.js"></script>
+
+<dom-module id="ls-invitation">
+  <style>
+    :host ::content paper-spinner {
+      position: absolute;
+    }
+  </style>
+
+  <template>
+    <paper-dialog modal opened="{{opened}}">
+      <h2>Invite your friend by copy this link</h2>
+      <paper-dialog-scrollable>
+        <iron-ajax
+          url="[[invitationRequestURL(lovepageJson)]]"
+          method="POST"
+          body="[[csrfToken()]]"
+          content-type="application/json"
+          last-response="{{invitationLink}}"
+          loading="{{loading}}"
+        ></iron-ajax>
+
+        <paper-spinner active="[[loading]]"></paper-spinner>
+        <paper-input value="[[invitationLink.invitation_link]]" on-tap="selectAll"></paper-input>
+      </paper-dialog-scrollable>
+      <div class="buttons">
+        <paper-button
+           class="copy-button"
+           data-clipboard-text$="[[invitationLink.invitation_link]]"
+        >Copy Link</paper-button>
+
+        <paper-button dialog-confirm>Cancel</paper-button>
+      </div>
+    </paper-dialog>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'ls-invitation',
+      properties: {
+        lovepageJson: Object,
+        opened: {
+          type: Boolean,
+          notify: true,
+          observer: "_generateInvitationLink"
+        }
+      },
+      ready: function() {
+        lovepage = document.querySelector('ls-lovepage');
+        this.lovepageJson = JSON.parse(lovepage.getAttribute('love_page'));
+
+        new Clipboard('.copy-button');
+      },
+      invitationRequestURL: function(lovepage) {
+        return "/love_pages/" + lovepage.id + "/invitations";
+      },
+      generate: function() {
+        this.$$("iron-ajax").generateRequest();
+      },
+      csrfToken: function() {
+        csrfValue = document.querySelector("meta[name=csrf-token]").content;
+        return { "authenticity_token": csrfValue };
+      },
+      selectAll: function(e) {
+        e.target.setSelectionRange(0, e.target.value.length);
+      },
+      _generateInvitationLink: function() {
+        if (this.opened) {
+          this.generate();
+        }
+      }
+    })
+
+  </script>
+</dom-module>

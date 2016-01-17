@@ -1,0 +1,48 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="ls-sidebar">
+  <style>
+    :host ::content * {
+      @apply(--paper-font-body1);
+    }
+
+    :host ::content paper-icon-item {
+      padding: 10px;
+      display: block;
+    }
+
+    :host ::content a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    :host ::content a:hover, a:visited {
+      color: #000;
+      text-decoration: none;
+    }
+  </style>
+
+  <template>
+    <div class="wrapper">
+      <paper-icon-item>
+        <iron-icon icon="link" item-icon></iron-icon>
+
+        <a href="#" on-tap="showInvitationDialog">
+          Invite yours love
+        </a>
+      </paper-icon-item>
+    </div>
+
+    <ls-invitation opened="{{openedDialog}}"></ls-invitation>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'ls-sidebar',
+      showInvitationDialog: function(e) {
+        e.preventDefault();
+        this.openedDialog = true;
+      }
+    })
+  </script>
+</dom-module>

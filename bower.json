@@ -52,6 +52,7 @@
     "paper-menu-button": "PolymerElements/paper-menu-button#~1.0.3",
     "paper-item": "PolymerElements/paper-item#~1.1.3",
     "file-upload": "duykhoa/file-upload#~1.6.5",
-    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.6"
+    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.6",
+    "clipboard": "~1.5.5"
   }
 }

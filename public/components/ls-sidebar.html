@@ -33,31 +33,15 @@
       </paper-icon-item>
     </div>
 
-    <paper-dialog modal opened="{{openedDialog}}">
-      <h2>Invite your friend by copy this link</h2>
-      <paper-dialog-scrollable>
-        <ls-invitation></ls-invitation>
-      </paper-dialog-scrollable>
-      <div class="buttons">
-        <paper-button>Copy Link</paper-button>
-        <paper-button dialog-confirm>Cancel</paper-button>
-      </div>
-    </paper-dialog>
+    <ls-invitation opened="{{openedDialog}}"></ls-invitation>
   </template>
 
   <script>
     Polymer({
       is: 'ls-sidebar',
-      properties: {
-        openedDialog: {
-          type: Boolean,
-          notify: true
-        }
-      },
       showInvitationDialog: function(e) {
         e.preventDefault();
         this.openedDialog = true;
-        this.$$('ls-invitation').generate();
       }
     })
   </script>

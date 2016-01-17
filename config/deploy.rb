@@ -33,7 +33,7 @@ namespace :npm do
   task :install do
     on roles(:app) do
       within fetch(:npm_target_path) do
-        execute "bash -l -c '. ~/.nvm/nvm.sh && cd #{release_path} &&  npm install && npm install -g bower && npm install -g gulp'"
+        execute "bash -l -c '. ~/.nvm/nvm.sh && cd #{release_path} && npm install && npm install -g bower && npm install -g gulp'"
       end
     end
   end

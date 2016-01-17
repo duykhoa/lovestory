@@ -1,3 +1,6 @@
-link(rel="import" href="../components/ls-lovepage.html")
+link(rel="import" href="#{ELEMENT_PATH}/ls-lovepage.html")
 
-ls-lovepage(url="#{love_page_url(@love_page)}")
+ls-lovepage(
+  url="#{love_page_url(@love_page)}"
+  love_page="#{@love_page.to_json}"
+)

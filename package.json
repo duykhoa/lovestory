@@ -1,0 +1,27 @@
+{
+  "name": "lovestory",
+  "version": "1.0.0",
+  "description": "Lovestory ================",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-minify-html": "^1.0.5",
+    "gulp-vulcanize": "^6.1.0",
+    "run-sequence": "^1.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duykhoa/lovestory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duykhoa/lovestory/issues"
+  },
+  "homepage": "https://github.com/duykhoa/lovestory#readme"
+}

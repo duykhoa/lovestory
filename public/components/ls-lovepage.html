@@ -16,6 +16,7 @@
 <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
 <link rel="import" href="../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
 
 <link rel="import" href="../bower_components/neon-animation/neon-animation.html">
 
@@ -34,6 +35,8 @@
 <link rel="import" href="../components/ls-show.html">
 <link rel="import" href="../components/ls-new-post.html">
 <link rel="import" href="../components/fb-avatar.html">
+<link rel="import" href="../components/ls-sidebar.html">
+<link rel="import" href="../components/ls-invitation.html">
 
 <dom-module id="ls-lovepage">
   <style>
@@ -57,24 +60,56 @@
     :host ::content .title span {
       line-height: 1.1;
     }
+
+    :host ::content div[main] {
+      background: var(--google-grey-100);
+    }
+
+    :host paper-drawer-panel {
+      position: static;
+      height: auto;
+    }
   </style>
 
   <template>
-    <paper-toolbar>
-      <paper-icon-button icon="menu" on-tap="menuAction"></paper-icon-button>
-      <div class="title">
-        <span>Love story</span>
+    <paper-drawer-panel force-narrow=[[forceNarrow]]>
+      <div drawer>
+        <paper-toolbar>
+          <div class="title">
+            <span>Sidebar</span>
+          </div>
+        </paper-toolbar>
+
+        <ls-sidebar></ls-sidebar>
       </div>
-    </paper-toolbar>
-    <ls-new-post url="[[url]]"></ls-new-post>
-    <ls-show url="[[url]]"></ls-show>
+
+      <div main>
+        <paper-toolbar>
+          <paper-icon-button icon="menu" on-tap="menuAction"></paper-icon-button>
+          <div class="title">
+            <span>Love story</span>
+          </div>
+        </paper-toolbar>
+
+        <ls-new-post url="[[url]]"></ls-new-post>
+        <ls-show url="[[url]]"></ls-show>
+      </div>
+    </paper-drawer-panel>
   </template>
 
   <script>
     Polymer({
       is: 'ls-lovepage',
       properties: {
-        url: String
+        url: String,
+        forceNarrow: {
+          type: Boolean,
+          value: true
+        },
+        lovePage: Object
+      },
+      menuAction: function(e) {
+        this.forceNarrow = !this.forceNarrow;
       }
     })
   </script>

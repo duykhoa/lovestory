@@ -42,4 +42,6 @@
   - Re design UI, using polymer
 #2.1.0 - 18, Jan, 2016
   - Allow to ceate & copy invitation link
+#2.1.2 - 19, Jan, 2016
+  - Make site responsive
 

@@ -12,6 +12,11 @@
       position: relative;
     }
 
+    :host ::content .container[small-screen] {
+      width: 100%;
+      position: relative;
+    }
+
     :host ::content .more-vert  {
       position: absolute;
       right: 0;
@@ -20,7 +25,7 @@
     }
 
     :host ::content paper-card {
-      margin-bottom: 15px;
+      margin-bottom: 5px;
       width: 100%;
     }
 
@@ -80,12 +85,14 @@
   </style>
 
   <template>
+    <iron-media-query query="(max-width: 600px)" query-matches="{{smallScreen}}"></iron-media-query>
+
     <div class="vertical layout center">
 
-      <div class="container">
+      <div class="container" small-screen$="{{smallScreen}}">
         <paper-card
           heading="[[item.title]]"
-          elevation="2"
+          elevation="1"
           class="flex"
         >
 

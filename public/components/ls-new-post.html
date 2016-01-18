@@ -11,6 +11,10 @@
       margin-bottom: 15px;
     }
 
+    :host ::content paper-material[small-screen]{
+      width: 100%;
+    }
+
     :host ::content h2 {
       padding-top: 10px;
       margin: 0;
@@ -47,8 +51,9 @@
   </style>
 
   <template>
+    <iron-media-query query="(max-width: 600px)" query-matches="{{smallScreen}}"></iron-media-query>
     <div class="layout vertical center">
-      <paper-material>
+      <paper-material small-screen$="{{smallScreen}}">
         <div class="wrapper">
           <h2>What's in your mind?</h2>
 

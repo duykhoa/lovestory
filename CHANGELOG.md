@@ -44,4 +44,5 @@
   - Allow to ceate & copy invitation link
 #2.1.2 - 19, Jan, 2016
   - Make site responsive
-
+#2.1.3 - 21, Jan, 2016
+  - Convert link to a tag, so it's clickable

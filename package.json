@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
+    "bower": "^1.7.1",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-minify-html": "^1.0.5",

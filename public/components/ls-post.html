@@ -170,7 +170,7 @@
       this.$.delete.submit();
     },
     linkify: function(content) {
-      var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_#\.]*(\?\S+)?)?)?)/ig
+      var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_#-\.]*(\?\S+)?)?)?)/ig
       var replaced_text = content.replace(regex, "<a href='$1' target='_blank'>$1</a>");
 
       this.$$(".content").innerHTML = replaced_text;

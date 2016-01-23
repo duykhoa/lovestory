@@ -4,7 +4,6 @@
   <style>
     :host {
       @apply(--paper-font-body1);
-      background: var(--google-grey-100);
     }
 
     :host ::content .container {
@@ -64,10 +63,6 @@
       white-space: pre-line;
     }
 
-    :host ::content paper-ripple {
-      color: var(--paper-green-a400);
-    }
-
     fb-avatar {
       height: 50px;
       margin-bottom: 5px;
@@ -96,9 +91,7 @@
           class="flex"
         >
 
-          <paper-ripple></paper-ripple>
           <div class="menu-wrapper">
-
             <form
               is="iron-form"
               action="[[deleteURL(item.id)]]"

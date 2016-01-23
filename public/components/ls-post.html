@@ -77,6 +77,12 @@
     :host ::content sc-timeago {
       color: #888;
     }
+
+    :host ::content paper-toast { 
+      position: fixed;
+      bottom: 0;
+      left: 0
+    }
   </style>
 
   <template>
@@ -108,7 +114,6 @@
             </form>
 
             <paper-icon-button icon="close" on-tap="deleteAjax"></paper-icon-button>
-            <!--<paper-icon-button icon="icons:create"></paper-icon-button>-->
           </div>
 
           <div class="card-content">
@@ -158,6 +163,7 @@
     },
     handleResponse: function(e) {
       this.fire('iron-signal', {name: 'updateposts', data: null});
+      this.fire('iron-signal', {name: 'showdeletedtoast', data: {postID: this.item.id}});
     },
     deleteAjax: function(e) {
       this.$.delete.submit();

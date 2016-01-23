@@ -22,6 +22,8 @@ gem 'cancancan'
 gem 'active_model_serializers'
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'soft_deletion'
+
 gem 'whenever'
 
 gem 'newrelic_rpm'

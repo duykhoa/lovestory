@@ -104,9 +104,14 @@
     <paper-toast
       opened="{{showDeletedToast}}"
       text="Your post is deleted"
-      duration=-4000
+      duration=4000
     >
-      <a href="#">Undo</a>
+      <a href="#" on-tap="undeletePost">Undo</a>
+      <iron-ajax
+        id="undeleteajax"
+        url="[[undeleteURL]]"
+        on-response="handleResponse"
+      ></iron-ajax>
     </paper-toast>
 
     <iron-signals
@@ -135,7 +140,14 @@
       },
       showDeletedToastHandle: function(e, detail) {
         this.showDeletedToast = true;
-        console.log(detail);
+        this.undeleteURL = "/undelete/" + detail.postID;
+      },
+      undeletePost: function() {
+        this.$.undeleteajax.generateRequest();
+      },
+      handleResponse: function() {
+        this.fire('iron-signal', {name: 'updateposts', data: null});
+        this.showDeletedToast = false;
       }
     })
   </script>

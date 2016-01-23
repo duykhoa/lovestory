@@ -11,6 +11,18 @@
         text-align: center;
         @apply(--paper-font-body2);
       }
+
+      .layout[hidden] {
+        display: none;
+      }
+
+      .layout.spinner {
+        text-align: center;
+      }
+
+      paper-spinner {
+        scale: 2
+      }
     </style>
 
     <iron-signals
@@ -21,8 +33,13 @@
       url="[[url]]"
       last-response="{{data}}"
       id="posts"
+      loading="{{ajaxLoad}}"
       auto
     ></iron-ajax>
+
+    <div class="layout spinner" hidden="[[!ajaxLoad]]">
+      <paper-spinner active="[[ajaxLoad]]"></paper-spinner>
+    </div>
 
     <template is="dom-if" if="{{empty(data)}}">
       <div class="nopost-wrapper">

@@ -1,4 +1,7 @@
+require 'soft_deletion'
+
 class Post < ActiveRecord::Base
+  has_soft_deletion default_scope: true
   default_scope { order created_at: :desc }
 
   belongs_to :love_page

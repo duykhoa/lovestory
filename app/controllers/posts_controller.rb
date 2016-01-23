@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i(show edit update destroy)
-  load_and_authorize_resource
+  load_and_authorize_resource except: %i(undelete)
 
   layout 'love_pages'
 
@@ -49,6 +49,13 @@ class PostsController < ApplicationController
       format.json { render json: { status: :success } }
       format.html { redirect_to love_page }
     end
+  end
+
+  def undelete
+    post = Post.unscoped.find_by_id(post_id[:id])
+    post.soft_undelete! if post
+
+    render json: { status: :success }
   end
 
   private

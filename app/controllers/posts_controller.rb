@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    @post.soft_delete!
 
     respond_to do |format|
       format.json { render json: { status: :success } }

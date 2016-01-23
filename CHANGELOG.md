@@ -46,3 +46,7 @@
   - Make site responsive
 #2.1.3 - 21, Jan, 2016
   - Convert link to a tag, so it's clickable
+#2.2.0 - 23, Jan, 2016
+  - Improve UI
+  - Allow user to undo delete a post
+  - Add spinner while loading posts

@@ -63,6 +63,7 @@ class LovePagesController < ApplicationController
     @user = User.from_omniauth(omniauth_params)
   end
 
+  #may try omiauth_data.info.try(:email)
   def omniauth_params
     {
       uid: omniauth_data.uid,

@@ -78,7 +78,7 @@
       color: #888;
     }
 
-    :host ::content paper-toast { 
+    :host ::content paper-toast {
       position: fixed;
       bottom: 0;
       left: 0
@@ -128,7 +128,12 @@
               <sc-timeago datetime="[[item.created_at]]"></sc-timeago>
 
             </div>
-            <div class="wrapper content">[[item.content]]</div>
+            <div class="wrapper content">
+              <template
+                 is="juicy-html"
+                 content$="[[linkify(item.content)]]"
+              ></template>
+            </div>
             <div class="image-wrapper">
               <template is="dom-repeat" items="[[item.assets]]">
                 <iron-image
@@ -169,10 +174,10 @@
       this.$.delete.submit();
     },
     linkify: function(content) {
-      <!--var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_#-\.]*(\?\S+)?)?)?)/ig-->
-      <!--var replaced_text = content.replace(regex, "<a href='$1' target='_blank'>$1</a>");-->
+      var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_#-\.]*(\?\S+)?)?)?)/ig
+      var replaced_text = content.replace(regex, "<a href='$1' target='_blank'>$1</a>");
 
-      <!--this.$$(".content").innerHTML = replaced_text;-->
+      return replaced_text;
     }
   })
 </script>

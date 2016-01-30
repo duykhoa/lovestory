@@ -50,3 +50,5 @@
   - Improve UI
   - Allow user to undo delete a post
   - Add spinner while loading posts
+#2.2.1 - 30, Jan, 2016
+  - Fix bug and readd linkable content

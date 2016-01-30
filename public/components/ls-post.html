@@ -128,7 +128,7 @@
               <sc-timeago datetime="[[item.created_at]]"></sc-timeago>
 
             </div>
-            <div class="wrapper content">[[linkify(item.content)]]</div>
+            <div class="wrapper content">[[item.content]]</div>
             <div class="image-wrapper">
               <template is="dom-repeat" items="[[item.assets]]">
                 <iron-image
@@ -169,10 +169,10 @@
       this.$.delete.submit();
     },
     linkify: function(content) {
-      var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_#-\.]*(\?\S+)?)?)?)/ig
-      var replaced_text = content.replace(regex, "<a href='$1' target='_blank'>$1</a>");
+      <!--var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_#-\.]*(\?\S+)?)?)?)/ig-->
+      <!--var replaced_text = content.replace(regex, "<a href='$1' target='_blank'>$1</a>");-->
 
-      this.$$(".content").innerHTML = replaced_text;
+      <!--this.$$(".content").innerHTML = replaced_text;-->
     }
   })
 </script>

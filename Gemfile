@@ -21,6 +21,8 @@ gem 'squeel'
 gem 'cancancan'
 gem 'active_model_serializers'
 gem 'friendly_id', '~> 5.1.0'
+gem 'upload_image'
+gem 'rest-client'
 
 gem 'soft_deletion'
 

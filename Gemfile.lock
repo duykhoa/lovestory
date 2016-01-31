@@ -392,7 +392,8 @@ GEM
       unf_ext
     unf_ext (0.0.7.1)
     uniform_notifier (1.9.0)
-    upload_image (0.1.1)
+    upload_image (0.1.2)
+      rest-client (~> 1.8)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -448,7 +449,6 @@ DEPENDENCIES
   rb-fchange
   rb-fsevent
   rb-inotify
-  rest-client
   rspec-rails
   rubocop
   sass-rails (~> 5.0)

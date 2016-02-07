@@ -3,7 +3,7 @@ class PostSerializer < ActiveModel::Serializer
   has_many :assets
 
   def assets
-    object.assets.map { |asset| asset.photo.url }
+    object.images.map(&:thumb_url)
   end
 
   def fb_uid

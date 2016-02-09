@@ -44,6 +44,7 @@
       last-response="{{data}}"
       id="posts"
       loading="{{ajaxLoad}}"
+      params="{{paramsObject}}"
       auto
     ></iron-ajax>
 
@@ -64,7 +65,7 @@
     </iron-list>
 
     <div class="show-more-wrapper">
-      <paper-button class="show-more">Show more posts</paper-button>
+      <paper-button class="show-more" on-tap="loadNextPage">Show more posts</paper-button>
     </div>
   </template>
 
@@ -72,13 +73,29 @@
     Polymer({
       is: "ls-show",
       properties: {
-        url: String
+        url: String,
+        page: {
+          type: Number,
+          value: 1
+        },
+        paramsObject: {
+          type: Object,
+          computed: "computeParamsObject(page)"
+        }
       },
       updatePosts: function(e) {
         this.$.posts.generateRequest();
       },
       empty: function(data) {
         return data.length <= 0;
+      },
+      loadNextPage: function(e) {
+        this.page = this.page + 1;
+      },
+      computeParamsObject: function(page) {
+        return {
+          "page": this.page
+        };
       }
     })
   </script>

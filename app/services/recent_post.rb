@@ -21,6 +21,15 @@ class RecentPost
   #
   # Returns an array of post
   def page(no = 1)
-    love_page.posts.limit(PER).offset((no - 1) * PER)
+    love_page
+      .posts
+      .limit(PER)
+      .offset(offset(no))
+  end
+
+  private
+
+  def offset(no)
+    (no - 1) * PER
   end
 end

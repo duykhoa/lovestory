@@ -56,7 +56,7 @@ class LovePagesController < ApplicationController
   end
 
   def recent_posts
-    @love_page.posts.includes(:assets, :user)
+    @love_page.posts.includes(:assets, :user).limit(25)
   end
 
   def set_user

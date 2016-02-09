@@ -54,6 +54,7 @@
     "file-upload": "duykhoa/file-upload#~1.6.5",
     "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.6",
     "clipboard": "~1.5.5",
-    "juicy-html": "Juicy/juicy-html#~1.0.1"
+    "juicy-html": "Juicy/juicy-html#~1.0.1",
+    "iron-scroll-threshold": "PolymerElements/iron-scroll-threshold#~1.0.1"
   }
 }

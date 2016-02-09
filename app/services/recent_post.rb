@@ -23,6 +23,7 @@ class RecentPost
   def page(no = 1)
     love_page
       .posts
+      .includes(:assets, :user)
       .limit(PER)
       .offset(offset(no))
   end

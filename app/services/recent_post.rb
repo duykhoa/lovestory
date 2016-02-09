@@ -20,6 +20,7 @@ class RecentPost
   #    #=> <ActiveRecord::AssociationRelation[....]>
   #
   # Returns an array of post
+  # TODO: Refactor it please
   def page(no = 1)
     love_page
       .posts

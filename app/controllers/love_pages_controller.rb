@@ -56,7 +56,7 @@ class LovePagesController < ApplicationController
   end
 
   def recent_posts
-    RecentPost.new(@love_page).page
+    RecentPost.new(@love_page).page(params[:page])
   end
 
   def set_user

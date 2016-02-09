@@ -31,7 +31,7 @@ class RecentPost
 
   private
 
-  def offset(no)
-    (no - 1) * PER
+  def offset(no = 1)
+    no ? (no - 1) * PER : 0
   end
 end

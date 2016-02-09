@@ -12,6 +12,12 @@
         @apply(--paper-font-body2);
       }
 
+      :host ::content paper-button.show-more {
+        background: var(--google-green-300);
+        color: white;
+        @apply(--paper-font-body2);
+      }
+
       .layout[hidden] {
         display: none;
       }
@@ -21,7 +27,11 @@
       }
 
       paper-spinner {
-        scale: 2
+        scale: 2;
+      }
+
+      .show-more-wrapper {
+        text-align: center;
       }
     </style>
 
@@ -52,6 +62,10 @@
         <ls-post item="[[item]]" url="[[url]]"></ls-post>
       </template>
     </iron-list>
+
+    <div class="show-more-wrapper">
+      <paper-button class="show-more">Show more posts</paper-button>
+    </div>
   </template>
 
   <script>
